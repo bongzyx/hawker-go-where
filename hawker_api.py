@@ -8,7 +8,6 @@ current_mth = datetime.now().month
 quarter = (
     1 if current_mth < 4 else 2 if current_mth < 7 else 3 if current_mth < 10 else 4
 )
-all_hawker = []
 
 
 def calc_distance(p1, p2):
@@ -119,6 +118,14 @@ def get_nearest_hawkers(current_location):
 
 last_modified_date = datetime.strftime(get_last_modified_date(), "%d/%m/%Y")
 all_hawkers = get_all_hawkers()
+
+
+def update():
+    global last_modified_date
+    global all_hawkers
+    last_modified_date = datetime.strftime(get_last_modified_date(), "%d/%m/%Y")
+    all_hawkers = get_all_hawkers()
+    return last_modified_date
 
 
 if __name__ == "__main__":

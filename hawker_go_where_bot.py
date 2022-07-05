@@ -1,4 +1,5 @@
 from datetime import datetime
+from turtle import up
 from dotenv import dotenv_values
 
 from telegram import (
@@ -104,11 +105,17 @@ def otherworks_hawkers(update, context):
     update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
 
+def update(update, context):
+    updated_date = hawker_api.update()
+    update.message.reply_text(text=updated_date)
+
+
 updater = Updater(TELEGRAM_API_KEY)
 updater.dispatcher.add_handler(CommandHandler("hello", hello))
 updater.dispatcher.add_handler(CommandHandler("nearest", nearest_hawkers))
 updater.dispatcher.add_handler(CommandHandler("cleaning", cleaning_hawkers))
 updater.dispatcher.add_handler(CommandHandler("otherworks", otherworks_hawkers))
+updater.dispatcher.add_handler(CommandHandler("update", update))
 updater.dispatcher.add_handler(MessageHandler(Filters.location, location))
 
 updater.start_polling()
