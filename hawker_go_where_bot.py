@@ -80,7 +80,7 @@ def location(update, context):
     output_string = ""
     if user_loc:
         results, last_modified_date = hawker_api.get_nearest_hawkers(user_loc)
-        for r in results[:5]:
+        for r in results[:10]:
             output_string += f"*📍{clean_output(r['name'])} \({clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']} 🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
         output_string += f"\n_updated {last_modified_date}_"
         update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
