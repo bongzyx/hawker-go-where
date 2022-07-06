@@ -57,6 +57,7 @@ def clean_output(text):
         .replace("*", "\\*")
         .replace("+", "\\+")
         .replace("=", "\\=")
+        .replace("!", "\\!")
     )
 
 
