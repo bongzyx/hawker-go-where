@@ -106,6 +106,35 @@ def otherworks_hawkers(update, context):
     update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
 
+def closed_today(update, context):
+    output_string = ""
+    output_string += "🛠 *__RENOVATION__*\n"
+    results, last_modified_date = hawker_api.get_all_other_works()
+    for r in results:
+        start_date = datetime.strptime(r[f"other_works_startdate"], "%d/%m/%Y")
+        end_date = datetime.strptime(r[f"other_works_enddate"], "%d/%m/%Y")
+        if (
+            start_date
+            <= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            <= end_date
+        ):
+            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'other_works_startdate']} to {r[f'other_works_enddate']}\n📝 {clean_output(r[f'remarks_other_works'])}\n\n"
+    results, last_modified_date, quarter = hawker_api.get_all_cleaning()
+    output_string += "🧹 *__CLEANING__*\n"
+    for r in results:
+        start_date = datetime.strptime(r[f"q{quarter}_cleaningstartdate"], "%d/%m/%Y")
+        end_date = datetime.strptime(r[f"q{quarter}_cleaningenddate"], "%d/%m/%Y")
+        if (
+            start_date
+            <= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            <= end_date
+        ):
+            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {clean_output(r[f'remarks_q{quarter}'])}\n\n"
+
+    output_string += f"\n_updated {last_modified_date}_"
+    update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
+
+
 def update(update, context):
     updated_date = hawker_api.update()
     update.message.reply_text(text=updated_date)
@@ -116,6 +145,7 @@ updater.dispatcher.add_handler(CommandHandler("hello", hello))
 updater.dispatcher.add_handler(CommandHandler("nearest", nearest_hawkers))
 updater.dispatcher.add_handler(CommandHandler("cleaning", cleaning_hawkers))
 updater.dispatcher.add_handler(CommandHandler("otherworks", otherworks_hawkers))
+updater.dispatcher.add_handler(CommandHandler("closedtoday", closed_today))
 updater.dispatcher.add_handler(CommandHandler("update", update))
 updater.dispatcher.add_handler(MessageHandler(Filters.location, location))
 
