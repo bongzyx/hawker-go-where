@@ -81,7 +81,7 @@ def location(update, context):
     if user_loc:
         results, last_modified_date = hawker_api.get_nearest_hawkers(user_loc)
         for r in results[:10]:
-            output_string += f"*📍{clean_output(r['name'])} \({clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']} 🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
+            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
         output_string += f"\n_updated {last_modified_date}_"
         update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
@@ -90,7 +90,7 @@ def cleaning_hawkers(update, context):
     output_string = ""
     results, last_modified_date, quarter = hawker_api.get_all_cleaning()
     for r in results[:10]:
-        output_string += f"*📍{clean_output(r['name'])}*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {r[f'remarks_q{quarter}']}\n\n"
+        output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {r[f'remarks_q{quarter}']}\n\n"
     output_string += f"\n_updated {last_modified_date}_"
     update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
@@ -99,7 +99,7 @@ def otherworks_hawkers(update, context):
     output_string = ""
     results, last_modified_date = hawker_api.get_all_other_works()
     for r in results[:10]:
-        output_string += f"*📍{clean_output(r['name'])}*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'other_works_startdate']} to {r[f'other_works_enddate']}\n📝 {clean_output(r[f'remarks_other_works'])}\n\n"
+        output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'other_works_startdate']} to {r[f'other_works_enddate']}\n📝 {clean_output(r[f'remarks_other_works'])}\n\n"
     output_string += f"\n_updated {last_modified_date}_"
     update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 

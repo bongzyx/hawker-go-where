@@ -58,13 +58,16 @@ def get_all_cleaning():
     filtered_hawkers = []
     for h in sorted_hawkers:
         if h.get(f"q{quarter}_cleaningstartdate") != "TBC":
-            print(h["name"])
-            print(f'  - {h["address_myenv"]}')
-            print(
-                f'  - {h[f"q{quarter}_cleaningstartdate"]} to {h[f"q{quarter}_cleaningenddate"]}'
-            )
-            print(f'  - {h[f"remarks_q{quarter}"]}')
-            filtered_hawkers.append(h)
+            if datetime.strptime(
+                h.get(f"q{quarter}_cleaningenddate"), "%d/%m/%Y"
+            ) >= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
+                # print(h["name"])
+                # print(f'  - {h["address_myenv"]}')
+                # print(
+                #     f'  - {h[f"q{quarter}_cleaningstartdate"]} to {h[f"q{quarter}_cleaningenddate"]}'
+                # )
+                # print(f'  - {h[f"remarks_q{quarter}"]}')
+                filtered_hawkers.append(h)
     return filtered_hawkers, last_modified_date, quarter
 
 
@@ -82,15 +85,14 @@ def get_all_other_works():
     filtered_hawkers = []
     for h in sorted_hawkers:
         if h.get("other_works_startdate") != "NA":
-            if (
-                datetime.strptime(h.get("other_works_enddate"), "%d/%m/%Y")
-                > datetime.now()
-            ):
+            if datetime.strptime(
+                h.get("other_works_enddate"), "%d/%m/%Y"
+            ) > datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
                 filtered_hawkers.append(h)
-                print(h["name"])
-                print(f'  - {h["address_myenv"]}')
-                print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
-                print(f'  - {h[f"remarks_other_works"]}')
+                # print(h["name"])
+                # print(f'  - {h["address_myenv"]}')
+                # print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
+                # print(f'  - {h[f"remarks_other_works"]}')
     return filtered_hawkers, last_modified_date
 
 
@@ -105,14 +107,14 @@ def get_nearest_hawkers(current_location):
         )
         h["relativeDistance"] = dist
         list_of_hawkers.append(h)
-        print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
+        # print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
 
     def get_distance(val):
         return float(val.get("relativeDistance"))
 
     list_of_hawkers.sort(key=get_distance)
-    for h in list_of_hawkers:
-        print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
+    # for h in list_of_hawkers:
+    #     print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
     return list_of_hawkers, last_modified_date
 
 
