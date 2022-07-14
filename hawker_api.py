@@ -75,24 +75,26 @@ def get_all_other_works():
     global all_hawkers
 
     def date_key(val):
-        return (
-            datetime(1970, 1, 1)
-            if val.get("other_works_startdate") == "NA"
-            else datetime.strptime(val.get("other_works_startdate"), "%d/%m/%Y")
-        )
+        if val.get("other_works_startdate") == "TBC":
+            return datetime(1970, 1, 1)
+        elif val.get("other_works_startdate") == "NA":
+            return datetime(1970, 1, 1)
+        else:
+            return datetime.strptime(val.get("other_works_startdate"), "%d/%m/%Y")
 
     sorted_hawkers = sorted(all_hawkers, key=date_key)
     filtered_hawkers = []
     for h in sorted_hawkers:
         if h.get("other_works_startdate") != "NA":
-            if datetime.strptime(
-                h.get("other_works_enddate"), "%d/%m/%Y"
-            ) > datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
-                filtered_hawkers.append(h)
-                # print(h["name"])
-                # print(f'  - {h["address_myenv"]}')
-                # print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
-                # print(f'  - {h[f"remarks_other_works"]}')
+            if h.get("other_works_startdate") != "TBC":
+                if datetime.strptime(
+                    h.get("other_works_enddate"), "%d/%m/%Y"
+                ) > datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
+                    filtered_hawkers.append(h)
+                    # print(h["name"])
+                    # print(f'  - {h["address_myenv"]}')
+                    # print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
+                    # print(f'  - {h[f"remarks_other_works"]}')
     return filtered_hawkers, last_modified_date
 
 
