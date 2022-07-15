@@ -8,6 +8,7 @@ current_mth = datetime.now().month
 quarter = (
     1 if current_mth < 4 else 2 if current_mth < 7 else 3 if current_mth < 10 else 4
 )
+invalid_dates = ["TBC", "NA"]
 
 
 def calc_distance(p1, p2):
@@ -75,9 +76,7 @@ def get_all_other_works():
     global all_hawkers
 
     def date_key(val):
-        if val.get("other_works_startdate") == "TBC":
-            return datetime(1970, 1, 1)
-        elif val.get("other_works_startdate") == "NA":
+        if val.get("other_works_startdate") in invalid_dates:
             return datetime(1970, 1, 1)
         else:
             return datetime.strptime(val.get("other_works_startdate"), "%d/%m/%Y")
@@ -85,16 +84,15 @@ def get_all_other_works():
     sorted_hawkers = sorted(all_hawkers, key=date_key)
     filtered_hawkers = []
     for h in sorted_hawkers:
-        if h.get("other_works_startdate") != "NA":
-            if h.get("other_works_startdate") != "TBC":
-                if datetime.strptime(
-                    h.get("other_works_enddate"), "%d/%m/%Y"
-                ) > datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
-                    filtered_hawkers.append(h)
-                    # print(h["name"])
-                    # print(f'  - {h["address_myenv"]}')
-                    # print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
-                    # print(f'  - {h[f"remarks_other_works"]}')
+        if h.get("other_works_startdate") not in invalid_dates:
+            if datetime.strptime(
+                h.get("other_works_enddate"), "%d/%m/%Y"
+            ) > datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
+                filtered_hawkers.append(h)
+                # print(h["name"])
+                # print(f'  - {h["address_myenv"]}')
+                # print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
+                # print(f'  - {h[f"remarks_other_works"]}')
     return filtered_hawkers, last_modified_date
 
 
