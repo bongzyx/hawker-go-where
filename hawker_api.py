@@ -87,7 +87,7 @@ def get_all_other_works():
         if h.get("other_works_startdate") not in invalid_dates:
             if datetime.strptime(
                 h.get("other_works_enddate"), "%d/%m/%Y"
-            ) > datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
+            ) >= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
                 filtered_hawkers.append(h)
                 # print(h["name"])
                 # print(f'  - {h["address_myenv"]}')
