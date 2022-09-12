@@ -92,7 +92,7 @@ def cleaning_hawkers(update, context):
     output_string = ""
     results, last_modified_date, quarter = hawker_api.get_all_cleaning()
     for r in results[:10]:
-        output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {r[f'remarks_q{quarter}']}\n\n"
+        output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {clean_output(r[f'remarks_q{quarter}'])}\n\n"
     output_string += f"\n_updated {last_modified_date}_"
     update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
@@ -132,6 +132,7 @@ def closed_today(update, context):
             output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {clean_output(r[f'remarks_q{quarter}'])}\n\n"
 
     output_string += f"\n_updated {last_modified_date}_"
+    print(output_string)
     update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
 
