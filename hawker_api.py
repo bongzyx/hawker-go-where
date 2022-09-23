@@ -113,9 +113,27 @@ def get_nearest_hawkers(current_location):
         return float(val.get("relativeDistance"))
 
     list_of_hawkers.sort(key=get_distance)
+    all_cleaning, _, _ = get_all_cleaning()
+    all_works, _ = get_all_other_works()
+    closed_cleaning = []
+    closed_other_works = []
+    all_open = []
+    for hawker in list_of_hawkers:
+        for c in all_cleaning:
+            if hawker["serial_no"] in c["serial_no"]:
+                closed_cleaning.append(hawker)
+                break
+        else:
+            for w in all_works:
+                if hawker["serial_no"] in w["serial_no"]:
+                    closed_other_works.append(hawker)
+                    break
+            else:
+                all_open.append(hawker)
+
     # for h in list_of_hawkers:
     #     print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
-    return list_of_hawkers, last_modified_date
+    return all_open, closed_cleaning, closed_other_works, last_modified_date
 
 
 last_modified_date = datetime.strftime(get_last_modified_date(), "%d/%m/%Y")
@@ -133,7 +151,13 @@ def update():
 if __name__ == "__main__":
     last_modified_date = get_last_modified_date()
     all_hawkers = get_all_hawkers()
-
-    get_all_cleaning()
-    get_nearest_hawkers({"longitude": 103.851959, "latitude": 1.290270})
+    print(all_hawkers)
+    print(get_all_cleaning()[0])
+    (
+        all_open,
+        closed_cleaning,
+        closed_other_works,
+        last_modified_date,
+    ) = get_nearest_hawkers({"longitude": 103.851959, "latitude": 1.290270})
+    print(all_open, closed_cleaning, closed_other_works, last_modified_date)
     get_all_other_works()

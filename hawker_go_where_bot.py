@@ -81,9 +81,22 @@ def location(update, context):
     print(user_loc)
     output_string = ""
     if user_loc:
-        results, last_modified_date = hawker_api.get_nearest_hawkers(user_loc)
-        for r in results[:10]:
+        (
+            all_open,
+            closed_cleaning,
+            closed_other_works,
+            last_modified_date,
+        ) = hawker_api.get_nearest_hawkers(user_loc)
+        output_string += "*OPEN TODAY*\n\n"
+        for r in all_open[:7]:
             output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
+        output_string += "*NEARBY BUT CLOSED FOR CLEANING*\n\n"
+        for r in closed_cleaning[:3]:
+            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
+        output_string += "*NEARBY BUT CLOSED FOR OTHER WORKS*\n\n"
+        for r in closed_other_works[:3]:
+            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
+
         output_string += f"\n_updated {last_modified_date}_"
         update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
