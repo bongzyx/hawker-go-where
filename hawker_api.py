@@ -8,7 +8,7 @@ current_mth = datetime.now().month
 quarter = (
     1 if current_mth < 4 else 2 if current_mth < 7 else 3 if current_mth < 10 else 4
 )
-invalid_dates = ["TBC", "NA"]
+invalid_dates = ["TBC", "NA", "#N/A"]
 
 
 def calc_distance(p1, p2):
@@ -51,14 +51,14 @@ def get_all_cleaning():
     def date_key(val):
         return (
             datetime(1970, 1, 1)
-            if val.get(f"q{quarter}_cleaningstartdate") == "TBC"
+            if val.get(f"q{quarter}_cleaningstartdate") in invalid_dates
             else datetime.strptime(val.get(f"q{quarter}_cleaningstartdate"), "%d/%m/%Y")
         )
 
     sorted_hawkers = sorted(all_hawkers, key=date_key)
     filtered_hawkers = []
     for h in sorted_hawkers:
-        if h.get(f"q{quarter}_cleaningstartdate") != "TBC":
+        if h.get(f"q{quarter}_cleaningstartdate") not in invalid_dates:
             if datetime.strptime(
                 h.get(f"q{quarter}_cleaningenddate"), "%d/%m/%Y"
             ) >= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
