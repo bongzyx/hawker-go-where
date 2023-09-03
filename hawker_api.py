@@ -1,163 +1,225 @@
-from distutils.log import info
-import requests, json
-from datetime import date, datetime
+import requests
+import os
+import json
+from datetime import datetime, timedelta
 from math import radians, sin, cos, acos
 
+
+RESOURCE_ID = "b80cb643-a732-480d-86b5-e03957bc82aa"
+API_METADATA_URL = f"https://data.gov.sg/api/action/resource_show?id={RESOURCE_ID}"
+API_DATA_URL = f"https://data.gov.sg/api/action/datastore_search?resource_id={RESOURCE_ID}&limit=9999"
+
+INVALID_DATES = ["TBC", "NA", "#N/A"]
 
 current_mth = datetime.now().month
 quarter = (
     1 if current_mth < 4 else 2 if current_mth < 7 else 3 if current_mth < 10 else 4
 )
-invalid_dates = ["TBC", "NA", "#N/A"]
 
+def fetch_data_from_api(last_modified_date=None):
+    response = requests.get(API_DATA_URL)
+    if response.status_code == 200:
+        hawker_data = response.json()["result"]["records"]
 
-def calc_distance(p1, p2):
-    slat = radians(float(p1["latitude"]))
-    slon = radians(float(p1["longitude"]))
-    elat = radians(float(p2["latitude"]))
-    elon = radians(float(p2["longitude"]))
+        last_modified_date_obj = datetime.strptime(last_modified_date, "%Y-%m-%dT%H:%M:%S.%f").date()
+        last_modified_date_only_str = last_modified_date_obj.strftime("%Y_%m_%d")
+        filename = f"./data/hawker_data_{last_modified_date_only_str}.json"
+        json_data = {'last_modified': last_modified_date, 'records': hawker_data}
+        with open(filename, "w") as file:
+            json.dump(json_data, file)
+        with open('data/latest_data.json', "w") as file:
+            json.dump(json_data, file)
 
-    dist = 6371.01 * acos(
-        sin(slat) * sin(elat) + cos(slat) * cos(elat) * cos(slon - elon)
-    )
-    return dist
+        return hawker_data
+    else:
+        print("Failed to fetch data from the API.")
+        return None
 
+def is_data_update_required():
+    if os.path.exists('data/latest_data.json'):
+        with open('data/latest_data.json', 'r') as latest_json:
+            data = json.load(latest_json)
+        last_modified_json_str = data['last_modified']
+        last_modified_json = datetime.strptime(last_modified_json_str, "%Y-%m-%dT%H:%M:%S.%f").date()
+    else:
+        last_modified_json = datetime(1970, 1, 1).date()
+    response = requests.get(API_METADATA_URL)
+    if response.status_code == 200:
+        last_modified_api_str = response.json()["result"]["last_modified"]
+        last_modified_api = datetime.strptime(last_modified_api_str, "%Y-%m-%dT%H:%M:%S.%f").date()
+        print(last_modified_api_str)
+        if last_modified_api > last_modified_json:
+            return last_modified_api_str
+    return None
 
-def get_last_modified_date():
-    params = {
-        "id": "b80cb643-a732-480d-86b5-e03957bc82aa",
-    }
+def parse_date(date_str):
+    try:
+        return datetime.strptime(date_str, "%d/%m/%Y").date()
+    except ValueError:
+        return datetime(1970, 1, 1).date()
 
-    info_res = requests.get(
-        "https://data.gov.sg/api/action/resource_show", params=params
-    )
-    info_res = json.loads(info_res.text)
-    return datetime.fromisoformat(info_res["result"]["last_modified"])
+def is_valid_date(date_str):
+    return date_str not in INVALID_DATES
 
+def is_date_within_range(start_date, end_date, target_date):
+    return start_date <= target_date <= end_date
 
-def get_all_hawkers():
-    params = {"resource_id": "b80cb643-a732-480d-86b5-e03957bc82aa", "limit": 999}
+def filter_hawkers_by_status(status, target_date):
+    with open('data/latest_data.json', 'r') as latest_json:
+      json_data = json.load(latest_json)
+    
+    records = json_data['records']
+    last_modified_date = json_data['last_modified']
 
-    info_res = requests.get(
-        "https://data.gov.sg/api/action/datastore_search", params=params
-    )
-    info_res = json.loads(info_res.text)
-    return info_res["result"]["records"]
-
-
-def get_all_cleaning():
-    global all_hawkers
-
-    def date_key(val):
-        return (
-            datetime(1970, 1, 1)
-            if val.get(f"q{quarter}_cleaningstartdate") in invalid_dates
-            else datetime.strptime(val.get(f"q{quarter}_cleaningstartdate"), "%d/%m/%Y")
-        )
-
-    sorted_hawkers = sorted(all_hawkers, key=date_key)
     filtered_hawkers = []
-    for h in sorted_hawkers:
-        if h.get(f"q{quarter}_cleaningstartdate") not in invalid_dates:
-            if datetime.strptime(
-                h.get(f"q{quarter}_cleaningenddate"), "%d/%m/%Y"
-            ) >= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
-                # print(h["name"])
-                # print(f'  - {h["address_myenv"]}')
-                # print(
-                #     f'  - {h[f"q{quarter}_cleaningstartdate"]} to {h[f"q{quarter}_cleaningenddate"]}'
-                # )
-                # print(f'  - {h[f"remarks_q{quarter}"]}')
-                filtered_hawkers.append(h)
-    return filtered_hawkers, last_modified_date, quarter
+    if not target_date:
+        target_date=datetime.now().date()
+    for record in records:
+        # process cleaning hawkers
+        if status == "cleaning":
+            cleaning_start_date_str = record.get(f"q{quarter}_cleaningstartdate")
+            cleaning_end_date_str = record.get(f"q{quarter}_cleaningenddate")
 
+            # print("cleaning", cleaning_start_date_str, cleaning_end_date_str)
+            if is_valid_date(cleaning_start_date_str) and is_valid_date(cleaning_end_date_str):
+              cleaning_start_date = parse_date(cleaning_start_date_str)
+              cleaning_end_date = parse_date(cleaning_end_date_str)
+              if is_date_within_range(cleaning_start_date, cleaning_end_date, target_date):
+                  filtered_hawkers.append(record)
+            
+        # process other works hawkers
+        elif status == "other_works":
+            other_works_start_date_str = record.get("other_works_startdate")
+            other_works_end_date_str = record.get("other_works_enddate")
 
-def get_all_other_works():
-    global all_hawkers
+            # print("others", other_works_start_date_str, other_works_end_date_str)
+            if is_valid_date(other_works_start_date_str) and is_valid_date(other_works_end_date_str):
+              other_works_start_date = parse_date(other_works_start_date_str)
+              other_works_end_date = parse_date(other_works_end_date_str)
+              if is_date_within_range(other_works_start_date, other_works_end_date, target_date):
+                  filtered_hawkers.append(record)
 
-    def date_key(val):
-        if val.get("other_works_startdate") in invalid_dates:
-            return datetime(1970, 1, 1)
-        else:
-            return datetime.strptime(val.get("other_works_startdate"), "%d/%m/%Y")
-
-    sorted_hawkers = sorted(all_hawkers, key=date_key)
-    filtered_hawkers = []
-    for h in sorted_hawkers:
-        if h.get("other_works_startdate") not in invalid_dates:
-            if datetime.strptime(
-                h.get("other_works_enddate"), "%d/%m/%Y"
-            ) >= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0):
-                filtered_hawkers.append(h)
-                # print(h["name"])
-                # print(f'  - {h["address_myenv"]}')
-                # print(f'  - {h["other_works_startdate"]} to {h["other_works_enddate"]}')
-                # print(f'  - {h[f"remarks_other_works"]}')
+        if status == "cleaning":
+            filtered_hawkers.sort(key=lambda x: parse_date(x.get(f"q{quarter}_cleaningstartdate")))
+        elif status == "other_works":
+            filtered_hawkers.sort(key=lambda x: parse_date(x.get("other_works_startdate")))
     return filtered_hawkers, last_modified_date
 
+def get_current_cleaning():
+    current_date = datetime.now().date()
+    return filter_hawkers_by_status("cleaning", current_date)
 
-def get_nearest_hawkers(current_location):
-    global all_hawkers
-    list_of_hawkers = []
-    for h in all_hawkers:
-        hc_loc = [h.get("latitude_hc"), h.get("longitude_hc")]
-        dist = calc_distance(
-            current_location,
-            {"latitude": hc_loc[0], "longitude": hc_loc[1]},
-        )
-        h["relativeDistance"] = dist
-        list_of_hawkers.append(h)
-        # print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
+def get_current_other_works():
+    current_date = datetime.now().date()
+    return filter_hawkers_by_status("other_works", current_date)
 
-    def get_distance(val):
-        return float(val.get("relativeDistance"))
+def get_upcoming_cleaning(num_days=7):
+    current_date = datetime.now().date()
+    end_date_limit = current_date + timedelta(days=num_days)
+    return filter_hawkers_by_status("cleaning", end_date_limit)
 
-    list_of_hawkers.sort(key=get_distance)
-    all_cleaning, _, _ = get_all_cleaning()
-    all_works, _ = get_all_other_works()
-    closed_cleaning = []
-    closed_other_works = []
-    all_open = []
-    for hawker in list_of_hawkers:
-        for c in all_cleaning:
-            if hawker["serial_no"] in c["serial_no"]:
-                closed_cleaning.append(hawker)
-                break
-        else:
-            for w in all_works:
-                if hawker["serial_no"] in w["serial_no"]:
-                    closed_other_works.append(hawker)
-                    break
-            else:
-                all_open.append(hawker)
+def get_upcoming_other_works(num_days=30):
+    current_date = datetime.now().date()
+    end_date_limit = current_date + timedelta(days=num_days)
+    return filter_hawkers_by_status("other_works", end_date_limit)
 
-    # for h in list_of_hawkers:
-    #     print(f"{str(round(h['relativeDistance'], 2))}km - {h['address_myenv']}")
-    return all_open, closed_cleaning, closed_other_works, last_modified_date
+def get_closed_hawkers(target_date=None):
+    current_date = datetime.now().date()
+    if not target_date:
+        target_date = current_date
+    cleaning_hawkers, last_modified_date = filter_hawkers_by_status("cleaning", target_date)
+    other_works_hawkers, _ = filter_hawkers_by_status("other_works", target_date)
+    return cleaning_hawkers, other_works_hawkers, last_modified_date
 
+def get_nearest_hawkers(user_lat, user_lon, num_hawkers=5, max_distance=5.0):
+    with open('data/latest_data.json', 'r') as latest_json:
+      json_data = json.load(latest_json)
+    
+    records = json_data['records']
+    last_modified_date = json_data['last_modified']
 
-last_modified_date = datetime.strftime(get_last_modified_date(), "%d/%m/%Y")
-all_hawkers = get_all_hawkers()
+    def calculate_distance(user_lat, user_lon, hawker_lat, hawker_lon):
+      slat = radians(float(user_lat))
+      slon = radians(float(user_lon))
+      elat = radians(float(hawker_lat))
+      elon = radians(float(hawker_lon))
 
+      dist = 6371.01 * acos(
+          sin(slat) * sin(elat) + cos(slat) * cos(elat) * cos(slon - elon)
+      )
+      return dist
 
-def update():
-    global last_modified_date
-    global all_hawkers
-    last_modified_date = datetime.strftime(get_last_modified_date(), "%d/%m/%Y")
-    all_hawkers = get_all_hawkers()
-    return last_modified_date
+    for hawker in records:
+        hawker_lat = float(hawker["latitude_hc"])
+        hawker_lon = float(hawker["longitude_hc"])
+        hawker["distance"] = round(calculate_distance(user_lat, user_lon, hawker_lat, hawker_lon), 2)
 
+    nearest_hawkers = [hawker for hawker in records if hawker["distance"] <= max_distance]
+    nearest_hawkers.sort(key=lambda hawker: hawker["distance"])
+
+    return nearest_hawkers[:num_hawkers], last_modified_date
+
+def main():
+    current_cleaning, last_modified_date = get_current_cleaning()
+    current_other_works, last_modified_date = get_current_other_works()
+    upcoming_cleaning, last_modified_date = get_upcoming_cleaning(num_days=7)
+    upcoming_other_works, last_modified_date = get_upcoming_other_works(num_days=30)
+
+    print(f"Current Cleaning: {len(current_cleaning)} (updated {last_modified_date})")
+    for record in current_cleaning:
+        print(f"- {record['name']}")
+
+    print(f"Current Other Works: {len(current_other_works)} (updated {last_modified_date})")
+    for record in current_other_works:
+        print(f"- {record['name']}")
+
+    print(f"Upcoming Cleaning: {len(upcoming_cleaning)} (updated {last_modified_date})")
+    for record in upcoming_cleaning:
+        print(f"- {record['name']}")
+
+    print(f"Upcoming Other Works: {len(upcoming_other_works)} (updated {last_modified_date})")
+    for record in upcoming_other_works:
+        print(f"- {record['name']}")
+    
+    # Get hawker centres closed today
+    today = datetime.now().date()
+    closed_today_cleaning, closed_today_other_works, last_modified_date = get_closed_hawkers(target_date=today)
+    print(f"Closed Today: (updated {last_modified_date})")
+    for record in closed_today_cleaning:
+        print(f"- {record['name']} (Cleaning)")
+    for record in closed_today_other_works:
+        print(f"- {record['name']} (Other Works)")
+
+    # Get hawker centres closed tomorrow
+    tomorrow = today + timedelta(days=1)
+    closed_tomorrow_cleaning, closed_tomorrow_other_works, last_modified_date = get_closed_hawkers(target_date=tomorrow)
+    print(f"Closed Tomorrow: (updated {last_modified_date})")
+    for record in closed_tomorrow_cleaning:
+        print(f"- {record['name']} (Cleaning)")
+    for record in closed_tomorrow_other_works:
+        print(f"- {record['name']} (Other Works)")
+
+    # Get hawker centres closed this week
+    one_week_later = today + timedelta(weeks=1)
+    closed_this_week_cleaning, closed_this_week_other_works, last_modified_date = get_closed_hawkers(target_date=one_week_later)
+    print(f"Closed This Week: (updated {last_modified_date})")
+    for record in closed_this_week_cleaning:
+        print(f"- {record['name']} (Cleaning)")
+    for record in closed_this_week_other_works:
+        print(f"- {record['name']} (Other Works)")
+
+    # Get nearest hawker centres
+    nearest_hawkers, _ = get_nearest_hawkers(user_lat=1.3709616, user_lon=103.8363679, num_hawkers=5)
+    print(f"Nearest Hawkers: {len(nearest_hawkers)}")
+    for record in nearest_hawkers:
+        print(f"- {record['name']} ({record['distance']}km)")
+
+update_required = is_data_update_required()
+if update_required:
+    results = fetch_data_from_api(update_required)
+    print(f"{len(results)} records found.")
+else:
+    print("Data is up to date.")
 
 if __name__ == "__main__":
-    last_modified_date = get_last_modified_date()
-    all_hawkers = get_all_hawkers()
-    print(all_hawkers)
-    print(get_all_cleaning()[0])
-    (
-        all_open,
-        closed_cleaning,
-        closed_other_works,
-        last_modified_date,
-    ) = get_nearest_hawkers({"longitude": 103.851959, "latitude": 1.290270})
-    print(all_open, closed_cleaning, closed_other_works, last_modified_date)
-    get_all_other_works()
+    main()

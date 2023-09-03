@@ -1,202 +1,184 @@
-from datetime import datetime, timedelta
+import logging
+from html import escape
+from uuid import uuid4
+
 from dotenv import dotenv_values
 
-from telegram import (
-    Update,
-    ReplyKeyboardMarkup,
-    KeyboardButton,
+from telegram import InlineQueryResultArticle, InputTextMessageContent, ReplyKeyboardMarkup, KeyboardButton, Update
+from telegram.constants import ParseMode
+from telegram.ext import Application, CommandHandler, ContextTypes, InlineQueryHandler, MessageHandler, filters
+
+from hawker_api import *
+from datetime import datetime
+import datetime as dt
+
+current_mth = datetime.now().month
+quarter = (
+    1 if current_mth < 4 else 2 if current_mth < 7 else 3 if current_mth < 10 else 4
 )
-from telegram.ext import (
-    Updater,
-    CommandHandler,
-    CallbackContext,
-    MessageHandler,
-    Filters,
-)
+INVALID_DATES = ["TBC", "NA", "#N/A"]
+print(quarter)
+
+def clean(text):
+    char_list = "_*[]()~`>#+-=|{}.!"
+    for char in char_list:
+        text = text.replace(char, "\\" + char)
+    return text
+
+def format_date_range(start_date_str, end_date_str):
+    if start_date_str in INVALID_DATES or end_date_str in INVALID_DATES:
+        return "NA"
+
+    start_date = datetime.strptime(start_date_str, "%d/%m/%Y")
+    end_date = datetime.strptime(end_date_str, "%d/%m/%Y")
+    return f"{start_date.strftime('%d/%m/%Y')} to {end_date.strftime('%d/%m/%Y')}"
+
+def format_hawker_data(hawkers, status):
+    formatted_data = ""
+    for hawker in hawkers:
+        formatted_data += f"📍*[{clean(hawker['name'])}]({clean(hawker['google_3d_view'])})*\n🗺️ {clean(hawker['address_myenv'])}\n"
+        if status == "cleaning":
+            formatted_data += f"🕗 {clean(format_date_range(hawker['q3_cleaningstartdate'], hawker['q3_cleaningenddate']))}\n"
+            formatted_data += f"📝 {clean(hawker['remarks_q3'])}\n\n"
+        elif status == "other_works":
+            formatted_data += f"🕗 {clean(format_date_range(hawker['other_works_startdate'], hawker['other_works_enddate']))}\n"
+            formatted_data += f"📝 {clean(hawker['remarks_other_works'])}\n\n"
+    return formatted_data
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Send a message when the command /start is issued."""
+    await update.message.reply_text("Hi!")
 
 
-import hawker_api
 
-dot_env = dotenv_values(".env")
-TELEGRAM_API_KEY = dot_env.get("TELEGRAM_API_KEY")
+async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle the inline query. This is run when you type: @botusername <query>"""
+    query = update.inline_query.query
 
-# *bold \*text*
-# _italic \*text_
-# __underline__
-# ~strikethrough~
-# *bold _italic bold ~italic bold strikethrough~ __underline italic bold___ bold*
-# [inline URL](http://www.example.com/)
-# [inline mention of a user](tg://user?id=123456789)
-# `inline fixed-width code`
-# ```
-# pre-formatted fixed-width code block
-# ```
-# ```python
-# pre-formatted fixed-width code block written in the Python programming language
-# ```
+    if not query:
+        return
 
-"""
-Commands: 
-nearest - get hawker centres near you
-cleaning - get current hawkers that are closed for cleaning
-otherworks - get current hawkers that are closed for renovation or other works
-"""
+    filtered_hawkers = [hawker for hawker in hawker_data if query.lower() in hawker["name"].lower()]
 
-new_line = "\n"
+    if filtered_hawkers:
+        results = [
+            InlineQueryResultArticle(
+                id=str(hawker["_id"]),
+                title=hawker["name"],
+                thumbnail_url=hawker.get('photourl'),
+                description=hawker.get('address_myenv'),
+                input_message_content=InputTextMessageContent(
+                    f"asdf",
+                    parse_mode=ParseMode.MARKDOWN_V2
+                ),
+            )
+            for hawker in filtered_hawkers
+        ]
+    else:
+        results = [
+            InlineQueryResultArticle(
+                id=0,
+                title="No results found",
+                description="Kindly refine your search query",
+                input_message_content=InputTextMessageContent(
+                    f"Search",
+                    parse_mode=ParseMode.MARKDOWN_V2
+                ),
+            )
+        ]
 
-
-def clean_output(text):
-    return (
-        text.replace("(", "\(")
-        .replace(")", "\)")
-        .replace("_", "\\_")
-        .replace("[", "\\[")
-        .replace("`", "\\`")
-        .replace("-", "\\-")
-        .replace(".", "\\.")
-        .replace("*", "\\*")
-        .replace("+", "\\+")
-        .replace("=", "\\=")
-        .replace("!", "\\!")
-    )
+    await update.inline_query.answer(results[:10])
 
 
-def hello(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text(f"yo {update.effective_user.first_name}")
+async def cleaning_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    current_date = datetime.now().date()
+    current_cleaning, _, last_modified_date = get_closed_hawkers(current_date)
+    message = f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+    message += format_hawker_data(current_cleaning, "cleaning")
+    message += "_No hawkers are cleaning today, yay\!_" if len(current_cleaning) == 0 else ""
+    message += f"_updated {clean(last_modified_date)[:12]}_"
+    await update.message.reply_text(message, parse_mode="MarkdownV2")
+
+async def otherworks_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    current_date = datetime.now().date()
+    _, current_other_works, last_modified_date = get_closed_hawkers(current_date)
+    message = f"🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
+    message += format_hawker_data(current_other_works, "other_works")
+    message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
+    message += f"_updated {clean(last_modified_date)[:12]}_"
+    await update.message.reply_text(message, parse_mode="MarkdownV2")
 
 
-def nearest_hawkers(update, context):
+async def closed_hawkers_today(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    current_date = datetime.now().date()
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date)
+    message = f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+    message += format_hawker_data(current_cleaning, "cleaning")
+    message += "_No hawkers are cleaning today, yay\!_" if len(current_cleaning) == 0 else ""
+    message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
+    message += format_hawker_data(current_other_works, "other_works")
+    message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
+    message += f"_updated {clean(last_modified_date)[:12]}_"
+    await update.message.reply_text(message, parse_mode="MarkdownV2")
+
+
+async def closed_hawkers_tomorrow(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    current_date = datetime.now().date()
+    tomorrow = current_date + timedelta(days=1)
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(tomorrow)
+    message = f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+    message += format_hawker_data(current_cleaning, "cleaning")
+    message += "_No hawkers are cleaning today, yay\!_" if len(current_cleaning) == 0 else ""
+    message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
+    message += format_hawker_data(current_other_works, "other_works")
+    message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
+    message += f"_updated {clean(last_modified_date)[:12]}_"
+    await update.message.reply_text(message, parse_mode="MarkdownV2")
+
+async def nearest_hawkers(update, context):
     keyboard = [[KeyboardButton(text="📍 Share Location", request_location=True)]]
-    context.bot.send_message(
-        chat_id=update.effective_chat.id,
+    await update.message.reply_text(
         text="Please send your/any location here...",
         reply_markup=ReplyKeyboardMarkup(
             keyboard, resize_keyboard=True, one_time_keyboard=True
         ),
     )
 
-
-def location(update, context):
+async def handle_location(update, context):
     user_loc = update.message.location
-    print(user_loc)
     output_string = ""
     if user_loc:
-        (
-            all_open,
-            closed_cleaning,
-            closed_other_works,
-            last_modified_date,
-        ) = hawker_api.get_nearest_hawkers(user_loc)
-        output_string += "*OPEN TODAY*\n\n"
-        for r in all_open[:7]:
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
-        output_string += "*NEARBY BUT CLOSED FOR CLEANING*\n\n"
-        for r in closed_cleaning[:3]:
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
-        output_string += "*NEARBY BUT CLOSED FOR OTHER WORKS*\n\n"
-        for r in closed_other_works[:3]:
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['photourl'])}) \(\~{clean_output(str(round(r['relativeDistance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean_output(r['google_3d_view'])}\n\n"
+        nearest_hawkers, last_modified_date = get_nearest_hawkers(user_lat=user_loc["latitude"], user_lon=user_loc["longitude"], num_hawkers=10)
+        output_string += "*Closest 10 Hawkers Near You*\n\n"
+        for r in nearest_hawkers:
+            output_string += f"*📍[{clean(r['name'])}]({clean(r['photourl'])}) \(\~{clean(str(round(r['distance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean(r['google_3d_view'])}\n\n"
 
-        output_string += f"\n_updated {last_modified_date}_"
-        update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
+        output_string += f"_updated {clean(last_modified_date)[:12]}_"
+        await update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
 
 
-def cleaning_hawkers(update, context):
-    output_string = ""
-    results, last_modified_date, quarter = hawker_api.get_all_cleaning()
-    for r in results[:10]:
-        output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {clean_output(r[f'remarks_q{quarter}'])}\n\n"
-    output_string += f"\n_updated {last_modified_date}_"
-    update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
+def main() -> None:
+    """Run the bot."""
+    tele_env = dotenv_values(".env")
+    TELEGRAM_API_KEY = tele_env.get("TELEGRAM_API_KEY")
+    CHAT_ID = tele_env.get("CHAT_ID")
+
+    application = Application.builder().token(TELEGRAM_API_KEY).build()
+
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("nearest", nearest_hawkers))
+    application.add_handler(CommandHandler("cleaning", cleaning_hawkers))
+    application.add_handler(CommandHandler("otherworks", otherworks_hawkers))
+    application.add_handler(CommandHandler("closedtoday", closed_hawkers_today))
+    application.add_handler(CommandHandler("closedtomorrow", closed_hawkers_tomorrow))
+    # application.add_handler(CommandHandler("closedthisweek", closed_this_week))
+
+    application.add_handler(InlineQueryHandler(inline_query))
+    application.add_handler(MessageHandler(filters.LOCATION, handle_location))
+    
+
+    application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
-def otherworks_hawkers(update, context):
-    output_string = ""
-    results, last_modified_date = hawker_api.get_all_other_works()
-    for r in results[:10]:
-        output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'other_works_startdate']} to {r[f'other_works_enddate']}\n📝 {clean_output(r[f'remarks_other_works'])}\n\n"
-    output_string += f"\n_updated {last_modified_date}_"
-    update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
-
-
-def closed_today(update, context):
-    output_string = ""
-    output_string += "🛠 *__RENOVATION__*\n"
-    results, last_modified_date = hawker_api.get_all_other_works()
-    for r in results:
-        start_date = datetime.strptime(r[f"other_works_startdate"], "%d/%m/%Y")
-        end_date = datetime.strptime(r[f"other_works_enddate"], "%d/%m/%Y")
-        if (
-            start_date
-            <= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-            <= end_date
-        ):
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'other_works_startdate']} to {r[f'other_works_enddate']}\n📝 {clean_output(r[f'remarks_other_works'])}\n\n"
-    results, last_modified_date, quarter = hawker_api.get_all_cleaning()
-    output_string += "🧹 *__CLEANING__*\n"
-    for r in results:
-        start_date = datetime.strptime(r[f"q{quarter}_cleaningstartdate"], "%d/%m/%Y")
-        end_date = datetime.strptime(r[f"q{quarter}_cleaningenddate"], "%d/%m/%Y")
-        if (
-            start_date
-            <= datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-            <= end_date
-        ):
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {clean_output(r[f'remarks_q{quarter}'])}\n\n"
-
-    output_string += f"\n_updated {last_modified_date}_"
-    print(output_string)
-    update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
-
-
-def closed_this_week(update, context):
-    current_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
-    next_week_date = datetime.now().replace(
-        hour=0, minute=0, second=0, microsecond=0
-    ) + timedelta(days=2)
-
-    output_string = ""
-
-    output_string += "🛠 *__RENOVATION__*\n"
-    results, last_modified_date = hawker_api.get_all_other_works()
-    for r in results:
-        start_date = datetime.strptime(r[f"other_works_startdate"], "%d/%m/%Y")
-        end_date = datetime.strptime(r[f"other_works_enddate"], "%d/%m/%Y")
-        if (
-            current_date <= start_date <= next_week_date
-            or start_date <= current_date <= end_date
-        ):
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'other_works_startdate']} to {r[f'other_works_enddate']}\n📝 {clean_output(r[f'remarks_other_works'])}\n\n"
-
-    output_string += "🧹 *__CLEANING__*\n"
-    results, last_modified_date, quarter = hawker_api.get_all_cleaning()
-    for r in results:
-        start_date = datetime.strptime(r[f"q{quarter}_cleaningstartdate"], "%d/%m/%Y")
-        end_date = datetime.strptime(r[f"q{quarter}_cleaningenddate"], "%d/%m/%Y")
-        if (
-            current_date <= start_date <= next_week_date
-            or start_date <= current_date <= end_date
-        ):
-            output_string += f"*📍[{clean_output(r['name'])}]({clean_output(r['google_3d_view'])})*\n{clean_output(r['address_myenv'])}\n⏱ {r[f'q{quarter}_cleaningstartdate']} to {r[f'q{quarter}_cleaningenddate']}\n📝 {clean_output(r[f'remarks_q{quarter}'])}\n\n"
-
-    output_string += f"\n_updated {last_modified_date}_"
-    update.message.reply_text(text=output_string, parse_mode="MarkdownV2")
-
-
-def update(update, context):
-    updated_date = hawker_api.update()
-    update.message.reply_text(text=updated_date)
-
-
-updater = Updater(TELEGRAM_API_KEY)
-updater.dispatcher.add_handler(CommandHandler("hello", hello))
-updater.dispatcher.add_handler(CommandHandler("nearest", nearest_hawkers))
-updater.dispatcher.add_handler(CommandHandler("cleaning", cleaning_hawkers))
-updater.dispatcher.add_handler(CommandHandler("otherworks", otherworks_hawkers))
-updater.dispatcher.add_handler(CommandHandler("closedtoday", closed_today))
-updater.dispatcher.add_handler(CommandHandler("closedthisweek", closed_this_week))
-updater.dispatcher.add_handler(CommandHandler("update", update))
-updater.dispatcher.add_handler(MessageHandler(Filters.location, location))
-
-updater.start_polling()
-updater.idle()
+if __name__ == "__main__":
+    main()
