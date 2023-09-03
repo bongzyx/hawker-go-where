@@ -214,12 +214,12 @@ def main():
     for record in nearest_hawkers:
         print(f"- {record['name']} ({record['distance']}km)")
 
-update_required = is_data_update_required()
-if update_required:
-    results = fetch_data_from_api(update_required)
-    print(f"{len(results)} records found.")
-else:
-    print("Data is up to date.")
 
 if __name__ == "__main__":
+    update_required = is_data_update_required()
+    if update_required:
+        results = fetch_data_from_api(update_required)
+        print(f"{len(results)} records found.")
+    else:
+        print("Data is up to date.")
     main()

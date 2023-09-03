@@ -17,7 +17,6 @@ quarter = (
     1 if current_mth < 4 else 2 if current_mth < 7 else 3 if current_mth < 10 else 4
 )
 INVALID_DATES = ["TBC", "NA", "#N/A"]
-print(quarter)
 
 def clean(text):
     char_list = "_*[]()~`>#+-=|{}.!"
