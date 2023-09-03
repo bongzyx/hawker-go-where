@@ -1,19 +1,15 @@
 import os, sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 from hawker_api import is_data_update_required, fetch_data_from_api
 import json
 
 def generate_changelog():
-    script_directory = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(script_directory)
-
-    matching_files = [filename for filename in os.listdir('../data') if filename.startswith("hawker_data_") and filename.endswith(".json")]
+    matching_files = [filename for filename in os.listdir('./data') if filename.startswith("hawker_data_") and filename.endswith(".json")]
     sorted_files = sorted(matching_files, reverse=True)
 
     if len(sorted_files) > 1:
         changelog = []
 
-        with open(f'../data/{sorted_files[1]}', 'r') as file1, open(f'../data/{sorted_files[0]}', 'r') as file2:
+        with open(f'./data/{sorted_files[1]}', 'r') as file1, open(f'./data/{sorted_files[0]}', 'r') as file2:
             prev_data = json.load(file1)
             new_data = json.load(file2)
 
@@ -47,11 +43,11 @@ def generate_changelog():
                 changelog.append(f"➕ **Added**: {new_entry['serial_no']} - {new_entry['name']}")
 
         # Read current changelog.md
-        with open('../changelog.md', 'r') as changelog_file:
+        with open('./changelog.md', 'r') as changelog_file:
             existing_changelog = changelog_file.read()
 
         # Prepend new entries at the top
-        with open('../changelog.md', 'w') as changelog_file:
+        with open('./changelog.md', 'w') as changelog_file:
             changelog_file.write("\n\n".join(changelog))
             changelog_file.write("\n\n" + existing_changelog)
 
