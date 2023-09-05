@@ -4,7 +4,7 @@ from uuid import uuid4
 
 from dotenv import dotenv_values
 
-from telegram import InlineQueryResultArticle, InputTextMessageContent, ReplyKeyboardMarkup, KeyboardButton, Update
+from telegram import InlineQueryResultArticle, InputTextMessageContent, ReplyKeyboardMarkup, KeyboardButton, Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.constants import ParseMode
 from telegram.ext import Application, CommandHandler, ContextTypes, InlineQueryHandler, MessageHandler, filters
 
@@ -143,6 +143,13 @@ async def nearest_hawkers(update, context):
         ),
     )
 
+async def search(update, context):
+    keyboard = [
+        [InlineKeyboardButton("Search", switch_inline_query_current_chat='')],
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text("Please search using this button:", reply_markup=reply_markup)
+
 async def hawker_info(update, context):
     serial_no = context.args[0]
     hawker_result = search_hawker(serial_no=serial_no)
@@ -151,7 +158,7 @@ async def hawker_info(update, context):
         message = ''
         message += f"📍 *[{clean(hawker_result['name'])}]({hawker_result['photourl']} 🗺)*\n"
         message += f"✅ *Status:* {clean(hawker_result['status'])}\n"
-        message += f"🗺️ *Address:* {clean(hawker_result['address_myenv'])}\n\n"
+        message += f"🗺️ *Address:* {clean(hawker_result['address_myenv'])}\n"
         message += f"📝 *Description:*\n{clean(hawker_result['description_myenv'])}\n"
         message += f"🐟 *Number of Market Stalls:* {hawker_result['no_of_market_stalls']}\n"
         message += f"🍽 *Number of Food Stalls:* {hawker_result['no_of_food_stalls']}\n"
@@ -195,6 +202,7 @@ def main() -> None:
     application.add_handler(CommandHandler("closedtomorrow", closed_hawkers_tomorrow))
     # application.add_handler(CommandHandler("closedthisweek", closed_this_week))
     application.add_handler(CommandHandler("hawkerinfo", hawker_info))
+    application.add_handler(CommandHandler("search", search))
 
     application.add_handler(InlineQueryHandler(inline_query))
     application.add_handler(MessageHandler(filters.LOCATION, handle_location))
