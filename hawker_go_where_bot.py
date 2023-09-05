@@ -152,7 +152,6 @@ async def closed_hawkers_this_week(update: Update, context: ContextTypes.DEFAULT
     message += format_hawker_data(current_other_works, "other_works")
     message += "_No hawkers are closed for other works this week, yay\!_" if len(current_other_works) == 0 else ""
     message += f"_updated {clean(last_modified_date)[:12]}_"
-    print(message)
     if len(message) > 5000:
         message_chunk = message.split("🛠 *RENOVATION")
         for index, chunk in enumerate(message_chunk):

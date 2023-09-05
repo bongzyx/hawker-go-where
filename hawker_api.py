@@ -82,7 +82,7 @@ def filter_hawkers_by_status(status, target_date):
               cleaning_start_date_str = record.get(f"q{i}_cleaningstartdate")
               cleaning_end_date_str = record.get(f"q{i}_cleaningenddate")
               
-              print("cleaning", cleaning_start_date_str, cleaning_end_date_str, "\n")
+              # print("cleaning", cleaning_start_date_str, cleaning_end_date_str, "\n")
               if is_valid_date(cleaning_start_date_str) and is_valid_date(cleaning_end_date_str):
                 cleaning_start_date = parse_date(cleaning_start_date_str)
                 cleaning_end_date = parse_date(cleaning_end_date_str)
