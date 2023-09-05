@@ -20,12 +20,12 @@ Annoyed that a hawker centre is closed for whatever reason? Not sure where to ea
 
 ### Screenshots
 
-<div align="center>
-  <img src="assets/nearby.png?raw=true">
-  <img src="assets/closed_today.png?raw=true">
-  <img src="assets/search.png?raw=true">
-  <img src="assets/hawker_info.png?raw=true">
-</div>
+<p align="center" width="100%">
+  <img width="23%" padding="2px" src="assets/nearby.png?raw=true">
+  <img width="23%" padding="2px" src="assets/closed_today.png?raw=true">
+  <img width="23%" padding="2px" src="assets/search.png?raw=true">
+  <img width="23%" padding="2px" src="assets/hawker_info.png?raw=true">
+</p>
 
 ### Key Features
 
