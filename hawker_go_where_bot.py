@@ -156,13 +156,12 @@ async def hawker_info(update, context):
         message += f"🐟 *Number of Market Stalls:* {hawker_result['no_of_market_stalls']}\n"
         message += f"🍽 *Number of Food Stalls:* {hawker_result['no_of_food_stalls']}\n"
         message += "🧹 *Cleaning Dates:*\n"
-        message += f"\- Q1: {hawker_result['q1_cleaningstartdate']} to {hawker_result['q1_cleaningenddate']}\n"
-        message += f"\- Q2: {hawker_result['q2_cleaningstartdate']} to {hawker_result['q2_cleaningenddate']}\n"
-        message += f"\- Q3: {hawker_result['q3_cleaningstartdate']} to {hawker_result['q3_cleaningenddate']}\n"
-        message += f"\- Q4: {hawker_result['q4_cleaningstartdate']} to {hawker_result['q4_cleaningenddate']}\n"
+        message += f"    \- Q1: {hawker_result['q1_cleaningstartdate']} to {hawker_result['q1_cleaningenddate']}\n"
+        message += f"    \- Q2: {hawker_result['q2_cleaningstartdate']} to {hawker_result['q2_cleaningenddate']}\n"
+        message += f"    \- Q3: {hawker_result['q3_cleaningstartdate']} to {hawker_result['q3_cleaningenddate']}\n"
+        message += f"    \- Q4: {hawker_result['q4_cleaningstartdate']} to {hawker_result['q4_cleaningenddate']}\n"
         message += f"🛠 *Other Works Dates:*\n{hawker_result['other_works_startdate']} to {hawker_result['other_works_enddate']}\n"
         message += f"🗺 [Google Maps 3D]({hawker_result['google_3d_view']})\n"
-        print(message)
         await update.message.reply_text(message, parse_mode="MarkdownV2")
     else:
         await update.message.reply_text("Hawker not found, invalid serial number\?", parse_mode="MarkdownV2")
