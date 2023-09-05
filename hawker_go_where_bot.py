@@ -57,7 +57,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     if not query:
         return
 
-    filtered_hawkers = [hawker for hawker in hawker_data if query.lower() in hawker["name"].lower()]
+    filtered_hawkers = search_hawker(query)
 
     if filtered_hawkers:
         results = [
@@ -67,7 +67,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
                 thumbnail_url=hawker.get('photourl'),
                 description=hawker.get('address_myenv'),
                 input_message_content=InputTextMessageContent(
-                    f"asdf",
+                    f"/hawkerinfo {hawker.get('serial_no')}",
                     parse_mode=ParseMode.MARKDOWN_V2
                 ),
             )
@@ -143,6 +143,30 @@ async def nearest_hawkers(update, context):
         ),
     )
 
+async def hawker_info(update, context):
+    serial_no = context.args[0]
+    hawker_result = search_hawker(serial_no=serial_no)
+    if hawker_result:
+        hawker_result = hawker_result[0]
+        message = ''
+        message += f"📍 *[{clean(hawker_result['name'])}]({hawker_result['photourl']} 🗺)*\n"
+        message += f"✅ *Status:* {clean(hawker_result['status'])}\n"
+        message += f"🗺️ *Address:* {clean(hawker_result['address_myenv'])}\n\n"
+        message += f"📝 *Description:*\n{clean(hawker_result['description_myenv'])}\n"
+        message += f"🐟 *Number of Market Stalls:* {hawker_result['no_of_market_stalls']}\n"
+        message += f"🍽 *Number of Food Stalls:* {hawker_result['no_of_food_stalls']}\n"
+        message += "🧹 *Cleaning Dates:*\n"
+        message += f"\- Q1: {hawker_result['q1_cleaningstartdate']} to {hawker_result['q1_cleaningenddate']}\n"
+        message += f"\- Q2: {hawker_result['q2_cleaningstartdate']} to {hawker_result['q2_cleaningenddate']}\n"
+        message += f"\- Q3: {hawker_result['q3_cleaningstartdate']} to {hawker_result['q3_cleaningenddate']}\n"
+        message += f"\- Q4: {hawker_result['q4_cleaningstartdate']} to {hawker_result['q4_cleaningenddate']}\n"
+        message += f"🛠 *Other Works Dates:*\n{hawker_result['other_works_startdate']} to {hawker_result['other_works_enddate']}\n"
+        message += f"🗺 [Google Maps 3D]({hawker_result['google_3d_view']})\n"
+        print(message)
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+    else:
+        await update.message.reply_text("Hawker not found, invalid serial number\?", parse_mode="MarkdownV2")
+
 async def handle_location(update, context):
     user_loc = update.message.location
     output_string = ""
@@ -171,6 +195,7 @@ def main() -> None:
     application.add_handler(CommandHandler("closedtoday", closed_hawkers_today))
     application.add_handler(CommandHandler("closedtomorrow", closed_hawkers_tomorrow))
     # application.add_handler(CommandHandler("closedthisweek", closed_this_week))
+    application.add_handler(CommandHandler("hawkerinfo", hawker_info))
 
     application.add_handler(InlineQueryHandler(inline_query))
     application.add_handler(MessageHandler(filters.LOCATION, handle_location))

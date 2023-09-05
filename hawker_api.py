@@ -105,6 +105,18 @@ def filter_hawkers_by_status(status, target_date):
             filtered_hawkers.sort(key=lambda x: parse_date(x.get("other_works_startdate")))
     return filtered_hawkers, last_modified_date
 
+def search_hawker(query=None, serial_no=None):
+    with open('data/latest_data.json', 'r') as latest_json:
+      json_data = json.load(latest_json)
+    
+    records = json_data['records']
+    last_modified_date = json_data['last_modified']
+
+    if query: 
+        return [hawker for hawker in records if query.lower() in hawker["name"].lower()]
+    elif serial_no:
+        return [hawker for hawker in records if serial_no.lower() == hawker["serial_no"].lower()]
+
 def get_current_cleaning():
     current_date = datetime.now().date()
     return filter_hawkers_by_status("cleaning", current_date)
