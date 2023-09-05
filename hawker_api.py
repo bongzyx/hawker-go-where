@@ -72,20 +72,22 @@ def filter_hawkers_by_status(status, target_date):
     last_modified_date = json_data['last_modified']
 
     filtered_hawkers = []
+    current_date = datetime.now().date()
     if not target_date:
         target_date=datetime.now().date()
     for record in records:
         # process cleaning hawkers
         if status == "cleaning":
-            cleaning_start_date_str = record.get(f"q{quarter}_cleaningstartdate")
-            cleaning_end_date_str = record.get(f"q{quarter}_cleaningenddate")
-
-            # print("cleaning", cleaning_start_date_str, cleaning_end_date_str)
-            if is_valid_date(cleaning_start_date_str) and is_valid_date(cleaning_end_date_str):
-              cleaning_start_date = parse_date(cleaning_start_date_str)
-              cleaning_end_date = parse_date(cleaning_end_date_str)
-              if is_date_within_range(cleaning_start_date, cleaning_end_date, target_date):
-                  filtered_hawkers.append(record)
+            for i in range(1,5):
+              cleaning_start_date_str = record.get(f"q{i}_cleaningstartdate")
+              cleaning_end_date_str = record.get(f"q{i}_cleaningenddate")
+              
+              print("cleaning", cleaning_start_date_str, cleaning_end_date_str, "\n")
+              if is_valid_date(cleaning_start_date_str) and is_valid_date(cleaning_end_date_str):
+                cleaning_start_date = parse_date(cleaning_start_date_str)
+                cleaning_end_date = parse_date(cleaning_end_date_str)
+                if is_date_within_range(cleaning_start_date, cleaning_end_date, current_date) or is_date_within_range(cleaning_start_date, cleaning_end_date, target_date) or (cleaning_start_date < current_date and cleaning_end_date > target_date):
+                    filtered_hawkers.append(record)
             
         # process other works hawkers
         elif status == "other_works":
