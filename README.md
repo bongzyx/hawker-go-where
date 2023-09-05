@@ -18,6 +18,15 @@
 
 Annoyed that a hawker centre is closed for whatever reason? Not sure where to eat and want to get nearby hawkers? This bot can help you.
 
+### Screenshots
+
+<div align="center>
+  <img src="assets/nearby.png?raw=true">
+  <img src="assets/closed_today.png?raw=true">
+  <img src="assets/search.png?raw=true">
+  <img src="assets/hawker_info.png?raw=true">
+</div>
+
 ### Key Features
 
 - Seach for hawkers using InlineKeyboard, returns detailed information of hawker such as address, Google Maps 3D view, past and future cleaning schedule for the year
