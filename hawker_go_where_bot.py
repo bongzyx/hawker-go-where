@@ -127,14 +127,14 @@ async def closed_hawkers_tomorrow(update: Update, context: ContextTypes.DEFAULT_
     current_date = datetime.now().date()
     tomorrow = current_date + timedelta(days=1)
     formatted_date = datetime(tomorrow.year, tomorrow.month, tomorrow.day).strftime('%d %b %Y')
-    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(tomorrow)
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(tomorrow, tomorrow)
     message = f"_Closed Hawkers for {formatted_date}_\n\n"
     message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
     message += format_hawker_data(current_cleaning, "cleaning")
-    message += "_No hawkers are cleaning today, yay\!_\n" if len(current_cleaning) == 0 else ""
+    message += "_No hawkers are cleaning tomorrow, yay\!_\n" if len(current_cleaning) == 0 else ""
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
-    message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
+    message += "_No hawkers are closed for other works tomorrow, yay\!_" if len(current_other_works) == 0 else ""
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 

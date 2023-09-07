@@ -64,7 +64,7 @@ def is_valid_date(date_str):
 def is_date_within_range(start_date, end_date, target_date):
     return start_date <= target_date <= end_date
 
-def filter_hawkers_by_status(status, target_date):
+def filter_hawkers_by_status(status, from_date, target_date):
     with open('data/latest_data.json', 'r') as latest_json:
       json_data = json.load(latest_json)
     
@@ -72,7 +72,8 @@ def filter_hawkers_by_status(status, target_date):
     last_modified_date = json_data['last_modified']
 
     filtered_hawkers = []
-    current_date = datetime.now().date()
+    if not target_date:
+        from_date = datetime.now().date()
     if not target_date:
         target_date=datetime.now().date()
     for record in records:
@@ -86,7 +87,7 @@ def filter_hawkers_by_status(status, target_date):
               if is_valid_date(cleaning_start_date_str) and is_valid_date(cleaning_end_date_str):
                 cleaning_start_date = parse_date(cleaning_start_date_str)
                 cleaning_end_date = parse_date(cleaning_end_date_str)
-                if is_date_within_range(cleaning_start_date, cleaning_end_date, current_date) or is_date_within_range(cleaning_start_date, cleaning_end_date, target_date) or (cleaning_start_date < current_date and cleaning_end_date > target_date):
+                if is_date_within_range(cleaning_start_date, cleaning_end_date, from_date) or is_date_within_range(cleaning_start_date, cleaning_end_date, target_date) or (cleaning_start_date < from_date and cleaning_end_date > target_date):
                     filtered_hawkers.append(record)
             
         # process other works hawkers
@@ -121,28 +122,30 @@ def search_hawker(query=None, serial_no=None):
 
 def get_current_cleaning():
     current_date = datetime.now().date()
-    return filter_hawkers_by_status("cleaning", current_date)
+    return filter_hawkers_by_status("cleaning", current_date, current_date)
 
 def get_current_other_works():
     current_date = datetime.now().date()
-    return filter_hawkers_by_status("other_works", current_date)
+    return filter_hawkers_by_status("other_works", current_date, current_date)
 
 def get_upcoming_cleaning(num_days=7):
     current_date = datetime.now().date()
     end_date_limit = current_date + timedelta(days=num_days)
-    return filter_hawkers_by_status("cleaning", end_date_limit)
+    return filter_hawkers_by_status("cleaning", current_date, end_date_limit)
 
 def get_upcoming_other_works(num_days=30):
     current_date = datetime.now().date()
     end_date_limit = current_date + timedelta(days=num_days)
-    return filter_hawkers_by_status("other_works", end_date_limit)
+    return filter_hawkers_by_status("other_works", current_date, end_date_limit)
 
-def get_closed_hawkers(target_date=None):
+def get_closed_hawkers(from_date=None, target_date=None):
     current_date = datetime.now().date()
+    if not from_date:
+        from_date = current_date
     if not target_date:
-        target_date = current_date
-    cleaning_hawkers, last_modified_date = filter_hawkers_by_status("cleaning", target_date)
-    other_works_hawkers, _ = filter_hawkers_by_status("other_works", target_date)
+        target_date = from_date
+    cleaning_hawkers, last_modified_date = filter_hawkers_by_status("cleaning", from_date, target_date)
+    other_works_hawkers, _ = filter_hawkers_by_status("other_works", from_date, target_date)
     return cleaning_hawkers, other_works_hawkers, last_modified_date
 
 def get_nearest_hawkers(user_lat, user_lon, num_hawkers=5, max_distance=5.0):
@@ -197,7 +200,7 @@ def main():
     
     # Get hawker centres closed today
     today = datetime.now().date()
-    closed_today_cleaning, closed_today_other_works, last_modified_date = get_closed_hawkers(target_date=today)
+    closed_today_cleaning, closed_today_other_works, last_modified_date = get_closed_hawkers(from_date=today, target_date=today)
     print(f"Closed Today: (updated {last_modified_date})")
     for record in closed_today_cleaning:
         print(f"- {record['name']} (Cleaning)")
@@ -206,7 +209,7 @@ def main():
 
     # Get hawker centres closed tomorrow
     tomorrow = today + timedelta(days=1)
-    closed_tomorrow_cleaning, closed_tomorrow_other_works, last_modified_date = get_closed_hawkers(target_date=tomorrow)
+    closed_tomorrow_cleaning, closed_tomorrow_other_works, last_modified_date = get_closed_hawkers(from_date=tomorrow, target_date=tomorrow)
     print(f"Closed Tomorrow: (updated {last_modified_date})")
     for record in closed_tomorrow_cleaning:
         print(f"- {record['name']} (Cleaning)")
@@ -215,7 +218,7 @@ def main():
 
     # Get hawker centres closed this week
     one_week_later = today + timedelta(weeks=1)
-    closed_this_week_cleaning, closed_this_week_other_works, last_modified_date = get_closed_hawkers(target_date=one_week_later)
+    closed_this_week_cleaning, closed_this_week_other_works, last_modified_date = get_closed_hawkers(from_date=today, target_date=one_week_later)
     print(f"Closed This Week: (updated {last_modified_date})")
     for record in closed_this_week_cleaning:
         print(f"- {record['name']} (Cleaning)")
