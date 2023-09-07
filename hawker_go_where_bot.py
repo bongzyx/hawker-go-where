@@ -91,7 +91,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def cleaning_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     current_date = datetime.now().date()
-    current_cleaning, _, last_modified_date = get_closed_hawkers(current_date)
+    current_cleaning, _, last_modified_date = get_closed_hawkers(current_date, current_date)
     message = f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
     message += format_hawker_data(current_cleaning, "cleaning")
     message += "_No hawkers are cleaning today, yay\!_" if len(current_cleaning) == 0 else ""
@@ -100,7 +100,7 @@ async def cleaning_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -
 
 async def otherworks_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     current_date = datetime.now().date()
-    _, current_other_works, last_modified_date = get_closed_hawkers(current_date)
+    _, current_other_works, last_modified_date = get_closed_hawkers(current_date, current_date)
     message = f"🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
@@ -111,7 +111,7 @@ async def otherworks_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE)
 async def closed_hawkers_today(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     current_date = datetime.now().date()
     formatted_date = datetime(current_date.year, current_date.month, current_date.day).strftime('%d %b %Y')
-    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date)
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date, current_date)
     message = f"_Closed Hawkers for {formatted_date}_\n\n"
     message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
     message += format_hawker_data(current_cleaning, "cleaning")
@@ -143,7 +143,7 @@ async def closed_hawkers_this_week(update: Update, context: ContextTypes.DEFAULT
     end_date = current_date + timedelta(weeks=1)
     formatted_current_date = datetime(current_date.year, current_date.month, current_date.day).strftime('%d %b %Y')
     formatted_end_date = datetime(end_date.year, end_date.month, end_date.day).strftime('%d %b %Y')
-    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(end_date)
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date, end_date)
     message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
     message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
     message += format_hawker_data(current_cleaning, "cleaning")
