@@ -94,7 +94,7 @@ async def cleaning_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -
     current_cleaning, _, last_modified_date = get_closed_hawkers(current_date, current_date)
     message = f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
     message += format_hawker_data(current_cleaning, "cleaning")
-    message += "_No hawkers are cleaning today, yay\!_" if len(current_cleaning) == 0 else ""
+    message += "_No hawkers are cleaning today, yay\!_\n\n" if len(current_cleaning) == 0 else ""
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
@@ -103,7 +103,7 @@ async def otherworks_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE)
     _, current_other_works, last_modified_date = get_closed_hawkers(current_date, current_date)
     message = f"🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
-    message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
+    message += "_No hawkers are closed for other works today, yay\!_\n\n" if len(current_other_works) == 0 else ""
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
