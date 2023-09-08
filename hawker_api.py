@@ -87,7 +87,7 @@ def filter_hawkers_by_status(status, from_date, target_date):
               if is_valid_date(cleaning_start_date_str) and is_valid_date(cleaning_end_date_str):
                 cleaning_start_date = parse_date(cleaning_start_date_str)
                 cleaning_end_date = parse_date(cleaning_end_date_str)
-                if is_date_within_range(cleaning_start_date, cleaning_end_date, from_date) or is_date_within_range(cleaning_start_date, cleaning_end_date, target_date) or (cleaning_start_date < from_date and cleaning_end_date > target_date):
+                if is_date_within_range(cleaning_start_date, cleaning_end_date, from_date) or is_date_within_range(cleaning_start_date, cleaning_end_date, target_date) or (from_date <= cleaning_start_date and cleaning_end_date <= target_date):
                     filtered_hawkers.append(record)
             
         # process other works hawkers
@@ -99,7 +99,7 @@ def filter_hawkers_by_status(status, from_date, target_date):
             if is_valid_date(other_works_start_date_str) and is_valid_date(other_works_end_date_str):
               other_works_start_date = parse_date(other_works_start_date_str)
               other_works_end_date = parse_date(other_works_end_date_str)
-              if is_date_within_range(other_works_start_date, other_works_end_date, target_date):
+              if is_date_within_range(other_works_start_date, other_works_end_date, target_date) or is_date_within_range(other_works_start_date, other_works_end_date, from_date) or (from_date <= other_works_start_date and other_works_end_date <= target_date):
                   filtered_hawkers.append(record)
 
         if status == "cleaning":
