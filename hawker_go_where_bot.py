@@ -144,22 +144,24 @@ async def closed_hawkers_this_week(update: Update, context: ContextTypes.DEFAULT
     formatted_current_date = datetime(current_date.year, current_date.month, current_date.day).strftime('%d %b %Y')
     formatted_end_date = datetime(end_date.year, end_date.month, end_date.day).strftime('%d %b %Y')
     current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date, end_date)
-    message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
-    message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
-    message += format_hawker_data(current_cleaning, "cleaning")
-    message += "_No hawkers are cleaning this week, yay\!_\n" if len(current_cleaning) == 0 else ""
+    if len(current_cleaning) > 25:
+        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+        message += format_hawker_data(current_cleaning[:25], "cleaning")
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+        message = format_hawker_data(current_cleaning[25:], "cleaning")
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+        message = ""
+    else:
+        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+        message += format_hawker_data(current_cleaning, "cleaning")
+        message += "_No hawkers are cleaning this week, yay\!_\n" if len(current_cleaning) == 0 else ""
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += "_No hawkers are closed for other works this week, yay\!_" if len(current_other_works) == 0 else ""
     message += f"_updated {clean(last_modified_date)[:12]}_"
-    if len(message) > 5000:
-        message_chunk = message.split("🛠 *RENOVATION")
-        for index, chunk in enumerate(message_chunk):
-            if index == 1:
-                chunk = "🛠 *RENOVATION" + chunk
-            await update.message.reply_text(chunk, parse_mode="MarkdownV2")
-    else:
-        await update.message.reply_text(message, parse_mode="MarkdownV2")
+    await update.message.reply_text(message, parse_mode="MarkdownV2")
 
 async def nearest_hawkers(update, context):
     keyboard = [[KeyboardButton(text="📍 Share Location", request_location=True)]]
