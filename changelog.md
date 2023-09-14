@@ -1,3 +1,11 @@
+## 2023-09-14
+
+
+🔵 **Changed**: 42 Commonwealth Crescent Market:
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+  - other_works_startdate: `NA` -> `16/10/2023`
+  - other_works_enddate: `NA` -> `31/12/2023`
+
 ## 2023-09-08
 
 
