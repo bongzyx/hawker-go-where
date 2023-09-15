@@ -70,9 +70,9 @@ To run your own local copy of the bot or for reference if I want to deploy on a 
    chmod +x ./scripts/pull_latest_changes.sh
    ```
 6. Add to crontab `crontab -e`
-7. Customise your schedule. The following runs daily at 12am.
+7. Customise your schedule. The following runs daily at 12am SGT.
    ```
-   0 0 * * * /path/to/pull_latest_changes.sh
+   0 0 * * * TZ=Asia/Singapore /path/to/pull_latest_changes.sh
    ```
 8. Use any tmux or run script in background
    ```
