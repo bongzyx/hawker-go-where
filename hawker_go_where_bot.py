@@ -112,10 +112,19 @@ async def closed_hawkers_today(update: Update, context: ContextTypes.DEFAULT_TYP
     current_date = datetime.now().date()
     formatted_date = datetime(current_date.year, current_date.month, current_date.day).strftime('%d %b %Y')
     current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date, current_date)
-    message = f"_Closed Hawkers for {formatted_date}_\n\n"
-    message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
-    message += format_hawker_data(current_cleaning, "cleaning")
-    message += "_No hawkers are cleaning today, yay\!_\n" if len(current_cleaning) == 0 else ""
+    if len(current_cleaning) > 25:
+        message = f"_Closed Hawkers for {formatted_date}_\n\n"
+        message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+        message += format_hawker_data(current_cleaning[:25], "cleaning")
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+        message = format_hawker_data(current_cleaning[25:], "cleaning")
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+        message = ""
+    else:
+        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+        message += format_hawker_data(current_cleaning, "cleaning")
+        message += "_No hawkers are cleaning today, yay\!_\n" if len(current_cleaning) == 0 else ""
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
@@ -128,10 +137,19 @@ async def closed_hawkers_tomorrow(update: Update, context: ContextTypes.DEFAULT_
     tomorrow = current_date + timedelta(days=1)
     formatted_date = datetime(tomorrow.year, tomorrow.month, tomorrow.day).strftime('%d %b %Y')
     current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(tomorrow, tomorrow)
-    message = f"_Closed Hawkers for {formatted_date}_\n\n"
-    message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
-    message += format_hawker_data(current_cleaning, "cleaning")
-    message += "_No hawkers are cleaning tomorrow, yay\!_\n" if len(current_cleaning) == 0 else ""
+    if len(current_cleaning) > 25:
+        message = f"_Closed Hawkers for {formatted_date}_\n\n"
+        message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+        message += format_hawker_data(current_cleaning[:25], "cleaning")
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+        message = format_hawker_data(current_cleaning[25:], "cleaning")
+        await update.message.reply_text(message, parse_mode="MarkdownV2")
+        message = ""
+    else:
+        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
+        message += format_hawker_data(current_cleaning, "cleaning")
+        message += "_No hawkers are cleaning tomorrow, yay\!_\n" if len(current_cleaning) == 0 else ""
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += "_No hawkers are closed for other works tomorrow, yay\!_" if len(current_other_works) == 0 else ""
