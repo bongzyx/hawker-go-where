@@ -121,7 +121,7 @@ async def closed_hawkers_today(update: Update, context: ContextTypes.DEFAULT_TYP
         await update.message.reply_text(message, parse_mode="MarkdownV2")
         message = ""
     else:
-        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message = f"_Closed Hawkers for {formatted_date}_\n\n"
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
         message += format_hawker_data(current_cleaning, "cleaning")
         message += "_No hawkers are cleaning today, yay\!_\n" if len(current_cleaning) == 0 else ""
@@ -146,7 +146,7 @@ async def closed_hawkers_tomorrow(update: Update, context: ContextTypes.DEFAULT_
         await update.message.reply_text(message, parse_mode="MarkdownV2")
         message = ""
     else:
-        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message = f"_Closed Hawkers for {formatted_date}_\n\n"
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
         message += format_hawker_data(current_cleaning, "cleaning")
         message += "_No hawkers are cleaning tomorrow, yay\!_\n" if len(current_cleaning) == 0 else ""
