@@ -1,13 +1,14 @@
 import requests
 import os
 import json
+import csv
 from datetime import datetime, timedelta
 from math import radians, sin, cos, acos
 
 
-RESOURCE_ID = "b80cb643-a732-480d-86b5-e03957bc82aa"
-API_METADATA_URL = f"https://data.gov.sg/api/action/resource_show?id={RESOURCE_ID}"
-API_DATA_URL = f"https://data.gov.sg/api/action/datastore_search?resource_id={RESOURCE_ID}&limit=9999"
+DATASET_ID = "d_bda4baa634dd1cc7a6c7cad5f19e2d68"
+API_METADATA_URL = f"https://api-production.data.gov.sg/v2/public/api/datasets/{DATASET_ID}/metadata"
+GENERATE_DOWNLOAD_LINK_URL = f"https://kjo15bc7zd.execute-api.ap-southeast-1.amazonaws.com/api/public/resources/{DATASET_ID}/generate-download-link"
 
 INVALID_DATES = ["TBC", "NA", "#N/A"]
 
@@ -17,22 +18,34 @@ quarter = (
 )
 
 def fetch_data_from_api(last_modified_date=None):
-    response = requests.get(API_DATA_URL)
-    if response.status_code == 200:
-        hawker_data = response.json()["result"]["records"]
+    response = requests.post(GENERATE_DOWNLOAD_LINK_URL)
+    if response.status_code == 201:
+        download_link = response.json()["url"]
+        csv_file = requests.get(download_link)
 
-        last_modified_date_obj = datetime.strptime(last_modified_date, "%Y-%m-%dT%H:%M:%S.%f").date()
-        last_modified_date_only_str = last_modified_date_obj.strftime("%Y_%m_%d")
-        filename = f"./data/hawker_data_{last_modified_date_only_str}.json"
-        json_data = {'last_modified': last_modified_date, 'records': hawker_data}
-        with open(filename, "w") as file:
-            json.dump(json_data, file)
-        with open('data/latest_data.json', "w") as file:
-            json.dump(json_data, file)
+        if csv_file.status_code == 200:
+            csv_data = csv_file.content.decode('utf-8')
+            csv_rows = list(csv.reader(csv_data.splitlines()))
+            header = csv_rows[0]
+            hawker_data = []
+            for row in csv_rows[1:]:
+                hawker_item = {}
+                for i, value in enumerate(row):
+                    hawker_item[header[i]] = value
+                hawker_data.append(hawker_item)
 
-        return hawker_data
+            last_modified_date_obj = datetime.strptime(last_modified_date, "%Y-%m-%dT%H:%M:%S%z").date()
+            last_modified_date_only_str = last_modified_date_obj.strftime("%Y_%m_%d")
+            filename = f"./data/hawker_data_{last_modified_date_only_str}.json"
+            json_data = {'last_modified': last_modified_date, 'records': hawker_data}
+            with open(filename, "w") as file:
+                json.dump(json_data, file)
+            with open('data/latest_data.json', "w") as file:
+                json.dump(json_data, file)
+
+            return hawker_data
     else:
-        print("Failed to fetch data from the API.")
+        print("Failed to get download link URL.")
         return None
 
 def is_data_update_required():
@@ -40,13 +53,13 @@ def is_data_update_required():
         with open('data/latest_data.json', 'r') as latest_json:
             data = json.load(latest_json)
         last_modified_json_str = data['last_modified']
-        last_modified_json = datetime.strptime(last_modified_json_str, "%Y-%m-%dT%H:%M:%S.%f").date()
+        last_modified_json = datetime.strptime(last_modified_json_str, "%Y-%m-%dT%H:%M:%S%z").date()
     else:
         last_modified_json = datetime(1970, 1, 1).date()
     response = requests.get(API_METADATA_URL)
     if response.status_code == 200:
-        last_modified_api_str = response.json()["result"]["last_modified"]
-        last_modified_api = datetime.strptime(last_modified_api_str, "%Y-%m-%dT%H:%M:%S.%f").date()
+        last_modified_api_str = response.json()["data"]["lastUpdatedAt"]
+        last_modified_api = datetime.strptime(last_modified_api_str, "%Y-%m-%dT%H:%M:%S%z").date()
         print(last_modified_api_str)
         if last_modified_api > last_modified_json:
             return last_modified_api_str
