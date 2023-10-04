@@ -62,7 +62,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     if filtered_hawkers:
         results = [
             InlineQueryResultArticle(
-                id=str(hawker["_id"]),
+                id=str(hawker["serial_no"]),
                 title=hawker["name"],
                 thumbnail_url=hawker.get('photourl'),
                 description=hawker.get('address_myenv'),
