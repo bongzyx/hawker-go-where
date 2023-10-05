@@ -1,3 +1,15 @@
+## 2023-10-05
+
+
+🔵 **Changed**: 3 Amoy Street Food Centre (Telok Ayer Food Centre):
+  - q4_cleaningstartdate: `25/11/2023` -> `9/12/2023`
+  - q4_cleaningenddate: `27/11/2023` -> `10/12/2023`
+
+🔵 **Changed**: 63 Jurong West Hawker Centre:
+  - other_works_startdate: `25/9/2023` -> `NA`
+  - other_works_enddate: `27/9/2023` -> `NA`
+  - remarks_other_works: `This hawker centre will commence operation on 28 Sep 2023.` -> `nil`
+
 ## 2023-09-27
 
 
