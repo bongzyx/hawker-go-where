@@ -1,3 +1,16 @@
+## 2023-10-06
+
+
+🔵 **Changed**: 53 Holland Drive Blk 44 (Holland Drive Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `TBC`
+  - q4_cleaningenddate: `7/12/2023` -> `TBC`
+
+🔵 **Changed**: 54 Holland Village Market and Food Centre:
+  - q3_cleaningstartdate: `TBC` -> `4/9/2023`
+  - q3_cleaningenddate: `TBC` -> `4/9/2023`
+  - q4_cleaningstartdate: `11/12/2023` -> `TBC`
+  - q4_cleaningenddate: `11/12/2023` -> `TBC`
+
 ## 2023-10-05
 
 
