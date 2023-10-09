@@ -4,9 +4,24 @@ from uuid import uuid4
 
 from dotenv import dotenv_values
 
-from telegram import InlineQueryResultArticle, InputTextMessageContent, ReplyKeyboardMarkup, KeyboardButton, Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import (
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    ReplyKeyboardMarkup,
+    KeyboardButton,
+    Update,
+    InlineKeyboardMarkup,
+    InlineKeyboardButton,
+)
 from telegram.constants import ParseMode
-from telegram.ext import Application, CommandHandler, ContextTypes, InlineQueryHandler, MessageHandler, filters
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
+    InlineQueryHandler,
+    MessageHandler,
+    filters,
+)
 
 from hawker_api import *
 from datetime import datetime
@@ -18,11 +33,13 @@ quarter = (
 )
 INVALID_DATES = ["TBC", "NA", "#N/A"]
 
+
 def clean(text):
     char_list = "_*[]()~`>#+-=|{}.!"
     for char in char_list:
         text = text.replace(char, "\\" + char)
     return text
+
 
 def format_date_range(start_date_str, end_date_str):
     if start_date_str in INVALID_DATES or end_date_str in INVALID_DATES:
@@ -32,22 +49,27 @@ def format_date_range(start_date_str, end_date_str):
     end_date = datetime.strptime(end_date_str, "%d/%m/%Y")
     return f"{start_date.strftime('%d/%m/%Y')} to {end_date.strftime('%d/%m/%Y')}"
 
+
 def format_hawker_data(hawkers, status):
     formatted_data = ""
     for hawker in hawkers:
         formatted_data += f"📍*[{clean(hawker['name'])}]({clean(hawker['google_3d_view'])})*\n🗺️ {clean(hawker['address_myenv'])}\n"
         if status == "cleaning":
             formatted_data += f"🕗 {clean(format_date_range(hawker[f'q{quarter}_cleaningstartdate'], hawker[f'q{quarter}_cleaningenddate']))}\n"
-            formatted_data += f"📝 {clean(hawker[f'remarks_q{quarter}'])}\n\n" if not "nil" in hawker[f'remarks_q{quarter}'] else "\n"
+            formatted_data += (
+                f"📝 {clean(hawker[f'remarks_q{quarter}'])}\n\n"
+                if not "nil" in hawker[f"remarks_q{quarter}"]
+                else "\n"
+            )
         elif status == "other_works":
             formatted_data += f"🕗 {clean(format_date_range(hawker['other_works_startdate'], hawker['other_works_enddate']))}\n"
             formatted_data += f"📝 {clean(hawker['remarks_other_works'])}\n\n"
     return formatted_data
 
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Send a message when the command /start is issued."""
     await update.message.reply_text("Hi!")
-
 
 
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -64,11 +86,11 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
             InlineQueryResultArticle(
                 id=str(hawker["serial_no"]),
                 title=hawker["name"],
-                thumbnail_url=hawker.get('photourl'),
-                description=hawker.get('address_myenv'),
+                thumbnail_url=hawker.get("photourl"),
+                description=hawker.get("address_myenv"),
                 input_message_content=InputTextMessageContent(
                     f"/hawkerinfo {hawker.get('serial_no')}",
-                    parse_mode=ParseMode.MARKDOWN_V2
+                    parse_mode=ParseMode.MARKDOWN_V2,
                 ),
             )
             for hawker in filtered_hawkers
@@ -80,8 +102,7 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
                 title="No results found",
                 description="Kindly refine your search query",
                 input_message_content=InputTextMessageContent(
-                    f"Search",
-                    parse_mode=ParseMode.MARKDOWN_V2
+                    f"Search", parse_mode=ParseMode.MARKDOWN_V2
                 ),
             )
         ]
@@ -91,27 +112,48 @@ async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 
 async def cleaning_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     current_date = datetime.now().date()
-    current_cleaning, _, last_modified_date = get_closed_hawkers(current_date, current_date)
+    current_cleaning, _, last_modified_date = get_closed_hawkers(
+        current_date, current_date
+    )
     message = f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
     message += format_hawker_data(current_cleaning, "cleaning")
-    message += "_No hawkers are cleaning today, yay\!_\n\n" if len(current_cleaning) == 0 else ""
+    message += (
+        "_No hawkers are cleaning today, yay\!_\n\n"
+        if len(current_cleaning) == 0
+        else ""
+    )
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
-async def otherworks_hawkers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+
+async def otherworks_hawkers(
+    update: Update, context: ContextTypes.DEFAULT_TYPE
+) -> None:
     current_date = datetime.now().date()
-    _, current_other_works, last_modified_date = get_closed_hawkers(current_date, current_date)
+    _, current_other_works, last_modified_date = get_closed_hawkers(
+        current_date, current_date
+    )
     message = f"🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
-    message += "_No hawkers are closed for other works today, yay\!_\n\n" if len(current_other_works) == 0 else ""
+    message += (
+        "_No hawkers are closed for other works today, yay\!_\n\n"
+        if len(current_other_works) == 0
+        else ""
+    )
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
 
-async def closed_hawkers_today(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def closed_hawkers_today(
+    update: Update, context: ContextTypes.DEFAULT_TYPE
+) -> None:
     current_date = datetime.now().date()
-    formatted_date = datetime(current_date.year, current_date.month, current_date.day).strftime('%d %b %Y')
-    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date, current_date)
+    formatted_date = datetime(
+        current_date.year, current_date.month, current_date.day
+    ).strftime("%d %b %Y")
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(
+        current_date, current_date
+    )
     if len(current_cleaning) > 25:
         message = f"_Closed Hawkers for {formatted_date}_\n\n"
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
@@ -124,19 +166,33 @@ async def closed_hawkers_today(update: Update, context: ContextTypes.DEFAULT_TYP
         message = f"_Closed Hawkers for {formatted_date}_\n\n"
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
         message += format_hawker_data(current_cleaning, "cleaning")
-        message += "_No hawkers are cleaning today, yay\!_\n" if len(current_cleaning) == 0 else ""
+        message += (
+            "_No hawkers are cleaning today, yay\!_\n"
+            if len(current_cleaning) == 0
+            else ""
+        )
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
-    message += "_No hawkers are closed for other works today, yay\!_" if len(current_other_works) == 0 else ""
+    message += (
+        "_No hawkers are closed for other works today, yay\!_"
+        if len(current_other_works) == 0
+        else ""
+    )
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
 
-async def closed_hawkers_tomorrow(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def closed_hawkers_tomorrow(
+    update: Update, context: ContextTypes.DEFAULT_TYPE
+) -> None:
     current_date = datetime.now().date()
     tomorrow = current_date + timedelta(days=1)
-    formatted_date = datetime(tomorrow.year, tomorrow.month, tomorrow.day).strftime('%d %b %Y')
-    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(tomorrow, tomorrow)
+    formatted_date = datetime(tomorrow.year, tomorrow.month, tomorrow.day).strftime(
+        "%d %b %Y"
+    )
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(
+        tomorrow, tomorrow
+    )
     if len(current_cleaning) > 25:
         message = f"_Closed Hawkers for {formatted_date}_\n\n"
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
@@ -149,21 +205,40 @@ async def closed_hawkers_tomorrow(update: Update, context: ContextTypes.DEFAULT_
         message = f"_Closed Hawkers for {formatted_date}_\n\n"
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
         message += format_hawker_data(current_cleaning, "cleaning")
-        message += "_No hawkers are cleaning tomorrow, yay\!_\n" if len(current_cleaning) == 0 else ""
+        message += (
+            "_No hawkers are cleaning tomorrow, yay\!_\n"
+            if len(current_cleaning) == 0
+            else ""
+        )
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
-    message += "_No hawkers are closed for other works tomorrow, yay\!_" if len(current_other_works) == 0 else ""
+    message += (
+        "_No hawkers are closed for other works tomorrow, yay\!_"
+        if len(current_other_works) == 0
+        else ""
+    )
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
 
-async def closed_hawkers_this_week(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+
+async def closed_hawkers_this_week(
+    update: Update, context: ContextTypes.DEFAULT_TYPE
+) -> None:
     current_date = datetime.now().date()
     end_date = current_date + timedelta(weeks=1)
-    formatted_current_date = datetime(current_date.year, current_date.month, current_date.day).strftime('%d %b %Y')
-    formatted_end_date = datetime(end_date.year, end_date.month, end_date.day).strftime('%d %b %Y')
-    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(current_date, end_date)
+    formatted_current_date = datetime(
+        current_date.year, current_date.month, current_date.day
+    ).strftime("%d %b %Y")
+    formatted_end_date = datetime(end_date.year, end_date.month, end_date.day).strftime(
+        "%d %b %Y"
+    )
+    current_cleaning, current_other_works, last_modified_date = get_closed_hawkers(
+        current_date, end_date
+    )
     if len(current_cleaning) > 25:
-        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message = (
+            f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        )
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
         message += format_hawker_data(current_cleaning[:25], "cleaning")
         await update.message.reply_text(message, parse_mode="MarkdownV2")
@@ -171,15 +246,26 @@ async def closed_hawkers_this_week(update: Update, context: ContextTypes.DEFAULT
         await update.message.reply_text(message, parse_mode="MarkdownV2")
         message = ""
     else:
-        message = f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        message = (
+            f"_Closed Hawkers for {formatted_current_date} to {formatted_end_date}_\n\n"
+        )
         message += f"🧹 *CLEANING \({len(current_cleaning)}\)*\n\n"
         message += format_hawker_data(current_cleaning, "cleaning")
-        message += "_No hawkers are cleaning this week, yay\!_\n" if len(current_cleaning) == 0 else ""
+        message += (
+            "_No hawkers are cleaning this week, yay\!_\n"
+            if len(current_cleaning) == 0
+            else ""
+        )
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
-    message += "_No hawkers are closed for other works this week, yay\!_" if len(current_other_works) == 0 else ""
+    message += (
+        "_No hawkers are closed for other works this week, yay\!_"
+        if len(current_other_works) == 0
+        else ""
+    )
     message += f"_updated {clean(last_modified_date)[:12]}_"
     await update.message.reply_text(message, parse_mode="MarkdownV2")
+
 
 async def nearest_hawkers(update, context):
     keyboard = [[KeyboardButton(text="📍 Share Location", request_location=True)]]
@@ -190,24 +276,32 @@ async def nearest_hawkers(update, context):
         ),
     )
 
+
 async def search(update, context):
     keyboard = [
-        [InlineKeyboardButton("Search", switch_inline_query_current_chat='')],
+        [InlineKeyboardButton("Search", switch_inline_query_current_chat="")],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text("Please search using this button:", reply_markup=reply_markup)
+    await update.message.reply_text(
+        "Please search using this button:", reply_markup=reply_markup
+    )
+
 
 async def hawker_info(update, context):
     serial_no = context.args[0]
     hawker_result = search_hawker(serial_no=serial_no)
     if hawker_result:
         hawker_result = hawker_result[0]
-        message = ''
-        message += f"📍 *[{clean(hawker_result['name'])}]({hawker_result['photourl']} 🗺)*\n"
+        message = ""
+        message += (
+            f"📍 *[{clean(hawker_result['name'])}]({hawker_result['photourl']} 🗺)*\n"
+        )
         message += f"✅ *Status:* {clean(hawker_result['status'])}\n"
         message += f"🗺️ *Address:* {clean(hawker_result['address_myenv'])}\n"
         message += f"📝 *Description:*\n{clean(hawker_result['description_myenv'])}\n"
-        message += f"🐟 *Number of Market Stalls:* {hawker_result['no_of_market_stalls']}\n"
+        message += (
+            f"🐟 *Number of Market Stalls:* {hawker_result['no_of_market_stalls']}\n"
+        )
         message += f"🍽 *Number of Food Stalls:* {hawker_result['no_of_food_stalls']}\n"
         message += "🧹 *Cleaning Dates:*\n"
         message += f"    \- Q1: {hawker_result['q1_cleaningstartdate']} to {hawker_result['q1_cleaningenddate']}\n"
@@ -218,13 +312,20 @@ async def hawker_info(update, context):
         message += f"🗺 [Google Maps 3D]({hawker_result['google_3d_view']})\n"
         await update.message.reply_text(message, parse_mode="MarkdownV2")
     else:
-        await update.message.reply_text("Hawker not found, invalid serial number\?", parse_mode="MarkdownV2")
+        await update.message.reply_text(
+            "Hawker not found, invalid serial number\?", parse_mode="MarkdownV2"
+        )
+
 
 async def handle_location(update, context):
     user_loc = update.message.location
     output_string = ""
     if user_loc:
-        nearest_hawkers, last_modified_date = get_nearest_hawkers(user_lat=user_loc["latitude"], user_lon=user_loc["longitude"], num_hawkers=10)
+        nearest_hawkers, last_modified_date = get_nearest_hawkers(
+            user_lat=user_loc["latitude"],
+            user_lon=user_loc["longitude"],
+            num_hawkers=10,
+        )
         output_string += "*Closest 10 Hawkers Near You*\n\n"
         for r in nearest_hawkers:
             output_string += f"*📍[{clean(r['name'])}]({clean(r['photourl'])}) \(\~{clean(str(round(r['distance'], 2)))}km\)*\n{r['address_myenv']}\n🍽 Stalls: {r['no_of_food_stalls']}   🐟 Stalls: {r['no_of_market_stalls']}\n🗺 {clean(r['google_3d_view'])}\n\n"
@@ -253,7 +354,6 @@ def main() -> None:
 
     application.add_handler(InlineQueryHandler(inline_query))
     application.add_handler(MessageHandler(filters.LOCATION, handle_location))
-    
 
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
