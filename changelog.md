@@ -1,3 +1,15 @@
+## 2023-10-13
+
+
+🔵 **Changed**: 14 Bedok North Street 1 Blk 216:
+  - q4_cleaningenddate: `19/12/2023` -> `18/12/2023`
+
+🔵 **Changed**: 25 Bukit Canberra Hawker Centre:
+  - q4_cleaningenddate: `7/12/2023` -> `5/12/2023`
+
+🔵 **Changed**: 27 Bukit Merah Lane 1 Blk 120 (Alexandra Village Food Centre):
+  - q4_cleaningenddate: `4/12/2023` -> `5/12/2023`
+
 ## 2023-10-06
 
 
