@@ -1,3 +1,10 @@
+## 2023-10-23
+
+
+🔵 **Changed**: 78 Newton Food Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `27/11/2023`
+  - q4_cleaningenddate: `5/12/2023` -> `28/11/2023`
+
 ## 2023-10-13
 
 
