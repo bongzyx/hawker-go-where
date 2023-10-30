@@ -10,7 +10,7 @@ DATASET_ID = "d_bda4baa634dd1cc7a6c7cad5f19e2d68"
 API_METADATA_URL = (
     f"https://api-production.data.gov.sg/v2/public/api/datasets/{DATASET_ID}/metadata"
 )
-GENERATE_DOWNLOAD_LINK_URL = f"https://kjo15bc7zd.execute-api.ap-southeast-1.amazonaws.com/api/public/datasets/{DATASET_ID}/generate-download-link"
+GENERATE_DOWNLOAD_LINK_URL = f"https://api-production.data.gov.sg/api/public/datasets/{DATASET_ID}/generate-download-link"
 
 INVALID_DATES = ["TBC", "NA", "#N/A"]
 
