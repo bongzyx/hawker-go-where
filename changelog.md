@@ -1,3 +1,9 @@
+## 2023-11-03
+
+
+🔵 **Changed**: 69 Marine Terrace Blk 50A (50A Marine Terrace):
+  - q4_cleaningenddate: `21/12/2023` -> `19/12/2023`
+
 ## 2023-10-23
 
 
