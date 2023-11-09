@@ -1,3 +1,10 @@
+## 2023-11-09
+
+
+🔵 **Changed**: 24 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q4_cleaningstartdate: `20/11/2023` -> `TBC`
+  - q4_cleaningenddate: `21/11/2023` -> `TBC`
+
 ## 2023-11-03
 
 
