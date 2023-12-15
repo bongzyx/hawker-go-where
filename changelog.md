@@ -1,3 +1,17 @@
+## 2023-12-15
+
+
+🔵 **Changed**: 24 Buangkok Hawker Centre:
+  - name: `Buangkok Hawker Centre ` -> `Buangkok Hawker Centre`
+
+🔵 **Changed**: 86 Redhill Lane Blk 79 (Redhill Market):
+  - q2_cleaningstartdate: `17/6/2024` -> `10/6/2024`
+  - q2_cleaningenddate: `18/6/2024` -> `11/6/2024`
+
+🔵 **Changed**: 87 Redhill Lane Blk 85 (Redhill Food Centre):
+  - q2_cleaningstartdate: `17/6/2024` -> `10/6/2024`
+  - q2_cleaningenddate: `18/6/2024` -> `11/6/2024`
+
 ## 2023-12-07
 
 
