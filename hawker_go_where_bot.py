@@ -174,7 +174,7 @@ async def closed_hawkers_today(
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += (
-        "_No hawkers are closed for other works today, yay\!_"
+        "_No hawkers are closed for other works today, yay\!_\n\n"
         if len(current_other_works) == 0
         else ""
     )
@@ -213,7 +213,7 @@ async def closed_hawkers_tomorrow(
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += (
-        "_No hawkers are closed for other works tomorrow, yay\!_"
+        "_No hawkers are closed for other works tomorrow, yay\!_\n\n"
         if len(current_other_works) == 0
         else ""
     )
@@ -259,7 +259,7 @@ async def closed_hawkers_this_week(
     message += f"\n🛠 *RENOVATION \({len(current_other_works)}\)*\n\n"
     message += format_hawker_data(current_other_works, "other_works")
     message += (
-        "_No hawkers are closed for other works this week, yay\!_"
+        "_No hawkers are closed for other works this week, yay\!_\n\n"
         if len(current_other_works) == 0
         else ""
     )
