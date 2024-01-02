@@ -1,3 +1,484 @@
+## 2024-01-02
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - q4_cleaningstartdate: `TBC` -> `9/12/2024`
+  - q4_cleaningenddate: `TBC` -> `12/12/2024`
+
+🔵 **Changed**: 2 Aljunied Ave 2 Blk 117 (Blk 117 Aljunied Market and Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `10/12/2024`
+
+🔵 **Changed**: 3 Amoy Street Food Centre (Telok Ayer Food Centre):
+  - q4_cleaningstartdate: `9/12/2023` -> `14/12/2024`
+  - q4_cleaningenddate: `10/12/2023` -> `15/12/2024`
+
+🔵 **Changed**: 4 Ang Mo Kio Ave 1 Blk 226D (Kebun Baru Market and Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `23/12/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `23/12/2024`
+
+🔵 **Changed**: 5 Ang Mo Kio Ave 1 Blk 341 (Teck Ghee Court):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `22/11/2023` -> `27/11/2024`
+
+🔵 **Changed**: 6 Ang Mo Kio Ave 10 Blk 409 (Teck Ghee Square):
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 7 Ang Mo Kio Ave 10 Blk 453A (Chong Boon Market and Food Centre):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `22/11/2023` -> `27/11/2024`
+
+🔵 **Changed**: 8 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `TBC`
+  - q4_cleaningenddate: `20/12/2023` -> `TBC`
+
+🔵 **Changed**: 9 Ang Mo Kio Ave 4 Blk 160/162 (Mayflower Market):
+  - q4_cleaningstartdate: `6/11/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `8/11/2023` -> `18/12/2024`
+
+🔵 **Changed**: 10 Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market):
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `8/12/2023` -> `13/12/2024`
+
+🔵 **Changed**: 11 Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market):
+  - q4_cleaningstartdate: `20/11/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `21/11/2023` -> `3/12/2024`
+
+🔵 **Changed**: 12 Ang Mo Kio Street 22 Blk 226H (Kebun Baru Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `23/12/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `23/12/2024`
+
+🔵 **Changed**: 13 Bedok Food Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `4/12/2024`
+
+🔵 **Changed**: 14 Bedok North Street 1 Blk 216:
+  - q4_cleaningstartdate: `18/12/2023` -> `18/11/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `22/11/2024`
+
+🔵 **Changed**: 15 Bedok North Street 3 Blk 511 (Kaki Bukit 511 Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `4/12/2023` -> `16/12/2024`
+
+🔵 **Changed**: 16 Bedok North Street 3 Blk 538:
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `9/12/2024`
+
+🔵 **Changed**: 17 Bedok North Street 4 Blk 85 (85 Fengshan Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `8/12/2023` -> `6/12/2024`
+
+🔵 **Changed**: 18 Bedok Reservoir Road Blk 630:
+  - q4_cleaningstartdate: `20/11/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `20/11/2023` -> `9/12/2024`
+
+🔵 **Changed**: 19 Bedok South Road Blk 16:
+  - q4_cleaningstartdate: `TBC` -> `21/10/2024`
+  - q4_cleaningenddate: `TBC` -> `25/10/2024`
+
+🔵 **Changed**: 20 Bendemeer Road Blk 29 (Bendemeer Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `27/11/2024`
+
+🔵 **Changed**: 21 Beo Crescent Market:
+  - q4_cleaningstartdate: `4/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `16/12/2024`
+
+🔵 **Changed**: 22 Berseh Food Centre:
+  - q4_cleaningstartdate: `11/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `12/12/2023` -> `10/12/2024`
+
+🔵 **Changed**: 23 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - q4_cleaningstartdate: `18/12/2023` -> `23/12/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `24/12/2024`
+
+🔵 **Changed**: 24 Buangkok Hawker Centre:
+  - q4_cleaningstartdate: `TBC` -> `4/11/2024`
+  - q4_cleaningenddate: `TBC` -> `5/11/2024`
+
+🔵 **Changed**: 25 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q4_cleaningstartdate: `TBC` -> `2/12/2024`
+  - q4_cleaningenddate: `TBC` -> `3/12/2024`
+
+🔵 **Changed**: 26 Bukit Canberra Hawker Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 27 Bukit Merah Central Blk 163 (Bukit Merah Central Food Centre):
+  - q4_cleaningstartdate: `23/12/2023` -> `21/12/2024`
+  - q4_cleaningenddate: `24/12/2023` -> `22/12/2024`
+
+🔵 **Changed**: 28 Bukit Merah Lane 1 Blk 120 (Alexandra Village Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `10/12/2024`
+
+🔵 **Changed**: 29 Bukit Merah View Blk 115 (Blk 115 Bukit Merah View Market and Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 30 Bukit Panjang Hawker Centre and Market:
+  - q4_cleaningstartdate: `4/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 31 Bukit Timah Market:
+  - q4_cleaningstartdate: `20/11/2023` -> `TBC`
+  - q4_cleaningenddate: `20/11/2023` -> `TBC`
+
+🔵 **Changed**: 32 Cambridge Road Blk 41A (Pek Kio Market and Food Centre):
+  - q4_cleaningstartdate: `25/9/2023` -> `14/10/2024`
+  - q4_cleaningenddate: `25/9/2023` -> `14/10/2024`
+
+🔵 **Changed**: 33 Changi Village Blk 2 and 3:
+  - q4_cleaningstartdate: `9/10/2023` -> `7/10/2024`
+  - q4_cleaningenddate: `13/10/2023` -> `11/10/2024`
+
+🔵 **Changed**: 34 Chomp Chomp Food Centre:
+  - q4_cleaningstartdate: `18/12/2023` -> `23/12/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `23/12/2024`
+
+🔵 **Changed**: 35 Ci Yuan Hawker Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `4/12/2023` -> `3/12/2024`
+
+🔵 **Changed**: 36 Circuit Road Blk 79/79A:
+  - q4_cleaningstartdate: `11/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `12/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 37 Circuit Road Blk 80 (80 Circuit Road Market and Food Centre):
+  - q4_cleaningstartdate: `16/10/2023` -> `14/10/2024`
+  - q4_cleaningenddate: `16/10/2023` -> `14/10/2024`
+
+🔵 **Changed**: 38 Circuit Road Blk 89:
+  - q4_cleaningstartdate: `4/12/2023` -> `24/12/2024`
+  - q4_cleaningenddate: `4/12/2023` -> `24/12/2024`
+
+🔵 **Changed**: 39 Clementi Ave 2 Blk 353 (Clementi Ave 2 Market/Cooked Food Centre):
+  - q4_cleaningstartdate: `6/11/2023` -> `18/11/2024`
+  - q4_cleaningenddate: `7/11/2023` -> `19/11/2024`
+
+🔵 **Changed**: 40 Clementi Ave 3 Blk 448:
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `7/12/2023` -> `5/12/2024`
+
+🔵 **Changed**: 41 Clementi West Street 2 Blk 726:
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `21/11/2023` -> `26/11/2024`
+
+🔵 **Changed**: 42 Commonwealth Crescent Market:
+  - q4_cleaningstartdate: `TBC` -> `25/11/2024`
+  - q4_cleaningenddate: `TBC` -> `27/11/2024`
+
+🔵 **Changed**: 43 Dunman Food Centre:
+  - q4_cleaningstartdate: `30/10/2023` -> `28/10/2024`
+  - q4_cleaningenddate: `30/10/2023` -> `28/10/2024`
+
+🔵 **Changed**: 44 East Coast Lagoon Food Village:
+  - q4_cleaningstartdate: `16/10/2023` -> `14/10/2024`
+  - q4_cleaningenddate: `18/10/2023` -> `16/10/2024`
+
+🔵 **Changed**: 45 Empress Road Blk 7 (Empress Road Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `4/12/2023` -> `27/11/2024`
+
+🔵 **Changed**: 46 Eunos Crescent Blk 4A:
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `3/12/2024`
+
+🔵 **Changed**: 47 Fernvale Hawker Centre and Market:
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 48 Geylang Bahru Blk 69 (Blk 69 Geylang Bahru Market and Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 49 Geylang Serai Market:
+  - q4_cleaningstartdate: `11/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `14/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 50 Ghim Moh Road Blk 20:
+  - q4_cleaningstartdate: `18/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `4/12/2024`
+
+🔵 **Changed**: 51 Golden Mile Food Centre:
+  - q4_cleaningstartdate: `TBC` -> `21/10/2024`
+  - q4_cleaningenddate: `TBC` -> `24/10/2024`
+
+🔵 **Changed**: 52 Haig Road Blk 13/14 (Haig Road Market and Cooked Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `18/12/2024`
+
+🔵 **Changed**: 53 Havelock Road Blk 22A/B (Havelock Road Cooked Food Centre):
+  - q4_cleaningstartdate: `27/11/2023` -> `4/11/2024`
+  - q4_cleaningenddate: `27/11/2023` -> `4/11/2024`
+
+🔵 **Changed**: 54 Holland Drive Blk 44 (Holland Drive Market and Food Centre):
+  - q4_cleaningstartdate: `TBC` -> `9/12/2024`
+  - q4_cleaningenddate: `TBC` -> `10/12/2024`
+
+🔵 **Changed**: 55 Holland Village Market and Food Centre:
+  - q4_cleaningstartdate: `TBC` -> `2/12/2024`
+  - q4_cleaningenddate: `TBC` -> `4/12/2024`
+
+🔵 **Changed**: 56 Hougang Ave 1 Blk 105 (Hougang 105 Hainanese Village Centre):
+  - q4_cleaningstartdate: `TBC` -> `9/12/2024`
+  - q4_cleaningenddate: `TBC` -> `13/12/2024`
+
+🔵 **Changed**: 57 Hougang Street 21 Blk 209 (Kovan Hougang Market and Food Centre):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `24/11/2023` -> `26/11/2024`
+
+🔵 **Changed**: 58 Jalan Batu Blk 4A (Blk 4A Jalan Batu Hawker Centre/Market):
+  - q4_cleaningstartdate: `20/11/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `21/11/2023` -> `3/12/2024`
+
+🔵 **Changed**: 59 Jalan Bukit Merah Blk 112 (Blk 112 Jalan Bukit Merah Market and Food Centre):
+  - q4_cleaningstartdate: `2/10/2023` -> `7/10/2024`
+  - q4_cleaningenddate: `2/10/2023` -> `7/10/2024`
+
+🔵 **Changed**: 60 Jalan Bukit Merah Blk 6 (ABC Brickworks Market/Food Centre):
+  - q4_cleaningstartdate: `11/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `12/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 61 Jalan Kukoh Blk 1 (Kukoh 21 Food Centre):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `20/11/2023` -> `25/11/2024`
+
+🔵 **Changed**: 62 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 63 Jurong East Street 24 Blk 254 (Yuhua Village Market and Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `10/12/2024`
+
+🔵 **Changed**: 64 Jurong West Hawker Centre:
+  - q4_cleaningstartdate: `TBC` -> `16/12/2024`
+  - q4_cleaningenddate: `TBC` -> `17/12/2024`
+
+🔵 **Changed**: 65 Jurong West Street 52 Blk 505:
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 66 Kallang Estate Fresh Market and Food Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 67 Kampung Admiralty Hawker Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 68 Margaret Drive Hawker Centre:
+  - q4_cleaningstartdate: `6/11/2023` -> `4/11/2024`
+  - q4_cleaningenddate: `6/11/2023` -> `4/11/2024`
+
+🔵 **Changed**: 69 Marine Parade Central Blk 84 (84 Marine Parade Central Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `7/12/2023` -> `10/12/2024`
+
+🔵 **Changed**: 70 Marine Terrace Blk 50A (50A Marine Terrace):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `19/12/2024`
+
+🔵 **Changed**: 71 Market Street Hawker Centre:
+  - q4_cleaningstartdate: `23/12/2023` -> `28/12/2024`
+  - q4_cleaningenddate: `23/12/2023` -> `29/12/2024`
+
+🔵 **Changed**: 72 Marsiling Lane Blk 20/21:
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 73 Marsiling Mall Hawker Centre:
+  - q4_cleaningstartdate: `18/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `4/12/2024`
+
+🔵 **Changed**: 74 Maxwell Food Centre (Kim Hua Market):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `16/12/2024`
+
+🔵 **Changed**: 75 Mei Chin Road Blk 159 (Mei Chin Road Market):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 76 New Market Road Blk 32 (People's Park Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `3/12/2024`
+
+🔵 **Changed**: 77 New Upper Changi Road Blk 208B (Bedok Interchange Hawker Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `23/12/2024`
+  - q4_cleaningenddate: `22/12/2023` -> `24/12/2024`
+
+🔵 **Changed**: 78 New Upper Changi Road Blk 58:
+  - q4_cleaningstartdate: `TBC` -> `9/12/2024`
+  - q4_cleaningenddate: `TBC` -> `13/12/2024`
+
+🔵 **Changed**: 79 Newton Food Centre:
+  - q4_cleaningstartdate: `27/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `28/11/2023` -> `26/11/2024`
+
+🔵 **Changed**: 80 North Bridge Road Market:
+  - q4_cleaningstartdate: `TBC` -> `18/11/2024`
+  - q4_cleaningenddate: `TBC` -> `18/11/2024`
+
+🔵 **Changed**: 81 Old Airport Road Blk 51 (51 Old Airport Road Food Centre and Shopping Mall):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `21/12/2023` -> `19/12/2024`
+
+🔵 **Changed**: 82 One Punggol Hawker Centre:
+  - q4_cleaningstartdate: `2/10/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `3/10/2023` -> `10/12/2024`
+
+🔵 **Changed**: 83 Pasir Panjang Food Centre:
+  - q4_cleaningstartdate: `27/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `27/11/2023` -> `25/11/2024`
+
+🔵 **Changed**: 84 Pasir Ris Central Hawker Centre:
+  - q4_cleaningstartdate: `20/11/2023` -> `18/11/2024`
+  - q4_cleaningenddate: `22/11/2023` -> `20/11/2024`
+
+🔵 **Changed**: 85 Queen Street Blk 270 (Albert Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `26/11/2024`
+
+🔵 **Changed**: 86 Redhill Lane Blk 79 (Redhill Market):
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `3/12/2024`
+
+🔵 **Changed**: 87 Redhill Lane Blk 85 (Redhill Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `3/12/2024`
+
+🔵 **Changed**: 88 Sembawang Hills Food Centre (Jalan Leban Food Centre):
+  - q4_cleaningstartdate: `9/10/2023` -> `14/10/2024`
+  - q4_cleaningenddate: `9/10/2023` -> `14/10/2024`
+
+🔵 **Changed**: 89 Senja Hawker Centre:
+  - q4_cleaningstartdate: `11/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `13/12/2023` -> `4/12/2024`
+
+🔵 **Changed**: 90 Serangoon Garden Market:
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `4/12/2023` -> `2/12/2024`
+
+🔵 **Changed**: 91 Shunfu Road Blk 320 (Shunfu Mart):
+  - q4_cleaningstartdate: `11/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `11/12/2023` -> `16/12/2024`
+
+🔵 **Changed**: 92 Sims Place Blk 49 (Sims Vista Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 93 Smith Street Blk 335 (Chinatown Complex Market):
+  - q4_cleaningstartdate: `20/11/2023` -> `18/11/2024`
+  - q4_cleaningenddate: `21/11/2023` -> `19/11/2024`
+
+🔵 **Changed**: 94 Taman Jurong Market and Food Centre:
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `22/11/2023` -> `27/11/2024`
+
+🔵 **Changed**: 95 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q1_cleaningstartdate: `15/1/2024` -> `11/3/2024`
+  - q1_cleaningenddate: `16/1/2024` -> `13/3/2024`
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 96 Tanglin Halt Market:
+  - q4_cleaningstartdate: `11/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `13/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 97 Tanjong Pagar Plaza Blk 6 (Blk 6 Tanjong Pagar Plaza Market and Food Centre):
+  - q4_cleaningstartdate: `14/12/2023` -> `19/12/2024`
+  - q4_cleaningenddate: `16/12/2023` -> `21/12/2024`
+
+🔵 **Changed**: 98 Teban Gardens Road Blk 37A (Teban Gardens Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `18/12/2024`
+
+🔵 **Changed**: 99 Telok Blangah Crescent Blk 11 (11 Telok Blangah Crescent Market and Food Centre):
+  - q4_cleaningstartdate: `4/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 100 Telok Blangah Drive Blk 79 (Telok Blangah Food Centre):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `20/11/2023` -> `25/11/2024`
+
+🔵 **Changed**: 101 Telok Blangah Drive Blk 82 (Telok Blangah Market):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `20/11/2023` -> `25/11/2024`
+
+🔵 **Changed**: 102 Telok Blangah Rise Blk 36 (Telok Blangah Rise Market):
+  - q4_cleaningstartdate: `9/10/2023` -> `7/10/2024`
+  - q4_cleaningenddate: `9/10/2023` -> `7/10/2024`
+
+🔵 **Changed**: 103 The Hawker Centre @ Our Tampines Hub:
+  - q4_cleaningstartdate: `3/10/2023` -> `5/11/2024`
+  - q4_cleaningenddate: `4/10/2023` -> `6/11/2024`
+
+🔵 **Changed**: 104 Tiong Bahru Market:
+  - q4_cleaningstartdate: `6/11/2023` -> `11/11/2024`
+  - q4_cleaningenddate: `6/11/2023` -> `11/11/2024`
+
+🔵 **Changed**: 105 Toa Payoh Lorong 1 Blk 127 (Toa Payoh West Market and Food Court):
+  - q4_cleaningstartdate: `11/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `11/12/2023` -> `16/12/2024`
+
+🔵 **Changed**: 106 Toa Payoh Lorong 4 Blk 74 (Toa Payoh Vista Market):
+  - q4_cleaningstartdate: `6/11/2023` -> `4/11/2024`
+  - q4_cleaningenddate: `9/11/2023` -> `7/11/2024`
+
+🔵 **Changed**: 107 Toa Payoh Lorong 4 Blk 93:
+  - q4_cleaningstartdate: `30/10/2023` -> `18/11/2024`
+  - q4_cleaningenddate: `30/10/2023` -> `18/11/2024`
+
+🔵 **Changed**: 108 Toa Payoh Lorong 5 Blk 75:
+  - q4_cleaningstartdate: `4/12/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `6/12/2023` -> `27/11/2024`
+
+🔵 **Changed**: 109 Toa Payoh Lorong 7 Blk 22 (Kim Keat Palm Market and Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `21/12/2023` -> `12/12/2024`
+
+🔵 **Changed**: 110 Toa Payoh Lorong 8 Blk 210:
+  - q4_cleaningstartdate: `23/10/2023` -> `7/10/2024`
+  - q4_cleaningenddate: `25/10/2023` -> `9/10/2024`
+
+🔵 **Changed**: 111 Upper Boon Keng Road Blk 17 (Blk 17 Upper Boon Keng Market and Food Centre):
+  - q4_cleaningstartdate: `TBC` -> `25/11/2024`
+  - q4_cleaningenddate: `TBC` -> `27/11/2024`
+
+🔵 **Changed**: 112 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `18/12/2024`
+
+🔵 **Changed**: 113 West Coast Drive Blk 502 (Ayer Rajah Market):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `20/12/2023` -> `11/12/2024`
+
+🔵 **Changed**: 114 West Coast Drive Blk 503 (Ayer Rajah Food Centre):
+  - q4_cleaningstartdate: `18/12/2023` -> `9/12/2024`
+  - q4_cleaningenddate: `21/12/2023` -> `12/12/2024`
+
+🔵 **Changed**: 115 Whampoa Drive Blk 90 (Whampoa Drive Makan Place/Whampoa Food Centre):
+  - q4_cleaningstartdate: `19/12/2023` -> `17/12/2024`
+  - q4_cleaningenddate: `19/12/2023` -> `17/12/2024`
+
+🔵 **Changed**: 116 Whampoa Drive Blk 91/92 (Whampoa Drive Makan Place/Whampoa Market):
+  - q4_cleaningstartdate: `18/12/2023` -> `16/12/2024`
+  - q4_cleaningenddate: `18/12/2023` -> `16/12/2024`
+
+🔵 **Changed**: 117 Yishun Park Hawker Centre:
+  - q4_cleaningstartdate: `4/12/2023` -> `2/12/2024`
+  - q4_cleaningenddate: `5/12/2023` -> `3/12/2024`
+
+🔵 **Changed**: 118 Yishun Ring Road Blk 104/105 (Chong Pang Market and Food Centre):
+  - q4_cleaningstartdate: `20/11/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `20/11/2023` -> `26/11/2024`
+
+🔵 **Changed**: 119 Zion Riverside Food Centre:
+  - q4_cleaningstartdate: `26/12/2023` -> `25/11/2024`
+  - q4_cleaningenddate: `27/12/2023` -> `26/11/2024`
+
 ## 2023-12-15
 
 
