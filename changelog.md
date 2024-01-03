@@ -1,3 +1,110 @@
+## 2024-01-03
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - other_works_startdate: `1/10/2023` -> `NA`
+  - other_works_enddate: `31/12/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 2 Aljunied Ave 2 Blk 117 (Blk 117 Aljunied Market and Food Centre):
+  - other_works_startdate: `1/3/2023` -> `NA`
+  - other_works_enddate: `30/6/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 9 Ang Mo Kio Ave 4 Blk 160/162 (Mayflower Market):
+  - other_works_startdate: `1/3/2023` -> `NA`
+  - other_works_enddate: `30/4/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 18 Bedok Reservoir Road Blk 630:
+  - other_works_startdate: `1/5/2023` -> `NA`
+  - other_works_enddate: `31/7/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 24 Buangkok Hawker Centre:
+  - other_works_startdate: `29/11/2023` -> `NA`
+  - other_works_enddate: `29/11/2023` -> `NA`
+  - remarks_other_works: `This hawker centre will commence operations on 30 Nov 2023. ` -> `nil`
+
+🔵 **Changed**: 25 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - other_works_startdate: `3/7/2023` -> `NA`
+  - other_works_enddate: `30/9/2023` -> `NA`
+  - remarks_other_works: `Level 2 closed for Repairs and Redecoration (R&R) work from 3 Jul to 31 Aug 2023. Level 1 closed for R&R work from 3 Jul 2023 to 30 Sep 2023.` -> `nil`
+
+🔵 **Changed**: 27 Bukit Merah Central Blk 163 (Bukit Merah Central Food Centre):
+  - other_works_startdate: `1/3/2023` -> `NA`
+  - other_works_enddate: `2/4/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 36 Circuit Road Blk 79/79A:
+  - remarks_q4: `Blk 79 will be closed on 11 Dec 2023 while Blk 79A will be closed on 12 Dec 2023.` -> `Blk 79 closed on 16 Dec 2024 Blk 79A closed on 17 Dec 2024`
+
+🔵 **Changed**: 42 Commonwealth Crescent Market:
+  - other_works_startdate: `16/10/2023` -> `NA`
+  - other_works_enddate: `31/12/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 54 Holland Drive Blk 44 (Holland Drive Market and Food Centre):
+  - other_works_startdate: `1/3/2023` -> `NA`
+  - other_works_enddate: `30/4/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 55 Holland Village Market and Food Centre:
+  - other_works_startdate: `1/5/2023` -> `NA`
+  - other_works_enddate: `31/7/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 56 Hougang Ave 1 Blk 105 (Hougang 105 Hainanese Village Centre):
+  - other_works_startdate: `1/9/2023` -> `NA`
+  - other_works_enddate: `30/11/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 70 Marine Terrace Blk 50A (50A Marine Terrace):
+  - other_works_startdate: `3/7/2023` -> `NA`
+  - other_works_enddate: `2/10/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 74 Maxwell Food Centre (Kim Hua Market):
+  - q1_cleaningstartdate: `18/3/2024` -> `25/3/2024`
+  - q1_cleaningenddate: `18/3/2024` -> `25/3/2024`
+  - q4_cleaningstartdate: `16/12/2024` -> `9/12/2024`
+  - q4_cleaningenddate: `16/12/2024` -> `9/12/2024`
+
+🔵 **Changed**: 76 New Market Road Blk 32 (People's Park Food Centre):
+  - other_works_startdate: `1/4/2023` -> `NA`
+  - other_works_enddate: `30/6/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 78 New Upper Changi Road Blk 58:
+  - other_works_startdate: `2/10/2023` -> `NA`
+  - other_works_enddate: `15/12/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 79 Newton Food Centre:
+  - other_works_startdate: `1/11/2022` -> `NA`
+  - other_works_enddate: `31/1/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 80 North Bridge Road Market:
+  - other_works_startdate: `15/9/2023` -> `NA`
+  - other_works_enddate: `14/12/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 88 Sembawang Hills Food Centre (Jalan Leban Food Centre):
+  - other_works_startdate: `1/2/2023` -> `NA`
+  - other_works_enddate: `30/4/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 107 Toa Payoh Lorong 4 Blk 93:
+  - other_works_startdate: `26/6/2023` -> `NA`
+  - other_works_enddate: `23/8/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 111 Upper Boon Keng Road Blk 17 (Blk 17 Upper Boon Keng Market and Food Centre):
+  - other_works_startdate: `4/9/2023` -> `NA`
+  - other_works_enddate: `20/11/2023` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
 ## 2024-01-02
 
 
