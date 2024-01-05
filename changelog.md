@@ -1,3 +1,28 @@
+## 2024-01-05
+
+
+🔵 **Changed**: 62 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - q1_cleaningstartdate: `11/3/2024` -> `26/2/2024`
+  - q1_cleaningenddate: `12/3/2024` -> `27/2/2024`
+  - q2_cleaningstartdate: `24/6/2024` -> `TBC`
+  - q2_cleaningenddate: `25/6/2024` -> `TBC`
+
+🔵 **Changed**: 63 Jurong East Street 24 Blk 254 (Yuhua Village Market and Food Centre):
+  - q2_cleaningstartdate: `10/6/2024` -> `TBC`
+  - q2_cleaningenddate: `12/6/2024` -> `TBC`
+  - q3_cleaningstartdate: `9/9/2024` -> `12/8/2024`
+  - q3_cleaningenddate: `10/9/2024` -> `14/8/2024`
+
+🔵 **Changed**: 95 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q2_cleaningstartdate: `15/4/2024` -> `24/6/2024`
+  - q2_cleaningenddate: `16/4/2024` -> `26/6/2024`
+  - q3_cleaningstartdate: `22/7/2024` -> `23/9/2024`
+  - q3_cleaningenddate: `23/7/2024` -> `26/9/2024`
+
+🔵 **Changed**: 99 Telok Blangah Crescent Blk 11 (11 Telok Blangah Crescent Market and Food Centre):
+  - q2_cleaningstartdate: `17/6/2024` -> `TBC`
+  - q2_cleaningenddate: `18/6/2024` -> `TBC`
+
 ## 2024-01-03
 
 
