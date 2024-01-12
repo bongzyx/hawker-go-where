@@ -1,3 +1,12 @@
+## 2024-01-12
+
+
+🔵 **Changed**: 86 Redhill Lane Blk 79 (Redhill Market):
+  - q1_cleaningenddate: `5/3/2024` -> `6/3/2024`
+
+🔵 **Changed**: 87 Redhill Lane Blk 85 (Redhill Food Centre):
+  - q1_cleaningenddate: `5/3/2024` -> `6/3/2024`
+
 <details>
 <summary>2024-01-05</summary>
 
