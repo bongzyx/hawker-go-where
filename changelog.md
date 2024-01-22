@@ -1,3 +1,29 @@
+## 2024-01-22
+
+
+🔵 **Changed**: 7 Ang Mo Kio Ave 10 Blk 453A (Chong Boon Market and Food Centre):
+  - q1_cleaningstartdate: `26/2/2024` -> `TBC`
+  - q1_cleaningenddate: `27/2/2024` -> `TBC`
+
+🔵 **Changed**: 23 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - q1_cleaningstartdate: `25/3/2024` -> `18/3/2024`
+  - q1_cleaningenddate: `26/3/2024` -> `19/3/2024`
+  - q2_cleaningstartdate: `TBC` -> `1/7/2024`
+  - q2_cleaningenddate: `TBC` -> `2/7/2024`
+  - q3_cleaningenddate: `24/9/2024` -> `26/9/2024`
+  - q4_cleaningstartdate: `23/12/2024` -> `9/12/2024`
+  - q4_cleaningenddate: `24/12/2024` -> `10/12/2024`
+
+🔵 **Changed**: 62 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - other_works_startdate: `NA` -> `15/4/2024`
+  - other_works_enddate: `NA` -> `15/7/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 99 Telok Blangah Crescent Blk 11 (11 Telok Blangah Crescent Market and Food Centre):
+  - other_works_startdate: `NA` -> `1/5/2024`
+  - other_works_enddate: `NA` -> `30/6/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2024-01-12
 
 
