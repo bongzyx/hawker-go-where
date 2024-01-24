@@ -1,3 +1,25 @@
+## 2024-01-24
+
+
+🔵 **Changed**: 8 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - other_works_startdate: `NA` -> `01/05/2024`
+  - other_works_enddate: `NA` -> `31/12/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 112 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - q2_cleaningstartdate: `24/6/2024` -> `1/7/2024`
+  - q2_cleaningenddate: `25/6/2024` -> `2/7/2024`
+  - q3_cleaningstartdate: `23/9/2024` -> `30/9/2024`
+  - q3_cleaningenddate: `24/9/2024` -> `1/10/2024`
+
+🔵 **Changed**: 114 West Coast Drive Blk 503 (Ayer Rajah Food Centre):
+  - q1_cleaningstartdate: `11/3/2024` -> `9/4/2024`
+  - q1_cleaningenddate: `12/3/2024` -> `9/4/2024`
+
+🔵 **Changed**: 117 Yishun Park Hawker Centre:
+  - q1_cleaningstartdate: `4/3/2024` -> `26/2/2024`
+  - q1_cleaningenddate: `5/3/2024` -> `27/2/2024`
+
 ## 2024-01-22
 
 
