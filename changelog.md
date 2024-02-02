@@ -1,3 +1,40 @@
+## 2024-02-02
+
+
+🔵 **Changed**: 4 Ang Mo Kio Ave 1 Blk 226D (Kebun Baru Market and Food Centre):
+  - other_works_startdate: `NA` -> `1/4/2024`
+  - other_works_enddate: `NA` -> `31/5/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 7 Ang Mo Kio Ave 10 Blk 453A (Chong Boon Market and Food Centre):
+  - q2_cleaningstartdate: `27/5/2024` -> `TBC`
+  - q2_cleaningenddate: `28/5/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `4/3/2024`
+  - other_works_enddate: `NA` -> `23/5/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 8 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - other_works_startdate: `01/05/2024` -> `NA`
+  - other_works_enddate: `31/12/2024` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
+🔵 **Changed**: 12 Ang Mo Kio Street 22 Blk 226H (Kebun Baru Food Centre):
+  - other_works_startdate: `NA` -> `1/4/2024`
+  - other_works_enddate: `NA` -> `31/5/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 113 West Coast Drive Blk 502 (Ayer Rajah Market):
+  - q1_cleaningstartdate: `11/3/2024` -> `TBC`
+  - q1_cleaningenddate: `11/3/2024` -> `TBC`
+  - q2_cleaningstartdate: `17/6/2024` -> `15/4/2024`
+  - q2_cleaningenddate: `17/6/2024` -> `16/4/2024`
+
+🔵 **Changed**: 114 West Coast Drive Blk 503 (Ayer Rajah Food Centre):
+  - q1_cleaningstartdate: `9/4/2024` -> `TBC`
+  - q1_cleaningenddate: `9/4/2024` -> `TBC`
+  - q2_cleaningstartdate: `17/6/2024` -> `15/4/2024`
+  - q2_cleaningenddate: `18/6/2024` -> `16/4/2024`
+
 ## 2024-01-24
 
 
