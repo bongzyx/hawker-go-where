@@ -1,3 +1,19 @@
+## 2024-02-08
+
+
+🔵 **Changed**: 10 Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market):
+  - q2_cleaningstartdate: `17/6/2024` -> `1/7/2024`
+  - q2_cleaningenddate: `19/6/2024` -> `3/7/2024`
+
+🔵 **Changed**: 50 Ghim Moh Road Blk 20:
+  - q1_cleaningstartdate: `4/3/2024` -> `TBC`
+  - q1_cleaningenddate: `5/3/2024` -> `TBC`
+  - q2_cleaningstartdate: `10/6/2024` -> `TBC`
+  - q2_cleaningenddate: `11/6/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `1/3/2024`
+  - other_works_enddate: `NA` -> `10/5/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2024-02-02
 
 
