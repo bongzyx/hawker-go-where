@@ -1,3 +1,20 @@
+## 2024-02-23
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - q1_cleaningstartdate: `18/3/2024` -> `4/3/2024`
+  - q1_cleaningenddate: `19/3/2024` -> `4/3/2024`
+  - q2_cleaningstartdate: `17/6/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `18/6/2024` -> `3/6/2024`
+  - q3_cleaningstartdate: `23/9/2024` -> `2/9/2024`
+  - q3_cleaningenddate: `24/9/2024` -> `2/9/2024`
+  - q4_cleaningstartdate: `9/12/2024` -> `2/12/2024`
+  - q4_cleaningenddate: `12/12/2024` -> `3/12/2024`
+
+🔵 **Changed**: 45 Empress Road Blk 7 (Empress Road Market and Food Centre):
+  - q2_cleaningstartdate: `3/6/2024` -> `27/5/2024`
+  - q2_cleaningenddate: `3/6/2024` -> `27/5/2024`
+
 ## 2024-02-16
 
 
