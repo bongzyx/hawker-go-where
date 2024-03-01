@@ -1,3 +1,22 @@
+## 2024-03-01
+
+
+🔵 **Changed**: 38 Circuit Road Blk 89:
+  - q1_cleaningstartdate: `4/3/2024` -> `TBC`
+  - q1_cleaningenddate: `4/3/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `1/4/2024`
+  - other_works_enddate: `NA` -> `30/6/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 46 Eunos Crescent Blk 4A:
+  - q1_cleaningstartdate: `11/3/2024` -> `15/4/2024`
+  - q1_cleaningenddate: `12/3/2024` -> `15/4/2024`
+
+🔵 **Changed**: 52 Haig Road Blk 13/14 (Haig Road Market and Cooked Food Centre):
+  - q1_cleaningstartdate: `18/3/2024` -> `15/4/2024`
+  - q1_cleaningenddate: `20/3/2024` -> `17/4/2024`
+  - remarks_q1: `nil` -> `Blk 13 closed on 15 Apr 2024; Blk 14 closed from 16  to 17 Apr 2024`
+
 ## 2024-02-23
 
 
