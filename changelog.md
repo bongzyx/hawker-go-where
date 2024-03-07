@@ -1,3 +1,1240 @@
+## 2024-03-07
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 2 Aljunied Ave 2 Blk 117 (Blk 117 Aljunied Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 3 Amoy Street Food Centre (Telok Ayer Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 4 Ang Mo Kio Ave 1 Blk 226D (Kebun Baru Market and Food Centre):
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 5 Ang Mo Kio Ave 1 Blk 341 (Teck Ghee Court):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 6 Ang Mo Kio Ave 10 Blk 409 (Teck Ghee Square):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 7 Ang Mo Kio Ave 10 Blk 453A (Chong Boon Market and Food Centre):
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 8 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - q3_cleaningstartdate: `TBC` -> ``
+  - q3_cleaningenddate: `TBC` -> ``
+  - remarks_q3: `nil` -> ``
+  - q4_cleaningstartdate: `TBC` -> ``
+  - q4_cleaningenddate: `TBC` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 9 Ang Mo Kio Ave 4 Blk 160/162 (Mayflower Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 10 Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 11 Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 12 Ang Mo Kio Street 22 Blk 226H (Kebun Baru Food Centre):
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 13 Bedok Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 14 Bedok North Street 1 Blk 216:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 15 Bedok North Street 3 Blk 511 (Kaki Bukit 511 Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 16 Bedok North Street 3 Blk 538:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 17 Bedok North Street 4 Blk 85 (85 Fengshan Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 18 Bedok Reservoir Road Blk 630:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 19 Bedok South Road Blk 16:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 20 Bendemeer Road Blk 29 (Bendemeer Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 21 Beo Crescent Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 22 Berseh Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 23 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 24 Buangkok Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 25 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 26 Bukit Canberra Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 27 Bukit Merah Central Blk 163 (Bukit Merah Central Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 28 Bukit Merah Lane 1 Blk 120 (Alexandra Village Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 29 Bukit Merah View Blk 115 (Blk 115 Bukit Merah View Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 30 Bukit Panjang Hawker Centre and Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 31 Bukit Timah Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - q3_cleaningstartdate: `TBC` -> ``
+  - q3_cleaningenddate: `TBC` -> ``
+  - remarks_q3: `nil` -> ``
+  - q4_cleaningstartdate: `TBC` -> ``
+  - q4_cleaningenddate: `TBC` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 32 Cambridge Road Blk 41A (Pek Kio Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 33 Changi Village Blk 2 and 3:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 34 Chomp Chomp Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 35 Ci Yuan Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 36 Circuit Road Blk 79/79A:
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 37 Circuit Road Blk 80 (80 Circuit Road Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 38 Circuit Road Blk 89:
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 39 Clementi Ave 2 Blk 353 (Clementi Ave 2 Market/Cooked Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 40 Clementi Ave 3 Blk 448:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 41 Clementi West Street 2 Blk 726:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 42 Commonwealth Crescent Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 43 Dunman Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 44 East Coast Lagoon Food Village:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 45 Empress Road Blk 7 (Empress Road Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 46 Eunos Crescent Blk 4A:
+  - q1_cleaningstartdate: `15/4/2024` -> `11/3/2024`
+  - q1_cleaningenddate: `15/4/2024` -> `12/3/2024`
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 47 Fernvale Hawker Centre and Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 48 Geylang Bahru Blk 69 (Blk 69 Geylang Bahru Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 49 Geylang Serai Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 50 Ghim Moh Road Blk 20:
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 51 Golden Mile Food Centre:
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `8/4/2024` -> `15/4/2024`
+  - q2_cleaningenddate: `9/4/2024` -> `17/4/2024`
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 52 Haig Road Blk 13/14 (Haig Road Market and Cooked Food Centre):
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 53 Havelock Road Blk 22A/B (Havelock Road Cooked Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 54 Holland Drive Blk 44 (Holland Drive Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 55 Holland Village Market and Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 56 Hougang Ave 1 Blk 105 (Hougang 105 Hainanese Village Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 57 Hougang Street 21 Blk 209 (Kovan Hougang Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 58 Jalan Batu Blk 4A (Blk 4A Jalan Batu Hawker Centre/Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 59 Jalan Bukit Merah Blk 112 (Blk 112 Jalan Bukit Merah Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 60 Jalan Bukit Merah Blk 6 (ABC Brickworks Market/Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 61 Jalan Kukoh Blk 1 (Kukoh 21 Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 62 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 63 Jurong East Street 24 Blk 254 (Yuhua Village Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 64 Jurong West Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 65 Jurong West Street 52 Blk 505:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 66 Kallang Estate Fresh Market and Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 67 Kampung Admiralty Hawker Centre:
+  - q1_cleaningstartdate: `4/3/2024` -> `6/3/2024`
+  - q1_cleaningenddate: `5/3/2024` -> `7/3/2024`
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `24/6/2024` -> `19/6/2024`
+  - q2_cleaningenddate: `25/6/2024` -> `20/6/2024`
+  - remarks_q2: `nil` -> ``
+  - q3_cleaningstartdate: `9/9/2024` -> `4/9/2024`
+  - q3_cleaningenddate: `10/9/2024` -> `5/9/2024`
+  - remarks_q3: `nil` -> ``
+  - q4_cleaningstartdate: `9/12/2024` -> `26/11/2024`
+  - q4_cleaningenddate: `11/12/2024` -> `28/11/2024`
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 68 Margaret Drive Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 69 Marine Parade Central Blk 84 (84 Marine Parade Central Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 70 Marine Terrace Blk 50A (50A Marine Terrace):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 71 Market Street Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 72 Marsiling Lane Blk 20/21:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 73 Marsiling Mall Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - address_myenv: `Blk 4,Woodlands St 12,Singapore�738623` -> `Blk 4,Woodlands St 12,Singapore 738623`
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 74 Maxwell Food Centre (Kim Hua Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 75 Mei Chin Road Blk 159 (Mei Chin Road Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 76 New Market Road Blk 32 (People's Park Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 77 New Upper Changi Road Blk 208B (Bedok Interchange Hawker Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 78 New Upper Changi Road Blk 58:
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `10/6/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `10/6/2024` -> `3/6/2024`
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 79 Newton Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 80 North Bridge Road Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 81 Old Airport Road Blk 51 (51 Old Airport Road Food Centre and Shopping Mall):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 82 One Punggol Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 83 Pasir Panjang Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 84 Pasir Ris Central Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 85 Queen Street Blk 270 (Albert Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 86 Redhill Lane Blk 79 (Redhill Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 87 Redhill Lane Blk 85 (Redhill Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 88 Sembawang Hills Food Centre (Jalan Leban Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 89 Senja Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_3d_view: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 90 Serangoon Garden Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 91 Shunfu Road Blk 320 (Shunfu Mart):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 92 Sims Place Blk 49 (Sims Vista Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 93 Smith Street Blk 335 (Chinatown Complex Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 94 Taman Jurong Market and Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 95 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 96 Tanglin Halt Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 97 Tanjong Pagar Plaza Blk 6 (Blk 6 Tanjong Pagar Plaza Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 98 Teban Gardens Road Blk 37A (Teban Gardens Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 99 Telok Blangah Crescent Blk 11 (11 Telok Blangah Crescent Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `TBC` -> ``
+  - q2_cleaningenddate: `TBC` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `1/5/2024` -> `2/5/2024`
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 100 Telok Blangah Drive Blk 79 (Telok Blangah Food Centre):
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `27/5/2024` -> `29/4/2024`
+  - q2_cleaningenddate: `27/5/2024` -> `29/4/2024`
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 101 Telok Blangah Drive Blk 82 (Telok Blangah Market):
+  - remarks_q1: `nil` -> ``
+  - q2_cleaningstartdate: `27/5/2024` -> `29/4/2024`
+  - q2_cleaningenddate: `27/5/2024` -> `29/4/2024`
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 102 Telok Blangah Rise Blk 36 (Telok Blangah Rise Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 103 The Hawker Centre @ Our Tampines Hub:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 104 Tiong Bahru Market:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 105 Toa Payoh Lorong 1 Blk 127 (Toa Payoh West Market and Food Court):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 106 Toa Payoh Lorong 4 Blk 74 (Toa Payoh Vista Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 107 Toa Payoh Lorong 4 Blk 93:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 108 Toa Payoh Lorong 5 Blk 75:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 109 Toa Payoh Lorong 7 Blk 22 (Kim Keat Palm Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 110 Toa Payoh Lorong 8 Blk 210:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 111 Upper Boon Keng Road Blk 17 (Blk 17 Upper Boon Keng Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 112 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - q3_cleaningstartdate: `30/9/2024` -> ``
+  - q3_cleaningenddate: `1/10/2024` -> ``
+  - remarks_q3: `nil` -> ``
+  - q4_cleaningstartdate: `16/12/2024` -> ``
+  - q4_cleaningenddate: `18/12/2024` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> `1/10/2024`
+  - other_works_enddate: `NA` -> `31/12/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 113 West Coast Drive Blk 502 (Ayer Rajah Market):
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 114 West Coast Drive Blk 503 (Ayer Rajah Food Centre):
+  - q1_cleaningstartdate: `TBC` -> ``
+  - q1_cleaningenddate: `TBC` -> ``
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 115 Whampoa Drive Blk 90 (Whampoa Drive Makan Place/Whampoa Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 116 Whampoa Drive Blk 91/92 (Whampoa Drive Makan Place/Whampoa Market):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 117 Yishun Park Hawker Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 118 Yishun Ring Road Blk 104/105 (Chong Pang Market and Food Centre):
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
+🔵 **Changed**: 119 Zion Riverside Food Centre:
+  - remarks_q1: `nil` -> ``
+  - remarks_q2: `nil` -> ``
+  - remarks_q3: `nil` -> ``
+  - remarks_q4: `nil` -> ``
+  - other_works_startdate: `NA` -> ``
+  - other_works_enddate: `NA` -> ``
+  - remarks_other_works: `nil` -> ``
+  - google_for_stall: `nil` -> ``
+
 ## 2024-03-05
 
 
