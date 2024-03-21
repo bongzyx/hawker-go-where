@@ -23,7 +23,7 @@ quarter = (
 def fetch_data_from_api(last_modified_date=None):
     response = requests.get(GENERATE_DOWNLOAD_LINK_URL)
     if response.status_code == 201:
-        download_link = response.json()["url"]
+        download_link = response.json()["data"]["url"]
         csv_file = requests.get(download_link)
 
         if csv_file.status_code == 200:
