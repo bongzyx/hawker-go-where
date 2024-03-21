@@ -1,3 +1,47 @@
+## 2024-03-21
+
+
+🔵 **Changed**: 11 Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market):
+  - q2_cleaningstartdate: `10/6/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `11/6/2024` -> `4/6/2024`
+
+🔵 **Changed**: 18 Bedok Reservoir Road Blk 630:
+  - q2_cleaningstartdate: `24/6/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `24/6/2024` -> `3/6/2024`
+  - q4_cleaningstartdate: `9/12/2024` -> `2/12/2024`
+  - q4_cleaningenddate: `9/12/2024` -> `2/12/2024`
+
+🔵 **Changed**: 36 Circuit Road Blk 79/79A:
+  - q2_cleaningstartdate: `17/6/2024` -> `24/6/2024`
+  - q2_cleaningenddate: `18/6/2024` -> `25/6/2024`
+  - remarks_q2: `Blk 79 closed on 17 Jun 2024  and Blk 79A closed on 18 Jun 2024` -> ` Blk 79 closed on 24 Jun 2024, Blk 79A closed on 25 Jun 2024`
+  - remarks_q3: `Blk 79 closed on 16 & 17 Sep 2024; Blk 79A closed on 23 & 24 Sep 2024` -> `Blk 79 closed on 16 & 17 Sep 2024; Blk 79A closed on 23 & 24 Sep 2024 `
+
+🔵 **Changed**: 38 Circuit Road Blk 89:
+  - q2_cleaningstartdate: `3/6/2024` -> `TBC`
+  - q2_cleaningenddate: `3/6/2024` -> `TBC`
+
+🔵 **Changed**: 49 Geylang Serai Market:
+  - q2_cleaningenddate: `5/6/2024` -> `4/6/2024`
+  - q3_cleaningstartdate: `2/9/2024` -> `TBC`
+  - q3_cleaningenddate: `4/9/2024` -> `TBC`
+  - q4_cleaningenddate: `11/12/2024` -> `10/12/2024`
+  - other_works_startdate: `NA` -> `29/7/2024`
+  - other_works_enddate: `NA` -> `31/10/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 66 Kallang Estate Fresh Market and Food Centre:
+  - q2_cleaningstartdate: `17/6/2024` -> `27/5/2024`
+  - q2_cleaningenddate: `17/6/2024` -> `27/5/2024`
+
+🔵 **Changed**: 69 Marine Parade Central Blk 84 (84 Marine Parade Central Market and Food Centre):
+  - q2_cleaningstartdate: `24/6/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `25/6/2024` -> `4/6/2024`
+
+🔵 **Changed**: 119 Zion Riverside Food Centre:
+  - q2_cleaningstartdate: `20/5/2024` -> `7/5/2024`
+  - q2_cleaningenddate: `21/5/2024` -> `8/5/2024`
+
 ## 2024-03-14
 
 
