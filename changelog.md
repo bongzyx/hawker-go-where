@@ -1,3 +1,25 @@
+## 2024-04-18
+
+
+🔵 **Changed**: 13 Bedok Food Centre:
+  - q3_cleaningstartdate: `2/9/2024` -> `TBC`
+  - q3_cleaningenddate: `2/9/2024` -> `TBC`
+  - q4_cleaningstartdate: `2/12/2024` -> `TBC`
+  - q4_cleaningenddate: `4/12/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `2/9/2024`
+  - other_works_enddate: `NA` -> `1/12/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 21 Beo Crescent Market:
+  - other_works_startdate: `13/05/2024` -> `13/5/2024`
+  - other_works_enddate: `12/08/2024` -> `12/8/2024`
+
+🔵 **Changed**: 49 Geylang Serai Market:
+  - remarks_other_works: `Repairs and Redecoration` -> `Repairs and Redecoration and Hawker Centres Transformation Programme `
+
+🔵 **Changed**: 62 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - other_works_enddate: `15/7/2024` -> `14/7/2024`
+
 ## 2024-04-12
 
 
