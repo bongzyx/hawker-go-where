@@ -1,3 +1,37 @@
+## 2024-04-23
+
+
+🔵 **Changed**: 40 Clementi Ave 3 Blk 448:
+  - q4_cleaningenddate: `5/12/2024` -> `6/12/2024`
+
+🔵 **Changed**: 41 Clementi West Street 2 Blk 726:
+  - q2_cleaningenddate: `30/5/2024` -> `2/6/2024`
+
+🔵 **Changed**: 81 Old Airport Road Blk 51 (51 Old Airport Road Food Centre and Shopping Mall):
+  - q2_cleaningstartdate: `24/6/2024` -> `TBC`
+  - q2_cleaningenddate: `27/6/2024` -> `TBC`
+  - q3_cleaningstartdate: `23/9/2024` -> `TBC`
+  - q3_cleaningenddate: `26/9/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `1/6/2024`
+  - other_works_enddate: `NA` -> `30/9/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 85 Queen Street Blk 270 (Albert Centre):
+  - q2_cleaningstartdate: `17/6/2024` -> `TBC`
+  - q2_cleaningenddate: `19/6/2024` -> `TBC`
+  - q3_cleaningstartdate: `23/9/2024` -> `1/7/2024`
+  - q3_cleaningenddate: `24/9/2024` -> `3/7/2024`
+  - q4_cleaningstartdate: `25/11/2024` -> `7/10/2024`
+  - q4_cleaningenddate: `26/11/2024` -> `8/10/2024`
+
+🔵 **Changed**: 113 West Coast Drive Blk 502 (Ayer Rajah Market):
+  - q2_cleaningstartdate: `15/4/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `16/4/2024` -> `4/6/2024`
+
+🔵 **Changed**: 114 West Coast Drive Blk 503 (Ayer Rajah Food Centre):
+  - q2_cleaningstartdate: `15/4/2024` -> `3/6/2024`
+  - q2_cleaningenddate: `16/4/2024` -> `4/6/2024`
+
 ## 2024-04-18
 
 
