@@ -1,3 +1,22 @@
+## 2024-05-02
+
+
+🔵 **Changed**: 16 Bedok North Street 3 Blk 538:
+  - q3_cleaningstartdate: `23/9/2024` -> `30/9/2024`
+  - q3_cleaningenddate: `23/9/2024` -> `30/9/2024`
+
+🔵 **Changed**: 19 Bedok South Road Blk 16:
+  - q4_cleaningstartdate: `21/10/2024` -> `16/12/2024`
+  - q4_cleaningenddate: `25/10/2024` -> `20/12/2024`
+
+🔵 **Changed**: 23 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - q2_cleaningstartdate: `1/7/2024` -> `24/6/2024`
+  - q2_cleaningenddate: `2/7/2024` -> `30/6/2024`
+  - remarks_q2: `nil` -> `Blk 221A closed from 24 to 27 Jun 2024. Blk 221B closed from 24 to 30 Jun 2024.`
+
+🔵 **Changed**: 65 Jurong West Street 52 Blk 505:
+  - q2_cleaningenddate: `25/6/2024` -> `24/6/2024`
+
 ## 2024-04-25
 
 
