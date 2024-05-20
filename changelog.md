@@ -1,3 +1,11 @@
+## 2024-05-20
+
+
+🔵 **Changed**: 8 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - other_works_startdate: `NA` -> `3/6/2024`
+  - other_works_enddate: `NA` -> `24/10/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration and Hawker Centres Transformation Programme `
+
 ## 2024-05-02
 
 
