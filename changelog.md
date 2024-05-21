@@ -1,3 +1,10 @@
+## 2024-05-21
+
+
+🔵 **Changed**: 19 Bedok South Road Blk 16:
+  - q4_cleaningstartdate: `16/12/2024` -> `4/11/2024`
+  - q4_cleaningenddate: `20/12/2024` -> `8/11/2024`
+
 ## 2024-05-20
 
 
