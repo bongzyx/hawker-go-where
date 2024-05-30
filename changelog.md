@@ -1,3 +1,19 @@
+## 2024-05-30
+
+
+🔵 **Changed**: 42 Commonwealth Crescent Market:
+  - q2_cleaningstartdate: `6/6/2024` -> `24/6/2024`
+  - q2_cleaningenddate: `6/6/2024` -> `24/6/2024`
+
+🔵 **Changed**: 117 Yishun Park Hawker Centre:
+  - q2_cleaningstartdate: `3/6/2024` -> `TBC`
+  - q2_cleaningenddate: `4/6/2024` -> `TBC`
+  - q3_cleaningstartdate: `2/9/2024` -> `TBC`
+  - q3_cleaningenddate: `4/9/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `29/7/2024`
+  - other_works_enddate: `NA` -> `28/10/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2024-05-21
 
 
