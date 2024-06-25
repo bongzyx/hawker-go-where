@@ -10,7 +10,7 @@ DATASET_ID = "d_bda4baa634dd1cc7a6c7cad5f19e2d68"
 API_METADATA_URL = (
     f"https://api-production.data.gov.sg/v2/public/api/datasets/{DATASET_ID}/metadata"
 )
-GENERATE_DOWNLOAD_LINK_URL = f"https://api-production.data.gov.sg/v2/internal/api/datasets/{DATASET_ID}/poll-download"
+GENERATE_DOWNLOAD_LINK_URL = f"https://api-production.data.gov.sg/v2/internal/api/datasets/{DATASET_ID}/initiate-download"
 
 INVALID_DATES = ["TBC", "NA", "#N/A"]
 
@@ -21,7 +21,10 @@ quarter = (
 
 
 def fetch_data_from_api(last_modified_date=None):
-    response = requests.get(GENERATE_DOWNLOAD_LINK_URL)
+    payload = {}
+    headers = {"content-type": "application/json"}
+    response = requests.post(GENERATE_DOWNLOAD_LINK_URL, json=payload, headers=headers)
+    print(response.text)
     if response.status_code == 201:
         download_link = response.json()["data"]["url"]
         csv_file = requests.get(download_link)
