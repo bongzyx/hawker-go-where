@@ -1,3 +1,17 @@
+## 2024-06-25
+
+
+🔵 **Changed**: 65 Jurong West Street 52 Blk 505:
+  - q3_cleaningstartdate: `9/9/2024` -> `TBC`
+  - q3_cleaningenddate: `10/9/2024` -> `TBC`
+  - q4_cleaningstartdate: `9/12/2024` -> `TBC`
+  - q4_cleaningenddate: `11/12/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `9/9/2024`
+  - other_works_enddate: `NA` -> `8/12/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+➕ **Added**: 120 - Anchorvale Village Hawker Centre
+
 ## 2024-06-18
 
 
