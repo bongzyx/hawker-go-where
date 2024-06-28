@@ -1,3 +1,21 @@
+## 2024-06-27
+
+
+🔵 **Changed**: 4 Anchorvale Village Hawker Centre:
+  - other_works_startdate: `18/6/2024` -> `NA`
+  - other_works_enddate: `18/6/2024` -> `NA`
+  - remarks_other_works: `The hawker centre will commence operations on 19 Jun 2024.` -> `nil`
+
+🔵 **Changed**: 12 Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market):
+  - other_works_startdate: `NA` -> `28/6/2024`
+  - other_works_enddate: `NA` -> `30/6/2024`
+  - remarks_other_works: `nil` -> `Urgent repair work to be carried out by Ang Mo Kio Town Council.`
+
+🔵 **Changed**: 33 Cambridge Road Blk 41A (Pek Kio Market and Food Centre):
+  - other_works_startdate: `NA` -> `22/11/2024`
+  - other_works_enddate: `NA` -> `19/12/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2024-06-25
 
 
