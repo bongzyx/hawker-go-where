@@ -1,3 +1,11 @@
+## 2024-07-02
+
+
+🔵 **Changed**: 113 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - other_works_startdate: `1/10/2024` -> `NA`
+  - other_works_enddate: `31/12/2024` -> `NA`
+  - remarks_other_works: `Repairs and Redecoration` -> `nil`
+
 ## 2024-06-27
 
 
