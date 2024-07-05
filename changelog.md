@@ -1,3 +1,10 @@
+## 2024-07-05
+
+
+🔵 **Changed**: 31 Bukit Panjang Hawker Centre and Market:
+  - q3_cleaningstartdate: `16/9/2024` -> `23/9/2024`
+  - q3_cleaningenddate: `18/9/2024` -> `25/9/2024`
+
 ## 2024-07-02
 
 
