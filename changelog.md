@@ -1,3 +1,22 @@
+## 2024-07-17
+
+
+🔵 **Changed**: 4 Anchorvale Village Hawker Centre:
+  - q3_cleaningstartdate: `TBC` -> `30/9/2024`
+  - q3_cleaningenddate: `TBC` -> `1/10/2024`
+  - q4_cleaningstartdate: `TBC` -> `18/12/2024`
+  - q4_cleaningenddate: `TBC` -> `19/12/2024`
+
+🔵 **Changed**: 33 Cambridge Road Blk 41A (Pek Kio Market and Food Centre):
+  - other_works_startdate: `22/11/2024` -> `18/11/2024`
+  - other_works_enddate: `19/12/2024` -> `17/12/2024`
+
+🔵 **Changed**: 113 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - q3_cleaningstartdate: `TBC` -> `30/9/2024`
+  - q3_cleaningenddate: `TBC` -> `1/10/2024`
+  - q4_cleaningstartdate: `TBC` -> `16/12/2024`
+  - q4_cleaningenddate: `TBC` -> `18/12/2024`
+
 ## 2024-07-05
 
 
