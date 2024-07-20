@@ -68,9 +68,26 @@ def format_hawker_data(hawkers, status):
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Send a message when the command /start is issued."""
-    await update.message.reply_text("Hi!")
+    """Send a welcome message when the command /start is issued."""
+    welcome_message = (
+        "👋 Hello\! Welcome to *HawkerGoWhere*\! 🇸🇬\n\n"
+        "I'm here to help you find hawker centres in Singapore and check their status\.\n\n"
+        "Here are some things you can do\:\n"
+        "\- 📍 Get hawkers near your location using the `/nearest` command\.\n"
+        "\- 🧹 Check which hawkers are closed for cleaning with `/cleaning`\.\n"
+        "\- 🛠 Learn about hawkers undergoing renovations with `/otherworks`\.\n"
+        "\- 📅 Get lists of hawkers closed today, tomorrow, or this week using `/closedtoday`, `/closedtomorrow`, and `/closedthisweek`\.\n"
+        "\- 🔍 Search for any specific hawker with the `/search` command\.\n\n"
+        "Just tap on any of the commands above or type in a query\. Let's get started\!"
+    )
+    keyboard = [
+        [InlineKeyboardButton("🔍 Search for Hawker", switch_inline_query_current_chat="")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
+    message = await update.message.reply_text(welcome_message, parse_mode=ParseMode.MARKDOWN_V2, reply_markup=reply_markup)
+
+    await context.bot.pin_chat_message(chat_id=update.effective_chat.id, message_id=message.message_id)
 
 async def inline_query(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle the inline query. This is run when you type: @botusername <query>"""
