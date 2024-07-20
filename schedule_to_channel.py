@@ -16,8 +16,13 @@ def clean(text):
     return text
 
 
-def send_message(message_text):
+def send_message(message_text, keyboard=None):
     telegram_url = f"https://api.telegram.org/bot{TELEGRAM_API_KEY}/sendMessage?chat_id={CHAT_ID}&text={message_text}&parse_mode=MarkdownV2"
+    
+    if keyboard:
+        reply_markup = json.dumps(keyboard)
+        telegram_url += f"&reply_markup={reply_markup}"
+
     r = requests.get(telegram_url)
     return r
 
@@ -78,4 +83,12 @@ message += (
     else ""
 )
 
-send_message(message)
+keyboard = {
+  "inline_keyboard": [
+    [
+      { "text": "More Info and Nearby Hawkers", "url": "https://t.me/HawkerGoWhereBot" }
+    ]
+  ]
+}
+
+send_message(message, keyboard)
