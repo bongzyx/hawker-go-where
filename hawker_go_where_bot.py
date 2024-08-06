@@ -73,11 +73,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "👋 Hello\! Welcome to *HawkerGoWhere*\! 🇸🇬\n\n"
         "I'm here to help you find hawker centres in Singapore and check their status\.\n\n"
         "Here are some things you can do\:\n"
-        "\- 📍 Get hawkers near your location using the `/nearest` command\.\n"
-        "\- 🧹 Check which hawkers are closed for cleaning with `/cleaning`\.\n"
-        "\- 🛠 Learn about hawkers undergoing renovations with `/otherworks`\.\n"
-        "\- 📅 Get lists of hawkers closed today, tomorrow, or this week using `/closedtoday`, `/closedtomorrow`, and `/closedthisweek`\.\n"
-        "\- 🔍 Search for any specific hawker with the `/search` command\.\n\n"
+        "\- 📍 Get hawkers near your location using the /nearest command\.\n"
+        "\- 🧹 Check which hawkers are closed for cleaning with /cleaning\.\n"
+        "\- 🛠 Learn about hawkers undergoing renovations with /otherworks\.\n"
+        "\- 📅 Get lists of hawkers closed today, tomorrow, or this week using /closedtoday, /closedtomorrow, and /closedthisweek\.\n"
+        "\- 🔍 Search for any specific hawker with the /search command\.\n\n"
         "Just tap on any of the commands above or type in a query\. Let's get started\!"
     )
     keyboard = [
