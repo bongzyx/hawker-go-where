@@ -1,3 +1,9 @@
+## 2024-08-22
+
+
+🔵 **Changed**: 52 Golden Mile Food Centre:
+  - q4_cleaningenddate: `24/10/2024` -> `23/10/2024`
+
 ## 2024-08-06
 
 
