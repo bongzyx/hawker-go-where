@@ -1,3 +1,10 @@
+## 2024-08-29
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - q3_cleaningstartdate: `2/9/2024` -> `16/9/2024`
+  - q3_cleaningenddate: `2/9/2024` -> `16/9/2024`
+
 ## 2024-08-22
 
 
