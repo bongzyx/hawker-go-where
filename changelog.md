@@ -1,3 +1,10 @@
+## 2024-09-02
+
+
+🔵 **Changed**: 36 Ci Yuan Hawker Centre:
+  - q3_cleaningstartdate: `2/9/2024` -> `9/9/2024`
+  - q3_cleaningenddate: `3/9/2024` -> `10/9/2024`
+
 ## 2024-08-29
 
 
