@@ -1,3 +1,12 @@
+## 2024-09-04
+
+
+🔵 **Changed**: 36 Ci Yuan Hawker Centre:
+  - q3_cleaningstartdate: `9/9/2024` -> `2/9/2024`
+  - q3_cleaningenddate: `10/9/2024` -> `3/9/2024`
+
+➕ **Added**: 121 - Woodleigh Village Hawker Centre
+
 ## 2024-09-02
 
 
