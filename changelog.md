@@ -1,3 +1,9 @@
+## 2024-09-05
+
+
+🔵 **Changed**: 118 Woodleigh Village Hawker Centre:
+  - status: `Existing(New)` -> `Existing (new)`
+
 ## 2024-09-04
 
 
