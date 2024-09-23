@@ -1,3 +1,42 @@
+## 2024-09-23
+
+
+🔵 **Changed**: 37 Circuit Road Blk 79/79A:
+  - q3_cleaningstartdate: `16/9/2024` -> `23/9/2024`
+  - q3_cleaningenddate: `17/9/2024` -> `24/9/2024`
+  - remarks_q3: `Blk 79 closed on 16 & 17 Sep 2024; Blk 79A closed on 23 & 24 Sep 2024 ` -> `Blk 79A closed on 23 & 24 Sep 2024 `
+  - remarks_q4: `Blk 79 closed on 16 Dec 2024 Blk 79A closed on 17 Dec 2024` -> `Blk 79 closed on 16 Dec 2024, Blk 79A closed on 17 Dec 2024`
+
+🔵 **Changed**: 39 Circuit Road Blk 89:
+  - q4_cleaningstartdate: `24/12/2024` -> `2/12/2024`
+  - q4_cleaningenddate: `24/12/2024` -> `2/12/2024`
+
+🔵 **Changed**: 61 Jalan Bukit Merah Blk 6 (ABC Brickworks Market/Food Centre):
+  - q4_cleaningstartdate: `16/12/2024` -> `25/11/2024`
+  - q4_cleaningenddate: `17/12/2024` -> `26/11/2024`
+
+🔵 **Changed**: 76 Mei Chin Road Blk 159 (Mei Chin Road Market):
+  - q4_cleaningstartdate: `9/12/2024` -> `18/11/2024`
+  - q4_cleaningenddate: `11/12/2024` -> `19/11/2024`
+
+🔵 **Changed**: 98 Tanjong Pagar Plaza Blk 6 (Blk 6 Tanjong Pagar Plaza Market and Food Centre):
+  - q4_cleaningstartdate: `19/12/2024` -> `TBC`
+  - q4_cleaningenddate: `21/12/2024` -> `TBC`
+  - other_works_startdate: `NA` -> `14/10/2024`
+  - other_works_enddate: `NA` -> `14/12/2024`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 118 Woodleigh Village Hawker Centre:
+  - q3_cleaningstartdate: `TBC` -> `#N/A`
+  - q3_cleaningenddate: `TBC` -> `#N/A`
+  - remarks_q3: `nil` -> `#N/A`
+  - q4_cleaningstartdate: `TBC` -> `#N/A`
+  - q4_cleaningenddate: `TBC` -> `#N/A`
+  - remarks_q4: `nil` -> `#N/A`
+
+🔵 **Changed**: 120 Yishun Ring Road Blk 104/105 (Chong Pang Market and Food Centre):
+  - q3_cleaningenddate: `25/9/2024` -> `24/9/2024`
+
 ## 2024-09-05
 
 
