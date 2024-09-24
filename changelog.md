@@ -1,3 +1,13 @@
+## 2024-09-24
+
+
+🔵 **Changed**: 50 Geylang Serai Market:
+  - q4_cleaningstartdate: `9/12/2024` -> `TBC`
+  - q4_cleaningenddate: `10/12/2024` -> `TBC`
+
+🔵 **Changed**: 76 Mei Chin Road Blk 159 (Mei Chin Road Market):
+  - q4_cleaningenddate: `19/11/2024` -> `20/11/2024`
+
 ## 2024-09-23
 
 
