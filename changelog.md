@@ -1,3 +1,10 @@
+## 2024-09-27
+
+
+🔵 **Changed**: 3 Amoy Street Food Centre (Telok Ayer Food Centre):
+  - q4_cleaningstartdate: `14/12/2024` -> `21/12/2024`
+  - q4_cleaningenddate: `15/12/2024` -> `22/12/2024`
+
 ## 2024-09-24
 
 
