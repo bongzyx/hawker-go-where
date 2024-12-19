@@ -1,3 +1,17 @@
+## 2024-12-19
+
+
+🔵 **Changed**: 29 Bukit Merah Lane 1 Blk 120 (Alexandra Village Food Centre):
+  - q2_cleaningstartdate: `23/6/2025` -> `TBC`
+  - q2_cleaningenddate: `24/6/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `1/4/2025`
+  - other_works_enddate: `NA` -> `30/6/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 56 Holland Village Market and Food Centre:
+  - q2_cleaningstartdate: `9/6/2025` -> `16/6/2025`
+  - q2_cleaningenddate: `9/6/2025` -> `17/6/2025`
+
 ## 2024-12-16
 
 
