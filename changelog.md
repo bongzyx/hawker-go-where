@@ -1,3 +1,29 @@
+## 2024-12-20
+
+
+🔵 **Changed**: 2 Aljunied Ave 2 Blk 117 (Blk 117 Aljunied Market and Food Centre):
+  - q1_cleaningstartdate: `10/1/2025` -> `10/3/2025`
+  - q1_cleaningenddate: `11/1/2025` -> `11/3/2025`
+
+🔵 **Changed**: 47 Empress Road Blk 7 (Empress Road Market and Food Centre):
+  - q2_cleaningstartdate: `23/6/2025` -> `30/6/2025`
+  - q2_cleaningenddate: `23/6/2025` -> `30/6/2025`
+
+🔵 **Changed**: 70 Marine Parade Central Blk 84 (84 Marine Parade Central Market and Food Centre):
+  - q2_cleaningstartdate: `16/6/2025` -> `2/6/2025`
+  - q2_cleaningenddate: `17/6/2025` -> `3/6/2025`
+
+🔵 **Changed**: 71 Marine Terrace Blk 50A (50A Marine Terrace):
+  - q2_cleaningstartdate: `2/6/2025` -> `16/6/2025`
+  - q2_cleaningenddate: `3/6/2025` -> `17/6/2025`
+
+🔵 **Changed**: 72 Market Street Hawker Centre:
+  - q3_cleaningstartdate: `TBC` -> `#REF!`
+  - q3_cleaningenddate: `TBC` -> `#REF!`
+
+🔵 **Changed**: 120 Yishun Ring Road Blk 104/105 (Chong Pang Market and Food Centre):
+  - remarks_q1: `nil` -> `Blk 104 closed on 17 Feb 2025, Blk 105 closed on 18 Feb 2025.`
+
 ## 2024-12-19
 
 
