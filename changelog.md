@@ -1,3 +1,10 @@
+## 2024-12-30
+
+
+🔵 **Changed**: 111 Toa Payoh Lorong 7 Blk 22 (Kim Keat Palm Market and Food Centre):
+  - q1_cleaningstartdate: `17/3/2025` -> `3/3/2025`
+  - q1_cleaningenddate: `18/3/2025` -> `4/3/2025`
+
 ## 2024-12-20
 
 
