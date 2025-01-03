@@ -1,3 +1,10 @@
+## 2025-01-03
+
+
+🔵 **Changed**: 57 Hougang Ave 1 Blk 105 (Hougang 105 Hainanese Village Centre):
+  - q1_cleaningstartdate: `17/3/2025` -> `3/3/2025`
+  - q1_cleaningenddate: `19/3/2025` -> `5/3/2025`
+
 ## 2024-12-30
 
 
