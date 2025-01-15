@@ -1,3 +1,14 @@
+## 2025-01-15
+
+
+🔵 **Changed**: 41 Clementi Ave 3 Blk 448:
+  - q2_cleaningstartdate: `2/6/2025` -> `16/6/2025`
+  - q2_cleaningenddate: `3/6/2025` -> `17/6/2025`
+
+🔵 **Changed**: 96 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q2_cleaningstartdate: `9/6/2025` -> `16/6/2025`
+  - q2_cleaningenddate: `11/6/2025` -> `19/6/2025`
+
 ## 2025-01-06
 
 
