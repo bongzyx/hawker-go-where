@@ -1,3 +1,9 @@
+## 2025-01-24
+
+
+🔵 **Changed**: 9 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - q1_cleaningenddate: `4/3/2025` -> `5/3/2025`
+
 ## 2025-01-15
 
 
