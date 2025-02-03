@@ -1,3 +1,16 @@
+## 2025-02-03
+
+
+🔵 **Changed**: 119 Yishun Park Hawker Centre:
+  - q1_cleaningstartdate: `3/2/2025` -> `3/3/2025`
+  - q1_cleaningenddate: `4/2/2025` -> `4/3/2025`
+  - q2_cleaningstartdate: `5/5/2025` -> `2/6/2025`
+  - q2_cleaningenddate: `6/5/2025` -> `3/6/2025`
+  - q3_cleaningstartdate: `4/8/2025` -> `1/9/2025`
+  - q3_cleaningenddate: `5/8/2025` -> `3/9/2025`
+  - q4_cleaningstartdate: `3/11/2025` -> `1/12/2025`
+  - q4_cleaningenddate: `4/11/2025` -> `2/12/2025`
+
 ## 2025-01-24
 
 
