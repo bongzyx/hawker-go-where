@@ -1,3 +1,10 @@
+## 2025-02-05
+
+
+🔵 **Changed**: 55 Holland Drive Blk 44 (Holland Drive Market and Food Centre):
+  - q1_cleaningstartdate: `9/3/2025` -> `10/3/2025`
+  - q1_cleaningenddate: `10/3/2025` -> `11/3/2025`
+
 ## 2025-02-03
 
 
