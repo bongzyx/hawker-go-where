@@ -1,3 +1,11 @@
+## 2025-02-06
+
+
+🔵 **Changed**: 105 Tiong Bahru Market:
+  - other_works_startdate: `NA` -> `14/4/2025`
+  - other_works_enddate: `NA` -> `13/7/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-02-05
 
 
