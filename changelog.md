@@ -1,3 +1,10 @@
+## 2025-02-08
+
+
+🔵 **Changed**: 29 Bukit Merah Lane 1 Blk 120 (Alexandra Village Food Centre):
+  - q1_cleaningstartdate: `24/3/2025` -> `TBC`
+  - q1_cleaningenddate: `25/3/2025` -> `TBC`
+
 ## 2025-02-06
 
 
