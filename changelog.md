@@ -1,3 +1,10 @@
+## 2025-02-12
+
+
+🔵 **Changed**: 24 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - q1_cleaningstartdate: `17/3/2025` -> `3/3/2025`
+  - q1_cleaningenddate: `18/3/2025` -> `4/3/2025`
+
 ## 2025-02-08
 
 
