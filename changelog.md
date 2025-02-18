@@ -1,3 +1,11 @@
+## 2025-02-18
+
+
+🔵 **Changed**: 67 Jurong West Street 52 Blk 505:
+  - q1_cleaningenddate: `25/3/2025` -> `26/3/2025`
+  - q2_cleaningenddate: `10/6/2025` -> `11/6/2025`
+  - q4_cleaningenddate: `24/12/2025` -> `23/12/2025`
+
 ## 2025-02-12
 
 
