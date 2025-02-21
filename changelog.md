@@ -1,3 +1,31 @@
+## 2025-02-21
+
+
+🔵 **Changed**: 6 Ang Mo Kio Ave 1 Blk 341 (Teck Ghee Court):
+  - other_works_startdate: `NA` -> `2/5/2025`
+  - other_works_enddate: `NA` -> `30/6/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 34 Changi Village Blk 2 and 3:
+  - q2_cleaningenddate: `9/4/2025` -> `10/4/2025`
+
+🔵 **Changed**: 63 Jalan Kukoh Blk 1 (Kukoh 21 Food Centre):
+  - other_works_startdate: `NA` -> `3/3/2025`
+  - other_works_enddate: `NA` -> `7/3/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 93 Sims Place Blk 49 (Sims Vista Market and Food Centre):
+  - other_works_startdate: `NA` -> `8/12/2025`
+  - other_works_enddate: `NA` -> `10/12/2025`
+  - remarks_other_works: `nil` -> `Cleaning`
+
+🔵 **Changed**: 106 Toa Payoh Lorong 1 Blk 127 (Toa Payoh West Market and Food Court):
+  - q2_cleaningstartdate: `16/6/2025` -> `TBC`
+  - q2_cleaningenddate: `19/6/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `2/6/2025`
+  - other_works_enddate: `NA` -> `31/7/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-02-18
 
 
