@@ -1,3 +1,12 @@
+## 2025-03-04
+
+
+🔵 **Changed**: 80 New Upper Changi Road Blk 58:
+  - q1_cleaningstartdate: `17/3/2025` -> `TBC`
+  - q1_cleaningenddate: `17/3/2025` -> `TBC`
+  - q2_cleaningstartdate: `23/6/2025` -> `14/4/2025`
+  - q2_cleaningenddate: `23/6/2025` -> `14/4/2025`
+
 ## 2025-02-21
 
 
