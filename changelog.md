@@ -1,3 +1,16 @@
+## 2025-03-06
+
+
+🔵 **Changed**: 26 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q2_cleaningstartdate: `9/6/2025` -> `16/6/2025`
+  - q2_cleaningenddate: `10/6/2025` -> `17/6/2025`
+  - q3_cleaningstartdate: `15/9/2025` -> `8/9/2025`
+  - q3_cleaningenddate: `16/9/2025` -> `9/9/2025`
+
+🔵 **Changed**: 96 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q4_cleaningstartdate: `17/11/2025` -> `8/12/2025`
+  - q4_cleaningenddate: `19/11/2025` -> `10/12/2025`
+
 ## 2025-03-04
 
 
