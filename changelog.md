@@ -1,3 +1,14 @@
+## 2025-03-21
+
+
+🔵 **Changed**: 104 Telok Blangah Rise Blk 36 (Telok Blangah Rise Market):
+  - q2_cleaningstartdate: `2/6/2025` -> `7/4/2025`
+  - q2_cleaningenddate: `2/6/2025` -> `7/4/2025`
+  - q3_cleaningstartdate: `1/9/2025` -> `28/7/2025`
+  - q3_cleaningenddate: `1/9/2025` -> `28/7/2025`
+  - q4_cleaningstartdate: `22/12/2025` -> `13/12/2025`
+  - q4_cleaningenddate: `22/12/2025` -> `14/12/2025`
+
 ## 2025-03-17
 
 
