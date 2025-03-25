@@ -1,3 +1,10 @@
+## 2025-03-25
+
+
+🔵 **Changed**: 57 Holland Village Market and Food Centre:
+  - q2_cleaningenddate: `17/6/2025` -> `16/6/2025`
+  - q4_cleaningenddate: `25/11/2025` -> `26/11/2025`
+
 ## 2025-03-21
 
 
