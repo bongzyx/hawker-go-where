@@ -1,3 +1,10 @@
+## 2025-03-28
+
+
+🔵 **Changed**: 44 Clementi West Street 2 Blk 726:
+  - q2_cleaningenddate: `22/5/2025` -> `20/5/2025`
+  - q3_cleaningenddate: `12/8/2025` -> `14/8/2025`
+
 ## 2025-03-25
 
 
