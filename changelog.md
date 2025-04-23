@@ -1,3 +1,14 @@
+## 2025-04-23
+
+
+🔵 **Changed**: 65 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - q2_cleaningstartdate: `16/6/2025` -> `30/6/2025`
+  - q2_cleaningenddate: `17/6/2025` -> `1/7/2025`
+
+🔵 **Changed**: 68 Jurong West Street 52 Blk 505:
+  - q2_cleaningstartdate: `9/6/2025` -> `16/6/2025`
+  - q2_cleaningenddate: `11/6/2025` -> `18/6/2025`
+
 ## 2025-03-28
 
 
