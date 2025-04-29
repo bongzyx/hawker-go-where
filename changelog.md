@@ -1,3 +1,10 @@
+## 2025-04-29
+
+
+🔵 **Changed**: 63 Jalan Bukit Merah Blk 6 (ABC Brickworks Market/Food Centre):
+  - q2_cleaningstartdate: `16/6/2025` -> `TBC`
+  - q2_cleaningenddate: `17/6/2025` -> `TBC`
+
 ## 2025-04-23
 
 
