@@ -1,3 +1,9 @@
+## 2025-05-05
+
+
+🔵 **Changed**: 66 Jurong East Street 24 Blk 254 (Yuhua Village Market and Food Centre):
+  - q2_cleaningenddate: `4/6/2025` -> `6/6/2025`
+
 ## 2025-04-29
 
 
