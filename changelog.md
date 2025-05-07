@@ -1,3 +1,33 @@
+## 2025-05-07
+
+
+🔵 **Changed**: 27 Bukit Batok West Hawker Centre:
+  - q2_cleaningstartdate: `TBC` -> `24/6/2025`
+  - q2_cleaningenddate: `TBC` -> `25/6/2025`
+  - q3_cleaningstartdate: `TBC` -> `8/9/2025`
+  - q3_cleaningenddate: `TBC` -> `9/9/2025`
+  - q4_cleaningstartdate: `TBC` -> `15/12/2025`
+  - q4_cleaningenddate: `TBC` -> `16/12/2025`
+
+🔵 **Changed**: 81 New Upper Changi Road Blk 58:
+  - q2_cleaningstartdate: `14/4/2025` -> `23/6/2025`
+  - q2_cleaningenddate: `14/4/2025` -> `23/6/2025`
+
+🔵 **Changed**: 109 Toa Payoh Lorong 4 Blk 93:
+  - q2_cleaningstartdate: `30/6/2025` -> `TBC`
+  - q2_cleaningenddate: `30/6/2025` -> `TBC`
+  - q3_cleaningstartdate: `8/9/2025` -> `4/8/2025`
+  - q3_cleaningenddate: `10/9/2025` -> `4/8/2025`
+  - q4_cleaningenddate: `29/12/2025` -> `31/12/2025`
+
+🔵 **Changed**: 115 West Coast Drive Blk 502 (Ayer Rajah Market):
+  - q2_cleaningstartdate: `2/6/2025` -> `9/6/2025`
+  - q2_cleaningenddate: `2/6/2025` -> `9/6/2025`
+
+🔵 **Changed**: 116 West Coast Drive Blk 503 (Ayer Rajah Food Centre):
+  - q2_cleaningstartdate: `2/6/2025` -> `9/6/2025`
+  - q2_cleaningenddate: `3/6/2025` -> `10/6/2025`
+
 ## 2025-05-05
 
 
