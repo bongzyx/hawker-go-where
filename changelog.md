@@ -1,3 +1,15 @@
+## 2025-05-15
+
+
+🔵 **Changed**: 11 Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market):
+  - other_works_startdate: `NA` -> `22/9/2025`
+  - other_works_enddate: `NA` -> `15/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 110 Toa Payoh Lorong 5 Blk 75:
+  - q2_cleaningstartdate: `6/6/2025` -> `2/6/2025`
+  - q2_cleaningenddate: `6/6/2025` -> `2/6/2025`
+
 ## 2025-05-07
 
 
