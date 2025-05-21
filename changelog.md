@@ -1,3 +1,14 @@
+## 2025-05-21
+
+
+🔵 **Changed**: 6 Ang Mo Kio Ave 1 Blk 341 (Teck Ghee Court):
+  - q3_cleaningstartdate: `18/8/2025` -> `TBC`
+  - q3_cleaningenddate: `19/8/2025` -> `TBC`
+
+🔵 **Changed**: 114 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - q2_cleaningstartdate: `23/6/2025` -> `30/6/2025`
+  - q2_cleaningenddate: `24/6/2025` -> `1/7/2025`
+
 ## 2025-05-15
 
 
