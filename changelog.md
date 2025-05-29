@@ -1,3 +1,27 @@
+## 2025-05-28
+
+
+🔵 **Changed**: 62 Jalan Bukit Merah Blk 112 (Blk 112 Jalan Bukit Merah Market and Food Centre):
+  - q3_cleaningstartdate: `7/7/2025` -> `TBC`
+  - q3_cleaningenddate: `7/7/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `15/7/2025`
+  - other_works_enddate: `NA` -> `14/9/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 88 Redhill Lane Blk 79 (Redhill Market):
+  - q4_cleaningstartdate: `10/11/2025` -> `TBC`
+  - q4_cleaningenddate: `11/11/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `1/10/2025`
+  - other_works_enddate: `NA` -> `31/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 89 Redhill Lane Blk 85 (Redhill Food Centre):
+  - q4_cleaningstartdate: `10/11/2025` -> `TBC`
+  - q4_cleaningenddate: `11/11/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `1/10/2025`
+  - other_works_enddate: `NA` -> `31/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-05-21
 
 
