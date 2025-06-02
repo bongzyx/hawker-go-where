@@ -1,3 +1,10 @@
+## 2025-06-02
+
+
+🔵 **Changed**: 27 Bukit Batok West Hawker Centre:
+  - q2_cleaningstartdate: `24/6/2025` -> `23/6/2025`
+  - q2_cleaningenddate: `25/6/2025` -> `24/6/2025`
+
 ## 2025-05-28
 
 
