@@ -1,3 +1,13 @@
+## 2025-06-12
+
+
+🔵 **Changed**: 112 Toa Payoh Lorong 8 Blk 210:
+  - q4_cleaningstartdate: `13/10/2025` -> `TBC`
+  - q4_cleaningenddate: `15/10/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `22/9/2025`
+  - other_works_enddate: `NA` -> `24/11/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-06-11
 
 
