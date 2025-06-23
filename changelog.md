@@ -1,3 +1,14 @@
+## 2025-06-23
+
+
+🔵 **Changed**: 97 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q3_cleaningstartdate: `1/9/2025` -> `29/9/2025`
+  - q3_cleaningenddate: `3/9/2025` -> `1/10/2025`
+
+🔵 **Changed**: 110 Toa Payoh Lorong 5 Blk 75:
+  - q3_cleaningstartdate: `22/9/2025` -> `15/9/2025`
+  - q3_cleaningenddate: `22/9/2025` -> `15/9/2025`
+
 ## 2025-06-12
 
 
