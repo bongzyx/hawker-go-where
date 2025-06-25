@@ -1,3 +1,10 @@
+## 2025-06-25
+
+
+🔵 **Changed**: 87 Queen Street Blk 270 (Albert Centre):
+  - q3_cleaningstartdate: `18/8/2025` -> `TBC`
+  - q3_cleaningenddate: `19/8/2025` -> `TBC`
+
 ## 2025-06-23
 
 
