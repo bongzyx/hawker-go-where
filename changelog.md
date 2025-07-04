@@ -1,3 +1,17 @@
+## 2025-07-04
+
+
+🔵 **Changed**: 39 Circuit Road Blk 79/79A:
+  - q3_cleaningstartdate: `29/8/2025` -> `25/8/2025`
+  - q3_cleaningenddate: `30/8/2025` -> `26/8/2025`
+  - remarks_q3: `Blk 79 is closed on 29/8/2025, Blk 79A is closed on 30/8/2025.` -> `Blk 79 is closed on 25/8/2025, Blk 79A is closed on 26/8/2025.`
+
+🔵 **Changed**: 120 Yishun Park Hawker Centre:
+  - q3_cleaningstartdate: `1/9/2025` -> `8/9/2025`
+  - q3_cleaningenddate: `3/9/2025` -> `10/9/2025`
+  - q4_cleaningstartdate: `1/12/2025` -> `8/12/2025`
+  - q4_cleaningenddate: `2/12/2025` -> `9/12/2025`
+
 ## 2025-06-25
 
 
