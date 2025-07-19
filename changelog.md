@@ -1,3 +1,9 @@
+## 2025-07-19
+
+
+🔵 **Changed**: 21 Bendemeer Road Blk 29 (Bendemeer Market and Food Centre):
+  - remarks_q3: `Only cooked food stalls are closed from 1/8/2025 to 3/8/2025.  The whole centre (cooked food and market stalls) is closed from 1/8/2025 to 6/8/2025.` -> `Only cooked food stalls are closed from 1/8/2025 to 3/8/2025.  The whole centre (cooked food and market stalls) is closed from 4/8/2025 to 6/8/2025.`
+
 ## 2025-07-04
 
 
