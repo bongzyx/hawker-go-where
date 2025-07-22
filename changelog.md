@@ -1,3 +1,45 @@
+## 2025-07-21
+
+
+🔵 **Changed**: 9 Ang Mo Kio Ave 10 Blk 527 (Cheng San Market and Cooked Food Centre):
+  - q3_cleaningenddate: `30/9/2025` -> `2/10/2025`
+
+🔵 **Changed**: 10 Ang Mo Kio Ave 4 Blk 160/162 (Mayflower Market):
+  - q4_cleaningstartdate: `24/11/2025` -> `15/12/2025`
+  - q4_cleaningenddate: `26/11/2025` -> `17/12/2025`
+
+🔵 **Changed**: 12 Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market):
+  - q3_cleaningstartdate: `15/9/2025` -> `8/9/2025`
+  - q3_cleaningenddate: `16/9/2025` -> `9/9/2025`
+  - q4_cleaningstartdate: `8/12/2025` -> `22/12/2025`
+  - q4_cleaningenddate: `9/12/2025` -> `23/12/2025`
+
+🔵 **Changed**: 21 Bendemeer Road Blk 29 (Bendemeer Market and Food Centre):
+  - q3_cleaningstartdate: `1/8/2025` -> `4/8/2025`
+  - remarks_q3: `Only cooked food stalls are closed from 1/8/2025 to 3/8/2025.  The whole centre (cooked food and market stalls) is closed from 4/8/2025 to 6/8/2025.` -> `nil`
+  - other_works_startdate: `NA` -> `1/8/2025`
+  - other_works_enddate: `NA` -> `3/8/2025`
+  - remarks_other_works: `nil` -> `Only Cooked Food Section is closed for Gas Works.  Market is open and business as usual. `
+
+🔵 **Changed**: 24 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - q3_cleaningstartdate: `15/9/2025` -> `TBC`
+  - q3_cleaningenddate: `18/9/2025` -> `TBC`
+  - q4_cleaningstartdate: `8/12/2025` -> `TBC`
+  - q4_cleaningenddate: `9/12/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `22/9/2025`
+  - other_works_enddate: `NA` -> `21/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 26 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q3_cleaningstartdate: `8/9/2025` -> `1/9/2025`
+  - q3_cleaningenddate: `9/9/2025` -> `2/9/2025`
+  - q4_cleaningstartdate: `8/12/2025` -> `15/12/2025`
+  - q4_cleaningenddate: `10/12/2025` -> `17/12/2025`
+
+🔵 **Changed**: 68 Jurong West Street 52 Blk 505:
+  - q3_cleaningstartdate: `22/9/2025` -> `29/9/2025`
+  - q3_cleaningenddate: `23/9/2025` -> `1/10/2025`
+
 ## 2025-07-19
 
 
