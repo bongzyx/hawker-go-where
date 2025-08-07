@@ -1,3 +1,14 @@
+## 2025-08-07
+
+
+🔵 **Changed**: 39 Circuit Road Blk 79/79A:
+  - q4_cleaningstartdate: `24/11/2025` -> `TBC`
+  - q4_cleaningenddate: `25/11/2025` -> `TBC`
+  - remarks_q4: `Blk 79 is closed on 24/11/2025, Blk 79A is closed on 25/11/2025.` -> `nil`
+  - other_works_startdate: `NA` -> `1/10/2025`
+  - other_works_enddate: `NA` -> `31/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-08-04
 
 
