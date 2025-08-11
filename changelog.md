@@ -1,3 +1,14 @@
+## 2025-08-11
+
+
+🔵 **Changed**: 54 Haig Road Blk 13/14 (Haig Road Market and Cooked Food Centre):
+  - q4_cleaningstartdate: `1/12/2025` -> `TBC`
+  - q4_cleaningenddate: `3/12/2025` -> `TBC`
+  - remarks_q4: `Blk 13 is closed on 1/12/2025, Blk 14 is closed from 2/12/2025 to 3/12/2025.` -> `nil`
+  - other_works_startdate: `NA` -> `22/9/2025`
+  - other_works_enddate: `NA` -> `22/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-08-07
 
 
