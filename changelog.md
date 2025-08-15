@@ -1,3 +1,15 @@
+## 2025-08-15
+
+
+🔵 **Changed**: 23 Berseh Food Centre:
+  - q3_cleaningstartdate: `29/9/2025` -> `TBC`
+  - q3_cleaningenddate: `30/9/2025` -> `TBC`
+  - q4_cleaningstartdate: `1/12/2025` -> `TBC`
+  - q4_cleaningenddate: `2/12/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `29/9/2025`
+  - other_works_enddate: `NA` -> `28/12/2025`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-08-11
 
 
