@@ -1,3 +1,19 @@
+## 2025-08-22
+
+
+🔵 **Changed**: 37 Chomp Chomp Food Centre:
+  - q4_cleaningstartdate: `29/12/2025` -> `TBC`
+  - q4_cleaningenddate: `29/12/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `27/10/2025`
+  - other_works_enddate: `NA` -> `26/1/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 87 Punggol Coast Hawker Centre:
+  - q3_cleaningstartdate: `TBC` -> `29/9/2025`
+  - q3_cleaningenddate: `TBC` -> `1/10/2025`
+  - q4_cleaningstartdate: `TBC` -> `29/12/2025`
+  - q4_cleaningenddate: `TBC` -> `31/12/2025`
+
 ## 2025-08-19
 
 
