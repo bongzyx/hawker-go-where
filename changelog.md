@@ -1,3 +1,17 @@
+## 2025-08-28
+
+
+🔵 **Changed**: 14 Bedok Food Centre:
+  - q4_cleaningstartdate: `2/12/2025` -> `1/12/2025`
+  - q4_cleaningenddate: `4/12/2025` -> `3/12/2025`
+
+🔵 **Changed**: 85 Pasir Panjang Food Centre:
+  - q4_cleaningstartdate: `24/11/2025` -> `TBC`
+  - q4_cleaningenddate: `24/11/2025` -> `TBC`
+  - other_works_startdate: `NA` -> `1/12/2025`
+  - other_works_enddate: `NA` -> `28/2/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2025-08-25
 
 
