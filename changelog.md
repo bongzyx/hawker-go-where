@@ -1,3 +1,9 @@
+## 2025-10-22
+
+
+🔵 **Changed**: 21 Bendemeer Road Blk 29 (Bendemeer Market and Food Centre):
+  - q4_cleaningenddate: `26/11/2025` -> `25/11/2025`
+
 ## 2025-10-17
 
 
