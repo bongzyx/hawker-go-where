@@ -1,3 +1,12 @@
+## 2025-11-04
+
+
+🔵 **Changed**: 33 Bukit Timah Market:
+  - other_works_startdate: `NA` -> `1/10/2024`
+  - other_works_enddate: `NA` -> `31/12/2029`
+  - remarks_other_works: `nil` -> `Closed for redevelopment till 2029 (tentative)`
+  - address_myenv: `51, Upper Bukit Timah Road, Singapore 588215` -> `Closed for redevelopment till 2029 (tentative)`
+
 ## 2025-10-24
 
 
