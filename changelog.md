@@ -1,3 +1,9 @@
+## 2025-11-05
+
+
+🔵 **Changed**: 33 Bukit Timah Market:
+  - description_myenv: `Located along Upper Bukit Timah Road, the two-storey hawker centre was built in 1975 and was upgraded in 2003. A popular hawker centre serving the dining and marketing needs of residents living around Toh Yi Drive. Well-known for the variety of hawker fare, the centre is usually packed with patrons during peak hours. Comprises 84 cooked food stalls and 94 market stalls.` -> `Closed for redevelopment till 2029 (tentative)`
+
 ## 2025-11-04
 
 
