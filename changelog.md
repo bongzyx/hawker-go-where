@@ -1,3 +1,9 @@
+## 2025-11-12
+
+
+🔵 **Changed**: 111 Toa Payoh Lorong 5 Blk 75:
+  - q4_cleaningenddate: `3/12/2025` -> `5/12/2025`
+
 ## 2025-11-05
 
 
