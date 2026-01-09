@@ -1,3 +1,18 @@
+## 2026-01-08
+
+
+🔵 **Changed**: 20 Bedok South Road Blk 16:
+  - q2_cleaningstartdate: `8/6/2026` -> `22/6/2026`
+  - q2_cleaningenddate: `8/6/2026` -> `22/6/2026`
+
+🔵 **Changed**: 27 Bukit Batok West Hawker Centre:
+  - q1_cleaningstartdate: `23/3/2026` -> `16/3/2026`
+  - q1_cleaningenddate: `25/3/2026` -> `17/3/2026`
+
+🔵 **Changed**: 120 Woodleigh Village Hawker Centre:
+  - q1_cleaningstartdate: `16/3/2026` -> `23/3/2026`
+  - q1_cleaningenddate: `17/3/2026` -> `24/3/2026`
+
 ## 2025-12-30
 
 
