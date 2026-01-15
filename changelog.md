@@ -1,3 +1,31 @@
+## 2026-01-15
+
+
+🔵 **Changed**: 24 Boon Lay Place Blk 221A/B (Boon Lay Place Market and Food Village):
+  - q3_cleaningstartdate: `14/9/2026` -> `21/9/2026`
+  - q3_cleaningenddate: `17/9/2026` -> `22/9/2026`
+
+🔵 **Changed**: 38 Circuit Road Blk 79/79A:
+  - remarks_q1: `nil` -> `Blk 79 closed on 30/3/2026, Blk 79A closed on 31/3/2026.`
+  - remarks_q2: `nil` -> `Blk 79 closed on 22/6/2026, Blk 79A closed on 23/6/2026.`
+  - remarks_q3: `nil` -> `Blk 79 closed on 28/9/2026, Blk 79A closed on 29/9/2026.`
+
+🔵 **Changed**: 45 Dunman Food Centre:
+  - q1_cleaningstartdate: `19/1/2026` -> `19/2/2026`
+  - q1_cleaningenddate: `20/1/2026` -> `20/2/2026`
+
+🔵 **Changed**: 54 Haig Road Blk 13/14 (Haig Road Market and Cooked Food Centre):
+  - remarks_q2: `nil` -> `Blk 13 closed on 20/4/2026, Blk 14 closed from 21/4 to 22/4/2026`
+  - remarks_q3: `nil` -> `Blk 13 closed on 6/7/2026, Blk 14 closed from 7/7 to 8/7/2026.`
+
+🔵 **Changed**: 115 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - q1_cleaningstartdate: `23/3/2026` -> `TBC`
+  - q1_cleaningenddate: `24/3/2026` -> `TBC`
+  - q2_cleaningstartdate: `22/6/2026` -> `13/4/2026`
+  - q2_cleaningenddate: `23/6/2026` -> `14/4/2026`
+  - q3_cleaningstartdate: `21/9/2026` -> `6/7/2026`
+  - q3_cleaningenddate: `22/9/2026` -> `7/7/2026`
+
 ## 2026-01-08
 
 
