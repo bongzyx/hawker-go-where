@@ -1,3 +1,13 @@
+## 2026-01-21
+
+
+🔵 **Changed**: 26 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q1_cleaningstartdate: `23/3/2026` -> `30/3/2026`
+  - q1_cleaningenddate: `24/3/2026` -> `31/3/2026`
+
+🔵 **Changed**: 82 North Bridge Road Market:
+  - q1_cleaningenddate: `10/2/2026` -> `9/2/2026`
+
 ## 2026-01-15
 
 
