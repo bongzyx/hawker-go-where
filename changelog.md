@@ -1,3 +1,10 @@
+## 2026-01-23
+
+
+🔵 **Changed**: 18 Bedok North Street 4 Blk 85 (85 Fengshan Centre):
+  - q2_cleaningstartdate: `8/6/2026` -> `18/5/2026`
+  - q2_cleaningenddate: `9/6/2026` -> `19/5/2026`
+
 ## 2026-01-21
 
 
