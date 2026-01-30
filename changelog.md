@@ -1,3 +1,29 @@
+## 2026-01-29
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - q1_cleaningstartdate: `TBC` -> `30/3/2026`
+  - q1_cleaningenddate: `TBC` -> `31/3/2026`
+  - q2_cleaningstartdate: `1/4/2026` -> `1/6/2026`
+  - q2_cleaningenddate: `1/4/2026` -> `1/6/2026`
+
+🔵 **Changed**: 25 Buangkok Hawker Centre:
+  - q1_cleaningstartdate: `9/2/2026` -> `3/2/2026`
+  - q1_cleaningenddate: `10/2/2026` -> `4/2/2026`
+  - q3_cleaningenddate: `5/8/2026` -> `4/8/2026`
+
+🔵 **Changed**: 51 Geylang Serai Market:
+  - q2_cleaningenddate: `24/6/2026` -> `25/6/2026`
+
+🔵 **Changed**: 66 Jurong West Hawker Centre:
+  - q1_cleaningstartdate: `22/3/2026` -> `23/3/2026`
+  - q1_cleaningenddate: `24/3/2026` -> `25/3/2026`
+  - q3_cleaningstartdate: `TBC` -> `21/9/2026`
+  - q3_cleaningenddate: `TBC` -> `23/9/2026`
+
+🔵 **Changed**: 87 Punggol Coast Hawker Centre:
+  - q2_cleaningenddate: `25/6/2026` -> `24/6/2026`
+
 ## 2026-01-27
 
 
