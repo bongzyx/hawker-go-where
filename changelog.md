@@ -1,3 +1,14 @@
+## 2026-02-06
+
+
+🔵 **Changed**: 42 Clementi Ave 3 Blk 448:
+  - q1_cleaningenddate: `24/3/2026` -> `23/3/2026`
+  - q2_cleaningstartdate: `22/6/2026` -> `TBC`
+  - q2_cleaningenddate: `23/6/2026` -> `TBC`
+  - other_works_startdate: `NA` -> `30/3/2026`
+  - other_works_enddate: `NA` -> `28/6/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration and Hawker Centres Transformation Programme `
+
 ## 2026-01-29
 
 
