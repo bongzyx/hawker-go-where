@@ -1,3 +1,10 @@
+## 2026-02-10
+
+
+🔵 **Changed**: 42 Clementi Ave 3 Blk 448:
+  - q1_cleaningstartdate: `23/3/2026` -> `TBC`
+  - q1_cleaningenddate: `23/3/2026` -> `TBC`
+
 ## 2026-02-06
 
 
