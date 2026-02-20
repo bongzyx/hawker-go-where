@@ -1,3 +1,12 @@
+## 2026-02-20
+
+
+🔵 **Changed**: 84 One Punggol Hawker Centre:
+  - q1_cleaningstartdate: `2/3/2026` -> `4/3/2026`
+  - q1_cleaningenddate: `3/3/2026` -> `5/3/2026`
+  - q2_cleaningstartdate: `1/6/2026` -> `2/6/2026`
+  - q2_cleaningenddate: `2/6/2026` -> `3/6/2026`
+
 ## 2026-02-11
 
 
