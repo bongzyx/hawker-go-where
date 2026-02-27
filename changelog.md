@@ -1,3 +1,19 @@
+## 2026-02-27
+
+
+🔵 **Changed**: 29 Bukit Merah Central Blk 163 (Bukit Merah Central Food Centre):
+  - q1_cleaningstartdate: `21/3/2026` -> `28/3/2026`
+  - q1_cleaningenddate: `22/3/2026` -> `29/3/2026`
+
+🔵 **Changed**: 62 Jalan Bukit Merah Blk 6 (ABC Brickworks Market/Food Centre):
+  - q1_cleaningstartdate: `30/3/2026` -> `TBC`
+  - q1_cleaningenddate: `31/3/2026` -> `TBC`
+  - q2_cleaningstartdate: `22/6/2026` -> `TBC`
+  - q2_cleaningenddate: `23/6/2026` -> `TBC`
+  - other_works_startdate: `NA` -> `9/4/2026`
+  - other_works_enddate: `NA` -> `7/6/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2026-02-20
 
 
