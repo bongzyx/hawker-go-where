@@ -1,3 +1,12 @@
+## 2026-03-11
+
+
+🔵 **Changed**: 11 Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market):
+  - q1_cleaningstartdate: `23/3/2026` -> `TBC`
+  - q1_cleaningenddate: `25/3/2026` -> `TBC`
+  - q2_cleaningstartdate: `2/6/2026` -> `6/4/2026`
+  - q2_cleaningenddate: `4/6/2026` -> `8/4/2026`
+
 ## 2026-03-02
 
 
