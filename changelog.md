@@ -1,3 +1,9 @@
+## 2026-03-12
+
+
+🔵 **Changed**: 64 Jurong East Ave 1 Blk 347 (Yuhua Market and Hawker Centre):
+  - q2_cleaningenddate: `9/6/2026` -> `11/6/2026`
+
 ## 2026-03-11
 
 
