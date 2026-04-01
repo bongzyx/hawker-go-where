@@ -1,3 +1,14 @@
+## 2026-04-01
+
+
+🔵 **Changed**: 1 Adam Road Food Centre:
+  - q2_cleaningstartdate: `1/6/2026` -> `8/6/2026`
+  - q2_cleaningenddate: `1/6/2026` -> `8/6/2026`
+
+🔵 **Changed**: 65 Jurong East Street 24 Blk 254 (Yuhua Village Market and Food Centre):
+  - q2_cleaningstartdate: `1/6/2026` -> `22/6/2026`
+  - q2_cleaningenddate: `3/6/2026` -> `24/6/2026`
+
 ## 2026-03-23
 
 
