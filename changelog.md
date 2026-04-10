@@ -1,3 +1,10 @@
+## 2026-04-09
+
+
+🔵 **Changed**: 92 Senja Hawker Centre:
+  - q2_cleaningstartdate: `1/6/2026` -> `22/6/2026`
+  - q2_cleaningenddate: `2/6/2026` -> `23/6/2026`
+
 ## 2026-04-01
 
 
