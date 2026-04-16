@@ -1,3 +1,16 @@
+## 2026-04-15
+
+
+🔵 **Changed**: 11 Ang Mo Kio Ave 4 Blk 628 (Ang Mo Kio 628 Market):
+  - q2_cleaningstartdate: `6/4/2026` -> `2/6/2026`
+  - q2_cleaningenddate: `8/4/2026` -> `4/6/2026`
+
+🔵 **Changed**: 26 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q2_cleaningstartdate: `22/6/2026` -> `1/6/2026`
+  - q2_cleaningenddate: `24/6/2026` -> `3/6/2026`
+  - q3_cleaningstartdate: `7/9/2026` -> `21/9/2026`
+  - q3_cleaningenddate: `8/9/2026` -> `22/9/2026`
+
 ## 2026-04-14
 
 
