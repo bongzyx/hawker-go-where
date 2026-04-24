@@ -1,3 +1,10 @@
+## 2026-04-24
+
+
+🔵 **Changed**: 76 Maxwell Food Centre (Kim Hua Market):
+  - q2_cleaningstartdate: `16/6/2026` -> `15/6/2026`
+  - q2_cleaningenddate: `16/6/2026` -> `15/6/2026`
+
 ## 2026-04-17
 
 
