@@ -1,3 +1,17 @@
+## 2026-04-29
+
+
+🔵 **Changed**: 26 Buffalo Road Blk 665 (Tekka Centre/Zhu Jiao Market):
+  - q2_cleaningstartdate: `1/6/2026` -> `22/6/2026`
+  - q2_cleaningenddate: `3/6/2026` -> `24/6/2026`
+
+🔵 **Changed**: 43 Clementi West Street 2 Blk 726:
+  - q2_cleaningstartdate: `11/5/2026` -> `22/6/2026`
+  - q2_cleaningenddate: `12/5/2026` -> `23/6/2026`
+
+🔵 **Changed**: 98 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q2_cleaningenddate: `24/6/2026` -> `25/6/2026`
+
 ## 2026-04-24
 
 
