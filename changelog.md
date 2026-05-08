@@ -1,3 +1,22 @@
+## 2026-05-08
+
+
+🔵 **Changed**: 7 Ang Mo Kio Ave 10 Blk 409 (Teck Ghee Square):
+  - other_works_startdate: `NA` -> `8/6/2026`
+  - other_works_enddate: `NA` -> `7/8/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 15 Bedok North Street 1 Blk 216:
+  - q2_cleaningstartdate: `22/6/2026` -> `18/5/2026`
+  - q2_cleaningenddate: `23/6/2026` -> `19/5/2026`
+
+🔵 **Changed**: 30 Bukit Merah Lane 1 Blk 120 (Alexandra Village Food Centre):
+  - q2_cleaningstartdate: `15/6/2026` -> `22/6/2026`
+  - q2_cleaningenddate: `15/6/2026` -> `22/6/2026`
+
+🔵 **Changed**: 71 Marine Parade Central Blk 84 (84 Marine Parade Central Market and Food Centre):
+  - q3_cleaningenddate: `15/9/2026` -> `17/9/2026`
+
 ## 2026-04-29
 
 
