@@ -1,3 +1,9 @@
+## 2026-06-02
+
+
+🔵 **Changed**: 38 Circuit Road Blk 79/79A:
+  - remarks_q2: `Blk 79 closed on 22/6/2026, Blk 79A closed on 23/6/2026.` -> `Both closed from 22 June to 23 June 2026`
+
 ## 2026-05-14
 
 
