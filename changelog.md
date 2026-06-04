@@ -1,3 +1,10 @@
+## 2026-06-04
+
+
+🔵 **Changed**: 7 Ang Mo Kio Ave 10 Blk 409 (Teck Ghee Square):
+  - q3_cleaningstartdate: `14/9/2026` -> `TBC`
+  - q3_cleaningenddate: `15/9/2026` -> `TBC`
+
 ## 2026-06-02
 
 
