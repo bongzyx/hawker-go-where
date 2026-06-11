@@ -1,3 +1,11 @@
+## 2026-06-10
+
+
+🔵 **Changed**: 35 Changi Village Blk 2 and 3:
+  - other_works_startdate: `NA` -> `1/10/2026`
+  - other_works_enddate: `NA` -> `15/10/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
 ## 2026-06-04
 
 
