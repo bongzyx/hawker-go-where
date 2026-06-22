@@ -1,3 +1,9 @@
+## 2026-06-22
+
+
+🔵 **Changed**: 119 Whampoa Drive Blk 91/92 (Whampoa Drive Makan Place/Whampoa Market):
+  - q4_cleaningenddate: `15/12/2026` -> `14/12/2026`
+
 ## 2026-06-10
 
 
