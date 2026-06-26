@@ -1,3 +1,9 @@
+## 2026-06-26
+
+
+🔵 **Changed**: 47 Empress Road Blk 7 (Empress Road Market and Food Centre):
+  - q3_cleaningenddate: `15/9/2026` -> `14/9/2026`
+
 ## 2026-06-22
 
 
