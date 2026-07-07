@@ -1,3 +1,10 @@
+## 2026-07-07
+
+
+🔵 **Changed**: 83 Old Airport Road Blk 51 (51 Old Airport Road Food Centre and Shopping Mall):
+  - q3_cleaningstartdate: `7/9/2026` -> `28/9/2026`
+  - q3_cleaningenddate: `10/9/2026` -> `1/10/2026`
+
 ## 2026-06-26
 
 
