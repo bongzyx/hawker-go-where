@@ -1,3 +1,10 @@
+## 2026-07-08
+
+
+🔵 **Changed**: 39 Circuit Road Blk 80 (80 Circuit Road Market and Food Centre):
+  - q4_cleaningstartdate: `9/11/2026` -> `16/11/2026`
+  - q4_cleaningenddate: `10/11/2026` -> `17/11/2026`
+
 ## 2026-07-07
 
 
