@@ -1,3 +1,19 @@
+## 2026-07-16
+
+
+🔵 **Changed**: 43 Clementi West Street 2 Blk 726:
+  - q3_cleaningstartdate: `3/8/2026` -> `TBC`
+  - q3_cleaningenddate: `6/8/2026` -> `TBC`
+  - q4_cleaningstartdate: `16/11/2026` -> `TBC`
+  - q4_cleaningenddate: `17/11/2026` -> `TBC`
+  - other_works_startdate: `NA` -> `14/9/2026`
+  - other_works_enddate: `NA` -> `27/12/2026`
+  - remarks_other_works: `nil` -> `Repairs and Redecoration`
+
+🔵 **Changed**: 121 Yishun Park Hawker Centre:
+  - q3_cleaningstartdate: `14/9/2026` -> `20/7/2026`
+  - q3_cleaningenddate: `15/9/2026` -> `23/7/2026`
+
 ## 2026-07-08
 
 
