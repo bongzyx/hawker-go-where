@@ -1,3 +1,10 @@
+## 2026-07-22
+
+
+🔵 **Changed**: 35 Changi Village Blk 2 and 3:
+  - q4_cleaningstartdate: `5/10/2026` -> `TBC`
+  - q4_cleaningenddate: `9/10/2026` -> `TBC`
+
 ## 2026-07-16
 
 
