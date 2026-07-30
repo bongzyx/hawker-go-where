@@ -1,3 +1,9 @@
+## 2026-07-30
+
+
+🔵 **Changed**: 98 Tampines Street 11 Blk 137 (Tampines Round Market and Food Centre):
+  - q3_cleaningenddate: `30/9/2026` -> `2/10/2026`
+
 ## 2026-07-22
 
 
