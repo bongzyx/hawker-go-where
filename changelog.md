@@ -1,3 +1,9 @@
+## 2026-08-17
+
+
+🔵 **Changed**: 120 Woodleigh Village Hawker Centre:
+  - q3_cleaningenddate: `9/9/2026` -> `8/9/2026`
+
 ## 2026-07-30
 
 
