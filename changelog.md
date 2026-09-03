@@ -1,3 +1,9 @@
+## 2026-09-03
+
+
+🔵 **Changed**: 115 Upper Cross Street Blk 531A (Hong Lim Food Centre and Market):
+  - q4_cleaningenddate: `6/10/2026` -> `7/10/2026`
+
 ## 2026-08-27
 
 
