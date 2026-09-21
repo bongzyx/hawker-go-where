@@ -1,3 +1,14 @@
+## 2026-09-21
+
+
+🔵 **Changed**: 3 Amoy Street Food Centre (Telok Ayer Food Centre):
+  - q4_cleaningstartdate: `5/12/2026` -> `12/12/2026`
+  - q4_cleaningenddate: `6/12/2026` -> `13/12/2026`
+
+🔵 **Changed**: 121 Yishun Park Hawker Centre:
+  - q3_cleaningstartdate: `20/7/2026` -> `21/9/2026`
+  - q3_cleaningenddate: `23/7/2026` -> `22/9/2026`
+
 ## 2026-09-18
 
 
