@@ -1,3 +1,13 @@
+## 2026-10-16
+
+
+🔵 **Changed**: 12 Ang Mo Kio Ave 6 Blk 724 (Blk 724 Ang Mo Kio Market):
+  - q4_cleaningenddate: `15/12/2026` -> `17/12/2026`
+
+🔵 **Changed**: 111 Toa Payoh Lorong 5 Blk 75:
+  - q4_cleaningstartdate: `7/11/2026` -> `7/12/2026`
+  - q4_cleaningenddate: `9/11/2026` -> `9/12/2026`
+
 ## 2026-09-21
 
 
