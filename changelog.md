@@ -1,3 +1,10 @@
+## 2026-10-19
+
+
+🔵 **Changed**: 101 Teban Gardens Road Blk 37A (Teban Gardens Market and Food Centre):
+  - q4_cleaningstartdate: `12/10/2026` -> `30/11/2026`
+  - q4_cleaningenddate: `13/10/2026` -> `2/12/2026`
+
 ## 2026-10-16
 
 
