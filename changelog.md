@@ -1,3 +1,10 @@
+## 2026-11-03
+
+
+🔵 **Changed**: 86 Pasir Ris Central Hawker Centre:
+  - q4_cleaningstartdate: `16/11/2026` -> `2/11/2026`
+  - q4_cleaningenddate: `18/11/2026` -> `4/11/2026`
+
 ## 2026-10-19
 
 
