@@ -8,9 +8,16 @@ import {
   type MapMouseEvent,
   Popup,
   type ResourceType,
+  setWorkerUrl,
   type StyleSpecification,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+// MapLibre builds its worker path from a variable, which the bundler cannot see,
+// so the worker file was never emitted and production fell through to index.html.
+// Importing it with ?url makes Vite ship it as a hashed asset we can point at.
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
+
+setWorkerUrl(workerUrl);
 import { useEffect, useRef } from "react";
 import type { LatLng } from "../lib/hooks";
 import type { State } from "../lib/status";
