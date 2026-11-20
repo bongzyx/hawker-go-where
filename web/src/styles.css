@@ -39,9 +39,15 @@
 
   --host-safe-top: 0px;
   --host-safe-bottom: 0px;
+  --host-safe-left: 0px;
+  --host-safe-right: 0px;
   --content-safe-top: 0px;
+  /* Notch / Dynamic Island, home indicator, and landscape side insets (needs
+     viewport-fit=cover). In Telegram the host reports its own via --host-*. */
   --safe-top: calc(max(env(safe-area-inset-top, 0px), var(--host-safe-top)) + var(--content-safe-top));
   --safe-bottom: max(env(safe-area-inset-bottom, 0px), var(--host-safe-bottom));
+  --safe-left: max(env(safe-area-inset-left, 0px), var(--host-safe-left));
+  --safe-right: max(env(safe-area-inset-right, 0px), var(--host-safe-right));
 }
 
 :root[data-scheme="dark"] {
@@ -124,6 +130,18 @@ body {
   overflow: hidden;
   overscroll-behavior: none;
   touch-action: manipulation;
+}
+
+/* Installed to the home screen: no text-selection loupe or link callout on
+   long-press of UI, like a native app. Inputs stay selectable. */
+:root[data-standalone] body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+:root[data-standalone] :is(input, textarea, [contenteditable]) {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 @utility glass {
@@ -247,8 +265,15 @@ body {
 .hgw-tooltip .maplibregl-popup-tip {
   display: none;
 }
-.maplibregl-ctrl-top-left {
+/* Scoped under .maplibregl-map so these win over maplibre-gl.css, which loads
+   later with the lazy map chunk and would reset the corners to 0. */
+.maplibregl-map .maplibregl-ctrl-top-left {
   top: calc(var(--safe-top) + 68px);
+  left: var(--safe-left);
+}
+.maplibregl-map .maplibregl-ctrl-bottom-right {
+  right: var(--safe-right);
+  bottom: var(--safe-bottom);
 }
 .maplibregl-canvas:focus-visible {
   outline: none;

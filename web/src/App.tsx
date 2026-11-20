@@ -161,6 +161,14 @@ export function App() {
     }
   }, []);
 
+  // Mobile: the map sits behind the detail sheet, so drop back to it centred on this hawker.
+  const showOnMap = useCallback(() => {
+    haptics.select();
+    closeDetail();
+    setView("map");
+    setFocusKey((k) => k + 1);
+  }, [closeDetail]);
+
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
       pushed.current = false;
@@ -259,6 +267,7 @@ export function App() {
       favourite={favs.has(selected.hawker.id)}
       onToggleFavourite={() => favs.toggle(selected.hawker.id)}
       onBack={closeDetail}
+      onShowOnMap={desktop ? undefined : showOnMap}
       showBack
     />
   );
@@ -280,10 +289,10 @@ export function App() {
 
       {desktop ? (
         <>
-          <aside className="glass absolute top-4 bottom-4 left-4 z-10 flex w-[408px] flex-col overflow-hidden rounded-3xl">
+          <aside className="glass absolute top-[max(1rem,var(--safe-top))] bottom-[max(1rem,var(--safe-bottom))] left-[max(1rem,var(--safe-left))] z-10 flex w-[408px] flex-col overflow-hidden rounded-3xl">
             {detail ? <div className="animate-fade-in h-full overflow-y-auto">{detail}</div> : panel}
           </aside>
-          <div className="absolute right-4 bottom-8 z-10 flex flex-col items-end gap-2">
+          <div className="absolute right-[max(1rem,var(--safe-right))] bottom-[max(2rem,calc(var(--safe-bottom)+1rem))] z-10 flex flex-col items-end gap-2">
             <LocateButton onClick={locate} busy={geo.status === "locating"} />
             <MapLegend counts={counts} filter={filter} setFilter={setFilter} />
           </div>
@@ -293,13 +302,13 @@ export function App() {
           <TopBar query={query} setQuery={setQuery} view={view} setView={setView} />
 
           {view === "list" && (
-            <div className="animate-fade-in absolute inset-0 z-10 flex flex-col bg-surface pt-[calc(var(--safe-top)+70px)]">
+            <div className="animate-fade-in absolute inset-0 z-10 flex flex-col bg-surface pt-[calc(var(--safe-top)+70px)] pr-(--safe-right) pl-(--safe-left)">
               {panel}
             </div>
           )}
 
           {view === "map" && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 px-3 pb-[calc(var(--safe-bottom)+12px)]">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 pr-[calc(var(--safe-right)+12px)] pb-[calc(var(--safe-bottom)+12px)] pl-[calc(var(--safe-left)+12px)]">
               <div className="flex justify-end">
                 <LocateButton onClick={locate} busy={geo.status === "locating"} />
               </div>
@@ -333,7 +342,7 @@ export function App() {
           )}
 
           {detail && (
-            <div className="animate-sheet-in absolute inset-0 z-30 overflow-y-auto overscroll-contain bg-surface">{detail}</div>
+            <div className="animate-sheet-in absolute inset-0 z-30 overflow-y-auto overscroll-contain bg-surface pr-(--safe-right) pl-(--safe-left)">{detail}</div>
           )}
         </>
       )}
@@ -357,7 +366,7 @@ function TopBar({
   setView: (v: "map" | "list") => void;
 }) {
   return (
-    <div className="absolute inset-x-0 top-0 z-20 flex items-center gap-2 px-3 pt-[calc(var(--safe-top)+10px)]">
+    <div className="absolute inset-x-0 top-0 z-20 flex items-center gap-2 pt-[calc(var(--safe-top)+10px)] pr-[calc(var(--safe-right)+12px)] pl-[calc(var(--safe-left)+12px)]">
       <SearchField query={query} setQuery={setQuery} onFocus={() => setView("list")} />
       <div className="glass flex h-12 shrink-0 rounded-full p-1" role="group" aria-label="View">
         {(["map", "list"] as const).map((v) => (

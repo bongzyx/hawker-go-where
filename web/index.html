@@ -16,12 +16,16 @@
       }
     </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- iOS home-screen app. "black-translucent" draws the page under the notch /
+         Dynamic Island but always uses white status-bar text, which vanishes on the
+         light theme; "default" gives a solid bar with legible text. The script below
+         picks per scheme; this static value is the fallback. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="HawkerGoWhere" />
     <meta property="og:title" content="HawkerGoWhere" />
     <meta property="og:description" content="Which Singapore hawker centres are closed today?" />
@@ -36,6 +40,11 @@
         document.documentElement.dataset.scheme = dark ? "dark" : "light";
         var meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
+        var bar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+        if (bar) bar.setAttribute("content", dark ? "black-translucent" : "default");
+        if (navigator.standalone || window.matchMedia("(display-mode: standalone)").matches) {
+          document.documentElement.dataset.standalone = "";
+        }
       })();
     </script>
   </head>
