@@ -5,3 +5,8 @@ dist/
 .env
 .env.local
 worker/worker-configuration.d.ts
+
+# The repo-root .gitignore is a Python/macOS template: its `lib/` and `Icon?`
+# rules would otherwise swallow these.
+!src/lib/
+!public/icons/
