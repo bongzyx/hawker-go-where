@@ -2,7 +2,9 @@ import { ArrowDownUp, List, LocateFixed, Map as MapIcon, RefreshCw, Search, Star
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HawkerCard, HawkerDetail, HawkerRow, type Row } from "./components/hawker";
 import type { MapPoint } from "./components/MapView";
+import { DismissibleSheet } from "./components/DismissibleSheet";
 import { ScrollRow } from "./components/ScrollRow";
+import { Swipeable } from "./components/Swipeable";
 
 // MapLibre is ~1 MB; the list and summary should not wait for it.
 const MapView = lazy(() => import("./components/MapView").then((m) => ({ default: m.MapView })));
@@ -132,6 +134,32 @@ export function App() {
   );
 
   const selected = rows.find((r) => r.hawker.id === selectedId) ?? null;
+
+  // Swiping the map card walks outward from the hawker the user last picked:
+  // nearest first, so each swipe moves to a neighbour instead of across the island.
+  // The anchor stays put while swiping, so swiping back retraces the same path.
+  const [anchorId, setAnchorId] = useState<string | null>(selectedId);
+  const fromSwipe = useRef(false);
+  useEffect(() => {
+    if (fromSwipe.current) fromSwipe.current = false;
+    else setAnchorId(selectedId);
+  }, [selectedId]);
+  const swipeOrder = useMemo(() => {
+    const a = rows.find((r) => r.hawker.id === anchorId)?.hawker;
+    if (!a) return visible;
+    const kx = Math.cos((a.lat * Math.PI) / 180);
+    const d = (r: Row) => ((r.hawker.lng - a.lng) * kx) ** 2 + (r.hawker.lat - a.lat) ** 2;
+    return [...visible].sort((x, y) => d(x) - d(y));
+  }, [visible, rows, anchorId]);
+  const swipeIndex = swipeOrder.findIndex((r) => r.hawker.id === selectedId);
+  const swipeTo = (dir: 1 | -1) => {
+    const next = swipeOrder[swipeIndex + dir];
+    if (!next) return;
+    haptics.select();
+    fromSwipe.current = true;
+    setSelectedId(next.hawker.id);
+    setFocusKey((k) => k + 1);
+  };
 
   // A deep link to an id that does not exist should not leave an empty detail open.
   useEffect(() => {
@@ -314,14 +342,20 @@ export function App() {
               </div>
               <div className="pointer-events-auto">
                 {selected ? (
-                  <HawkerCard
-                    row={selected}
-                    day={day}
-                    today={today}
-                    favourite={favs.has(selected.hawker.id)}
-                    onToggleFavourite={() => favs.toggle(selected.hawker.id)}
-                    onOpen={() => openDetail(selected.hawker.id, false)}
-                  />
+                  <Swipeable
+                    canPrev={swipeIndex > 0}
+                    canNext={swipeIndex < swipeOrder.length - 1}
+                    onSwipe={swipeTo}
+                  >
+                    <HawkerCard
+                      row={selected}
+                      day={day}
+                      today={today}
+                      favourite={favs.has(selected.hawker.id)}
+                      onToggleFavourite={() => favs.toggle(selected.hawker.id)}
+                      onOpen={() => openDetail(selected.hawker.id, false)}
+                    />
+                  </Swipeable>
                 ) : (
                   <div className="glass rounded-2xl px-3 pt-3 pb-2">
                     <SummaryChips
@@ -342,7 +376,12 @@ export function App() {
           )}
 
           {detail && (
-            <div className="animate-sheet-in absolute inset-0 z-30 overflow-y-auto overscroll-contain bg-surface pr-(--safe-right) pl-(--safe-left)">{detail}</div>
+            <DismissibleSheet
+              onDismiss={closeDetail}
+              className="animate-sheet-in absolute inset-0 z-30 overflow-y-auto overscroll-contain bg-surface pr-(--safe-right) pl-(--safe-left)"
+            >
+              {detail}
+            </DismissibleSheet>
           )}
         </>
       )}
@@ -541,6 +580,44 @@ function ListPanel(props: {
   const sortLabel: Record<Sort, string> = { nearest: "Nearest", status: "Closed first", name: "A–Z" };
   const nextSort = () => props.setSort(sorts[(sorts.indexOf(props.sort) + 1) % sorts.length] ?? "status");
 
+  // Scrolling down the list folds the day strip away; scrolling back up a bit (or
+  // reaching the top) brings it back. The filters stay put either way.
+  const [compact, setCompact] = useState(false);
+  const scroll = useRef({ y: 0, up: 0, quietUntil: 0 });
+  const fold = (next: boolean) => {
+    if (next === compact) return;
+    // Folding resizes the list, which can clamp scrollTop near the bottom; ignore
+    // the scroll events that causes until the transition is over.
+    scroll.current.quietUntil = performance.now() + 350;
+    setCompact(next);
+  };
+  const onListScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const s = scroll.current;
+    const n = e.currentTarget;
+    const y = n.scrollTop;
+    const dy = y - s.y;
+    // Folding makes the list taller, so at the very bottom the browser pulls
+    // scrollTop up to fit. That lands exactly on the bottom edge; a real
+    // upward scroll leaves it. Don't read the clamp as the user scrolling up.
+    const atBottom = y + n.clientHeight >= n.scrollHeight - 2;
+    s.y = y;
+    if (y <= 8) {
+      s.up = 0;
+      fold(false);
+      return;
+    }
+    if (performance.now() < s.quietUntil) return;
+    if (dy > 0) {
+      s.up = 0;
+      if (y > 40) fold(true);
+    } else if (atBottom) {
+      s.up = 0;
+    } else {
+      s.up -= dy;
+      if (s.up > 80) fold(false);
+    }
+  };
+
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <div className="flex flex-col gap-3 px-4 pt-4 pb-3">
@@ -554,7 +631,17 @@ function ListPanel(props: {
           </div>
         )}
         {props.showSearch && <SearchField query={props.query} setQuery={props.setQuery} flat />}
-        <DayStrip counts={props.dayCounts} value={props.day} today={props.today} onChange={props.setDay} />
+        <div
+          aria-hidden={compact}
+          inert={compact}
+          className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
+            compact ? "-mb-3 grid-rows-[0fr] opacity-0" : "grid-rows-[1fr] opacity-100"
+          }`}
+        >
+          <div className="min-h-0 overflow-hidden">
+            <DayStrip counts={props.dayCounts} value={props.day} today={props.today} onChange={props.setDay} />
+          </div>
+        </div>
         <SummaryChips
           counts={props.counts}
           filter={props.filter}
@@ -574,7 +661,7 @@ function ListPanel(props: {
         </button>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[calc(var(--safe-bottom)+16px)]">
+      <div onScroll={onListScroll} className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[calc(var(--safe-bottom)+16px)]">
         {props.loading && <ListSkeleton />}
         {props.error && (
           <div className="flex flex-col items-center gap-3 px-6 py-12 text-center">

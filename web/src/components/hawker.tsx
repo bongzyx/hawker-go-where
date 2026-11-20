@@ -1,4 +1,4 @@
-import { ArrowLeft, ChevronRight, MapPinned, Navigation, ShoppingBasket, Share2, Soup, Star } from "lucide-react";
+import { ArrowLeft, ChevronRight, Map as MapIcon, MapPin, Navigation, PersonStanding, ShoppingBasket, Share2, Soup, Star } from "lucide-react";
 import { useState } from "react";
 import type { Hawker } from "../../shared/types";
 import { daysBetween, formatRange } from "../lib/dates";
@@ -145,6 +145,7 @@ export function HawkerDetail({
   favourite,
   onBack,
   onToggleFavourite,
+  onShowOnMap,
   showBack,
 }: {
   row: Row;
@@ -153,6 +154,8 @@ export function HawkerDetail({
   favourite: boolean;
   onBack: () => void;
   onToggleFavourite: () => void;
+  /** Only where the map is hidden behind the detail (mobile). */
+  onShowOnMap?: () => void;
   showBack: boolean;
 }) {
   const { hawker, status, distance } = row;
@@ -221,17 +224,6 @@ export function HawkerDetail({
           >
             <Navigation size={16} /> Directions
           </button>
-          {hawker.googleMapsUrl && (
-            <button
-              type="button"
-              onClick={() => openExternal(hawker.googleMapsUrl!)}
-              aria-label="Open in Google Maps"
-              title="Open in Google Maps"
-              className="pressable grid size-11 place-items-center rounded-full bg-sunken"
-            >
-              <MapPinned size={17} />
-            </button>
-          )}
           <button
             type="button"
             onClick={doShare}
@@ -297,12 +289,42 @@ export function HawkerDetail({
           <Stat icon={<ShoppingBasket size={18} />} value={hawker.marketStalls} label="Market stalls" />
         </section>
 
-        <section className="flex flex-col gap-2">
-          <p className="text-sm">{hawker.address}</p>
-          {hawker.description && <p className="text-sm leading-relaxed text-secondary">{hawker.description}</p>}
+        <section className="flex flex-col gap-3" aria-label="Location">
+          <p className="flex items-start gap-2 text-sm">
+            <MapPin size={16} className="mt-0.5 shrink-0 text-secondary" />
+            {hawker.address}
+          </p>
+          {(onShowOnMap || hawker.googleMapsUrl) && (
+            <div className="flex gap-2">
+              {onShowOnMap && (
+                <PillButton icon={<MapIcon size={16} />} label="Show on map" onClick={onShowOnMap} />
+              )}
+              {hawker.googleMapsUrl && (
+                <PillButton
+                  icon={<PersonStanding size={16} />}
+                  label="Street View"
+                  onClick={() => openExternal(hawker.googleMapsUrl!)}
+                />
+              )}
+            </div>
+          )}
         </section>
+
+        {hawker.description && <p className="text-sm leading-normal text-secondary">{hawker.description}</p>}
       </div>
     </article>
+  );
+}
+
+function PillButton({ icon, label, onClick }: { icon: React.ReactNode; label: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="pressable flex h-11 flex-1 items-center justify-center gap-1.5 rounded-full bg-sunken text-sm font-semibold"
+    >
+      {icon} {label}
+    </button>
   );
 }
 
