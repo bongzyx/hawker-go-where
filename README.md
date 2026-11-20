@@ -79,6 +79,10 @@ To run your own local copy of the bot or for reference if I want to deploy on a 
    python3 hawker_go_where_bot.py
    ```
 
+## Web app / Telegram Mini App
+
+[`web/`](web/README.md) has a map and list view of closures, which also runs as a Telegram Mini App. It's a single Cloudflare Worker that serves an API over `data/latest_data.json` alongside the React frontend.
+
 ## Architecture
 
 Deploment Machine <- Git Repo <- GitHub Actions Workflow

@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hawker-go-where",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-01",
+
+  // One Worker serves both the API and the built frontend. Requests under
+  // /api/* run the Worker first; everything else is a static asset, and
+  // unknown paths fall back to index.html so deep links like /?h=<id> work.
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+
+  "vars": {
+    // Raw GitHub URL for the source data. The repo is public, so no token is
+    // needed. If it ever goes private, add a GITHUB_TOKEN secret
+    // (`npx wrangler secret put GITHUB_TOKEN`, fine-grained PAT, Contents: read-only).
+    "DATA_URL": "https://raw.githubusercontent.com/bongzyx/hawker-go-where/refs/heads/main/data/latest_data.json",
+    // How long a fetched copy counts as fresh. Stale copies are still served
+    // (and refreshed in the background) for up to a day.
+    "CACHE_TTL_SECONDS": "900"
+  },
+
+  // Wrangler creates the DNS record and certificate on deploy.
+  "routes": [{ "pattern": "hawker.bongzy.me", "custom_domain": true }],
+
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}

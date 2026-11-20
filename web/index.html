@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>HawkerGoWhere</title>
+    <meta name="description" content="Which Singapore hawker centres are closed for cleaning or works, on a map, today or any day." />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: "InterVariable";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("/fonts/InterVariable.woff2") format("woff2");
+      }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="HawkerGoWhere" />
+    <meta property="og:title" content="HawkerGoWhere" />
+    <meta property="og:description" content="Which Singapore hawker centres are closed today?" />
+    <!-- Defines window.Telegram.WebApp. Harmless in a plain browser: lib/telegram.ts
+         only treats the page as a Mini App when initData is present. -->
+    <script src="https://telegram.org/js/telegram-web-app.js?59"></script>
+    <script>
+      // Pick the scheme before first paint so dark devices never flash white.
+      (function () {
+        var tg = window.Telegram && window.Telegram.WebApp;
+        var dark = tg && tg.initData ? tg.colorScheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.scheme = dark ? "dark" : "light";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,290 @@
+@import "tailwindcss";
+
+/**
+ * Semantic tokens. Components style against these names only.
+ *
+ * Same pattern as TransitGo: inside Telegram, lib/telegram.ts writes the
+ * client's theme as `--tg-*` variables and every token points at them first;
+ * in a browser they are undefined and the graphite palette (from ticklog)
+ * applies. One component layer, two skins.
+ */
+:root {
+  color-scheme: light;
+
+  --surface: var(--tg-bg-color, #ffffff);
+  --surface-elevated: var(--tg-secondary-bg-color, #f5f5f4);
+  --surface-sunken: var(--tg-secondary-bg-color, #f0f0ef);
+  --text-primary: var(--tg-text-color, #1c1c1c);
+  --text-secondary: var(--tg-hint-color, #6b6b6b);
+  --border: var(--tg-section-separator-color, #ebebe9);
+  --accent: var(--tg-button-color, #1c1c1c);
+  --accent-text: var(--tg-button-text-color, #ffffff);
+  --link: var(--tg-link-color, #2563eb);
+
+  --state-hover: color-mix(in srgb, var(--text-primary) 5%, transparent);
+  --state-press: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  --state-selected: color-mix(in srgb, var(--text-primary) 7%, transparent);
+
+  /* Status colours. Never taken from the Telegram theme, they carry meaning.
+     Always paired with a text label or shape so colour is never the only signal. */
+  --status-open: #12b76a;
+  --status-soon: #f79009;
+  --status-closed: #f04438;
+  --status-works: #7a5af8;
+  --me: #2e90fa;
+
+  --glass-bg: color-mix(in oklab, var(--surface) 86%, transparent);
+  --glass-ring: color-mix(in oklab, var(--text-primary) 7%, transparent);
+  --glass-shadow: 0 8px 28px -10px rgb(0 0 0 / 0.18);
+
+  --host-safe-top: 0px;
+  --host-safe-bottom: 0px;
+  --content-safe-top: 0px;
+  --safe-top: calc(max(env(safe-area-inset-top, 0px), var(--host-safe-top)) + var(--content-safe-top));
+  --safe-bottom: max(env(safe-area-inset-bottom, 0px), var(--host-safe-bottom));
+}
+
+:root[data-scheme="dark"] {
+  color-scheme: dark;
+
+  --surface: var(--tg-bg-color, #1c1c1c);
+  --surface-elevated: var(--tg-secondary-bg-color, #222222);
+  --surface-sunken: var(--tg-secondary-bg-color, #141414);
+  --text-primary: var(--tg-text-color, #ededec);
+  --text-secondary: var(--tg-hint-color, #9b9b9b);
+  --border: var(--tg-section-separator-color, #2e2e2e);
+  --accent: var(--tg-button-color, #ededec);
+  --accent-text: var(--tg-button-text-color, #161616);
+  --link: var(--tg-link-color, #6aa9ec);
+
+  --status-open: #6ce9a6;
+  --status-soon: #fec84b;
+  --status-closed: #fda29b;
+  --status-works: #bdb4fe;
+  --me: #84caff;
+
+  --glass-bg: color-mix(in oklab, var(--surface) 80%, transparent);
+  --glass-ring: rgb(255 255 255 / 0.08);
+  --glass-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-elevated: var(--surface-elevated);
+  --color-sunken: var(--surface-sunken);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-link: var(--link);
+  --color-open: var(--status-open);
+  --color-soon: var(--status-soon);
+  --color-closed: var(--status-closed);
+  --color-works: var(--status-works);
+
+  --font-sans: "InterVariable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+
+  --text-xs--letter-spacing: 0.01em;
+  --text-lg--letter-spacing: -0.011em;
+  --text-xl--letter-spacing: -0.014em;
+  --text-2xl--letter-spacing: -0.018em;
+}
+
+:root {
+  font-feature-settings: "cv05" 1, "cv11" 1;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.018em;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  height: 100dvh;
+}
+
+html {
+  background: var(--surface);
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* The map owns the viewport; only inner panels scroll. */
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+
+@utility glass {
+  background-color: var(--glass-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    0 0 0 1px var(--glass-ring),
+    var(--glass-shadow);
+}
+
+@utility pressable {
+  transition-property: transform, background-color, color, opacity, box-shadow;
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-tap-highlight-color: transparent;
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+}
+
+@utility row {
+  transition: background-color 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--state-hover);
+    }
+  }
+  &:active {
+    background-color: var(--state-press);
+  }
+  &[aria-current="true"] {
+    background-color: var(--state-selected);
+  }
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Feathered edges for horizontal scrollers; ScrollRow sets --fade-l/--fade-r
+   to 0 on whichever side has nothing left to reveal. */
+.scroll-fade {
+  --fade-l: 0px;
+  --fade-r: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"] {
+    cursor: pointer;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Keyboard focus only, in ink rather than browser blue. */
+  :focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--text-primary) 55%, transparent);
+    outline-offset: 2px;
+  }
+}
+
+/* MapLibre chrome, reskinned to the tokens. */
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+  background: var(--glass-bg) !important;
+  color: var(--text-secondary);
+  border-radius: 8px 0 0 0;
+}
+.maplibregl-ctrl-attrib a {
+  color: var(--text-secondary) !important;
+}
+.maplibregl-ctrl-attrib-button {
+  filter: var(--attrib-filter, none);
+}
+:root[data-scheme="dark"] .maplibregl-ctrl-attrib-button {
+  filter: invert(1);
+}
+/* Hover tooltip on map pins: the same frosted surface as the panels. */
+.hgw-tooltip .maplibregl-popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font: 13px/1.35 var(--font-sans);
+  font-feature-settings: "cv05" 1, "cv11" 1;
+  color: var(--text-secondary);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    0 0 0 1px var(--glass-ring),
+    var(--glass-shadow);
+  pointer-events: none;
+}
+/* MapLibre wraps our node in its own div, so target the lines directly. */
+.hgw-tooltip strong,
+.hgw-tooltip span {
+  display: block;
+}
+.hgw-tooltip .maplibregl-popup-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+}
+.hgw-tooltip .maplibregl-popup-tip {
+  display: none;
+}
+.maplibregl-ctrl-top-left {
+  top: calc(var(--safe-top) + 68px);
+}
+.maplibregl-canvas:focus-visible {
+  outline: none;
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.animate-sheet-in {
+  animation: sheet-in 260ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.animate-fade-in {
+  animation: fade-in 200ms ease-out;
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sheet-in,
+  .animate-fade-in {
+    animation: none;
+  }
+}
