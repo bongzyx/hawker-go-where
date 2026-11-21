@@ -92,7 +92,7 @@ function bindTheme(app: TgWebApp, onScheme: (dark: boolean) => void) {
 }
 
 /**
- * Telegram on iPhone has been seen reporting a zero bottom inset while the page
+ * Telegram on iPhone has been seen reporting a zero or too-small bottom inset while the page
  * still runs under the home indicator. Face ID iPhones are at least 812pt tall;
  * their indicator needs 34pt in portrait and 21pt in landscape.
  */
@@ -111,7 +111,7 @@ function bindInsets(app: TgWebApp) {
     const d = app.safeAreaInset ?? { top: 0, bottom: 0, left: 0, right: 0 };
     const c = app.contentSafeAreaInset ?? { top: 0, bottom: 0, left: 0, right: 0 };
     setVar("--host-safe-top", `${d.top}px`);
-    setVar("--host-safe-bottom", `${d.bottom + c.bottom || homeIndicator(app)}px`);
+    setVar("--host-safe-bottom", `${Math.max(d.bottom + c.bottom, homeIndicator(app))}px`);
     setVar("--host-safe-left", `${d.left}px`);
     setVar("--host-safe-right", `${d.right}px`);
     setVar("--content-safe-top", `${c.top}px`);
