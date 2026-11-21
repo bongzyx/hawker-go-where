@@ -1,7 +1,7 @@
 {
   "id": "/",
   "name": "HawkerGoWhere",
-  "short_name": "Hawkers",
+  "short_name": "HawkerGoWhere",
   "description": "Which Singapore hawker centres are closed for cleaning or works.",
   "lang": "en-SG",
   "start_url": "/",
