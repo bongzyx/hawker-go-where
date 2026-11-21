@@ -113,7 +113,10 @@ export function statusSentence(status: HawkerStatus, day: string, today: string)
     const label = closureLabel(status.next).replace(/^Q\d /, "");
     const range = formatRange(status.next.start, status.next.end, year);
     if (status.state === "soon") return `${capitalise(label)} ${rel(status.next.start)} · ${range}`;
-    return `Next ${label.toLowerCase()} ${range}`;
+    // Further out than "soon", a rough distance still helps: "in 2 weeks · Mon 7 – Wed 9 Dec".
+    return day === today
+      ? `Next ${label.toLowerCase()} ${relativeDays(today, status.next.start)} · ${range}`
+      : `Next ${label.toLowerCase()} ${range}`;
   }
 
   return status.hasTbc ? "Next cleaning dates TBC" : "No upcoming closures";

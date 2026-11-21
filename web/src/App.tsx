@@ -488,7 +488,7 @@ function TopBar({
             setView(view === "map" ? "list" : "map");
           }}
           aria-label={view === "map" ? "Show list" : "Show map"}
-          className="glass pressable flex h-12 shrink-0 items-center gap-1.5 rounded-full pr-4 pl-3.5 text-[15px] font-semibold"
+          className="glass pressable flex h-12 w-[5.5rem] shrink-0 items-center justify-center gap-1.5 rounded-full text-[15px] font-semibold"
         >
           {view === "map" ? <List size={18} /> : <MapIcon size={18} />}
           {view === "map" ? "List" : "Map"}

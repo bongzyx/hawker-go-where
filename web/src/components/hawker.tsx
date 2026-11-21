@@ -1,7 +1,7 @@
 import { ArrowLeft, ChevronRight, Map as MapIcon, MapPin, Navigation, PersonStanding, ShoppingBasket, Share2, Soup, Star } from "lucide-react";
 import { useState } from "react";
 import type { Hawker } from "../../shared/types";
-import { daysBetween, formatRange } from "../lib/dates";
+import { formatRange, relativeDays } from "../lib/dates";
 import { formatDistance } from "../lib/hooks";
 import { closureLabel, closureLength, statusSentence, type HawkerStatus } from "../lib/status";
 import { haptics, openExternal, share } from "../lib/telegram";
@@ -251,9 +251,8 @@ export function HawkerDetail({
             {dated.map((c, i) => {
               const done = c.end! < today;
               const now = c.start! <= today && today <= c.end!;
-              const until = daysBetween(today, c.start!);
               return (
-                <li key={i} className="flex items-start gap-3 py-2.5" style={{ opacity: done ? 0.55 : 1 }}>
+                <li key={i} className="flex items-start gap-3 py-2.5 last:pb-0" style={{ opacity: done ? 0.55 : 1 }}>
                   <span
                     className="mt-1.5 size-2 shrink-0 rounded-sm"
                     style={{ background: c.kind === "works" ? "var(--status-works)" : "var(--status-closed)" }}
@@ -266,13 +265,13 @@ export function HawkerDetail({
                     {c.remarks && <p className="mt-1 text-xs text-secondary">{c.remarks}</p>}
                   </div>
                   <span className="shrink-0 text-xs font-medium text-secondary">
-                    {now ? "Now" : done ? "Done" : until <= 60 ? `in ${until}d` : ""}
+                    {now ? "Now" : done ? "Done" : capitalise(relativeDays(today, c.start!))}
                   </span>
                 </li>
               );
             })}
             {tbc.map((c, i) => (
-              <li key={`tbc-${i}`} className="flex items-start gap-3 py-2.5 text-secondary">
+              <li key={`tbc-${i}`} className="flex items-start gap-3 py-2.5 text-secondary last:pb-0">
                 <span className="mt-1.5 size-2 shrink-0 rounded-sm border border-current" />
                 <div className="flex-1">
                   <p className="text-sm">{closureLabel(c)}: dates TBC</p>
@@ -280,7 +279,7 @@ export function HawkerDetail({
                 </div>
               </li>
             ))}
-            {!dated.length && !tbc.length && <li className="py-2.5 text-sm text-secondary">No closures scheduled.</li>}
+            {!dated.length && !tbc.length && <li className="pt-2.5 text-sm text-secondary">No closures scheduled.</li>}
           </ul>
         </section>
 
@@ -347,4 +346,8 @@ function Stat({ icon, value, label }: { icon: React.ReactNode; value: number; la
       </div>
     </div>
   );
+}
+
+function capitalise(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
