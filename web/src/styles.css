@@ -141,6 +141,15 @@ body {
   touch-action: manipulation;
 }
 
+/* Installed iOS app with the black-translucent status bar: the page is drawn
+   from the top of the screen, but the layout viewport (inset: 0, 100%, dvh)
+   stays short by the status-bar height, leaving a strip at the bottom. In
+   standalone, vh covers the whole screen. */
+:root[data-standalone] body {
+  bottom: auto;
+  height: 100vh;
+}
+
 /* Installed to the home screen: no text-selection loupe or link callout on
    long-press of UI, like a native app. Inputs stay selectable. */
 :root[data-standalone] body {
