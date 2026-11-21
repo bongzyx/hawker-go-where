@@ -145,11 +145,19 @@ body {
    position:fixed layer is sized to a box that ends a status-bar height short
    of the screen, and is clipped there, leaving a blank strip at the bottom.
    Normal-flow content is not clipped (Huat Master's scrolling page shows this),
-   so here the body is an in-flow block the full height of the screen. */
+   so here the body is an in-flow block the full height of the screen.
+   Being in flow, the page itself could now be dragged (or pushed up by the
+   keyboard), so it takes no pans of its own: lists, the chip row and the
+   details sheet are scroll containers and still scroll, and the map handles
+   its own gestures. App.tsx snaps any keyboard nudge back to the top. */
 :root[data-standalone] body {
   position: relative;
   inset: auto;
   height: 100vh;
+  touch-action: none;
+}
+:root[data-standalone] {
+  overscroll-behavior: none;
 }
 
 /* Installed to the home screen: no text-selection loupe or link callout on
