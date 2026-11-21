@@ -21,11 +21,10 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <!-- iOS home-screen app. "black-translucent" draws the page under the notch /
-         Dynamic Island but always uses white status-bar text, which vanishes on the
-         light theme; "default" gives a solid bar with legible text. The script below
-         picks per scheme; this static value is the fallback. -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <!-- iOS home-screen app: always "black-translucent" so the map runs under the
+         notch / Dynamic Island. Its status text is always white, so on the light
+         theme styles.css lays a soft dark fade behind it (.status-scrim). -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="HawkerGoWhere" />
     <meta property="og:title" content="HawkerGoWhere" />
     <meta property="og:description" content="Which Singapore hawker centres are closed today?" />
@@ -40,8 +39,6 @@
         document.documentElement.dataset.scheme = dark ? "dark" : "light";
         var meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
-        var bar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
-        if (bar) bar.setAttribute("content", dark ? "black-translucent" : "default");
         if (navigator.standalone || window.matchMedia("(display-mode: standalone)").matches) {
           document.documentElement.dataset.standalone = "";
         }

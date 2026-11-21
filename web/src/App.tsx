@@ -329,6 +329,7 @@ export function App() {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
+      <div aria-hidden className="status-scrim" />
       <Suspense fallback={<div className="absolute inset-0 bg-sunken" />}>
         <MapView
         points={points}

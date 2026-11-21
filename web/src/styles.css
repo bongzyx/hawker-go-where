@@ -153,6 +153,22 @@ body {
   user-select: text;
 }
 
+/* Installed iOS app on the light theme: the status bar is see-through with
+   white text over the map, so a soft fade keeps the time and battery legible.
+   Zero height wherever there is no top inset (Android, browsers, no notch). */
+.status-scrim {
+  display: none;
+}
+:root[data-standalone]:not([data-scheme="dark"]):not([data-host="telegram"]) .status-scrim {
+  display: block;
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: calc(env(safe-area-inset-top, 0px) * 1.3);
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0.42), rgb(0 0 0 / 0.22) 55%, transparent);
+  pointer-events: none;
+}
+
 @utility glass {
   background-color: var(--glass-bg);
   -webkit-backdrop-filter: blur(20px) saturate(180%);

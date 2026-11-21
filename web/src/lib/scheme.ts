@@ -9,10 +9,6 @@ export function setScheme(dark: boolean) {
   if (root.dataset.scheme === next) return;
   root.dataset.scheme = next;
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
-  // iOS reads this at launch; updating it keeps a later relaunch in step (see index.html).
-  document
-    .querySelector('meta[name="apple-mobile-web-app-status-bar-style"]')
-    ?.setAttribute("content", dark ? "black-translucent" : "default");
   listeners.forEach((l) => l());
 }
 
