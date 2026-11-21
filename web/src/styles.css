@@ -37,6 +37,11 @@
   --glass-ring: color-mix(in oklab, var(--text-primary) 7%, transparent);
   --glass-shadow: 0 8px 28px -10px rgb(0 0 0 / 0.18);
 
+  /* Segmented controls, as in Huat Master: translucent track, raised thumb. */
+  --segment-track: color-mix(in srgb, var(--text-primary) 6%, transparent);
+  --segment-thumb: var(--surface);
+  --segment-thumb-shadow: 0 1px 2px rgb(0 0 0 / 0.1), 0 0 0 0.5px rgb(0 0 0 / 0.06);
+
   --host-safe-top: 0px;
   --host-safe-bottom: 0px;
   --host-safe-left: 0px;
@@ -72,6 +77,10 @@
   --glass-bg: color-mix(in oklab, var(--surface) 80%, transparent);
   --glass-ring: rgb(255 255 255 / 0.08);
   --glass-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.6);
+
+  --segment-track: rgb(255 255 255 / 0.07);
+  --segment-thumb: rgb(255 255 255 / 0.14);
+  --segment-thumb-shadow: none;
 }
 
 @theme inline {
@@ -107,11 +116,12 @@ h3 {
   letter-spacing: -0.018em;
 }
 
+/* Sized by the fixed body's insets, not by viewport units: in an installed iOS
+   app with viewport-fit=cover, dvh/svh can come up short of the screen and leave
+   a strip under the home indicator. */
 html,
-body,
 #root {
   height: 100%;
-  height: 100dvh;
 }
 
 html {

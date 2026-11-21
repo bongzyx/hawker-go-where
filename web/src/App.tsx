@@ -1,4 +1,4 @@
-import { ArrowDownUp, List, LocateFixed, Map as MapIcon, RefreshCw, Search, Star, X } from "lucide-react";
+import { List, LocateFixed, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HawkerCard, HawkerDetail, HawkerRow, type Row } from "./components/hawker";
 import type { MapPoint } from "./components/MapView";
@@ -10,7 +10,7 @@ import { Swipeable } from "./components/Swipeable";
 const MapView = lazy(() => import("./components/MapView").then((m) => ({ default: m.MapView })));
 import { DayStrip, StatusDot, type DayCount } from "./components/viz";
 import { addDays, formatDay, formatTimestamp } from "./lib/dates";
-import { distanceKm, useFavourites, useGeolocation, useHawkers, useMediaQuery, useToday } from "./lib/hooks";
+import { distanceKm, formatDistance, useFavourites, useGeolocation, useHawkers, useMediaQuery, useToday } from "./lib/hooks";
 import { useDark } from "./lib/scheme";
 import { STATE_LABEL, STATE_ORDER, statusOn, statusSentence, type State } from "./lib/status";
 import { bindBackButton, haptics, isTelegram, startParam } from "./lib/telegram";
@@ -250,6 +250,33 @@ export function App() {
     }
   }, [geo.position]);
 
+  // "Nearest" asks for a fix the first time; without one it falls back to status order.
+  const chooseSort = useCallback(
+    (next: Sort) => {
+      setSort(next);
+      if (next === "nearest" && !geo.position) geo.locate();
+    },
+    [geo.position, geo.locate],
+  );
+  useEffect(() => {
+    if (geo.status === "denied" || geo.status === "unavailable") setSort((s) => (s === "nearest" ? "status" : s));
+  }, [geo.status]);
+
+  // Picking a search suggestion on the map: clear the query so every pin comes back,
+  // and drop a filter that would hide the hawker that was picked.
+  const pickFromSearch = useCallback(
+    (id: string) => {
+      haptics.select();
+      const row = rows.find((r) => r.hawker.id === id);
+      if (row && !inFilter(row, filter, favs.ids)) setFilter("all");
+      setQuery("");
+      setSelectedId(id);
+      setFocusKey((k) => k + 1);
+    },
+    [rows, filter, favs.ids],
+  );
+  const suggestions = useMemo(() => (q ? [...searched].sort(compare(sort)) : []), [q, searched, sort]);
+
   const padding = useMemo(
     () =>
       desktop
@@ -269,8 +296,8 @@ export function App() {
       filter={filter}
       setFilter={setFilter}
       sort={sort}
-      setSort={setSort}
-      hasLocation={!!geo.position}
+      setSort={chooseSort}
+      locating={geo.status === "locating"}
       favourites={favs.ids}
       onToggleFavourite={favs.toggle}
       selectedId={selectedId}
@@ -282,7 +309,7 @@ export function App() {
       total={data?.count ?? 0}
       query={query}
       setQuery={setQuery}
-      showSearch={desktop}
+      desktop={desktop}
     />
   );
 
@@ -327,7 +354,16 @@ export function App() {
         </>
       ) : (
         <>
-          <TopBar query={query} setQuery={setQuery} view={view} setView={setView} />
+          <TopBar
+            query={query}
+            setQuery={setQuery}
+            view={view}
+            setView={setView}
+            results={suggestions}
+            day={day}
+            today={today}
+            onPick={pickFromSearch}
+          />
 
           {view === "list" && (
             <div className="animate-fade-in absolute inset-0 z-10 flex flex-col bg-surface pt-[calc(var(--safe-top)+70px)] pr-(--safe-right) pl-(--safe-left)">
@@ -336,7 +372,11 @@ export function App() {
           )}
 
           {view === "map" && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 pr-[calc(var(--safe-right)+12px)] pb-[calc(var(--safe-bottom)+12px)] pl-[calc(var(--safe-left)+12px)]">
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 pr-[calc(var(--safe-right)+12px)] pl-[calc(var(--safe-left)+12px)]"
+              // The home indicator only needs ~22px clear; a full inset plus a gap floats the card.
+              style={{ paddingBottom: "max(12px, calc(var(--safe-bottom) - 12px))" }}
+            >
               <div className="flex justify-end">
                 <LocateButton onClick={locate} busy={geo.status === "locating"} />
               </div>
@@ -398,36 +438,104 @@ function TopBar({
   setQuery,
   view,
   setView,
+  results,
+  day,
+  today,
+  onPick,
 }: {
   query: string;
   setQuery: (q: string) => void;
   view: "map" | "list";
   setView: (v: "map" | "list") => void;
+  /** Matches for the current query, best first. */
+  results: Row[];
+  day: string;
+  today: string;
+  onPick: (id: string) => void;
 }) {
+  const input = useRef<HTMLInputElement>(null);
+  const [focused, setFocused] = useState(false);
+  // On the map, typing shows matches right under the box instead of jumping to the list.
+  const suggesting = view === "map" && focused && query.trim() !== "";
+  const top = results.slice(0, 6);
+  const toList = () => {
+    haptics.select();
+    input.current?.blur();
+    setView("list");
+  };
+
   return (
-    <div className="absolute inset-x-0 top-0 z-20 flex items-center gap-2 pt-[calc(var(--safe-top)+10px)] pr-[calc(var(--safe-right)+12px)] pl-[calc(var(--safe-left)+12px)]">
-      <SearchField query={query} setQuery={setQuery} onFocus={() => setView("list")} />
-      <div className="glass flex h-12 shrink-0 rounded-full p-1" role="group" aria-label="View">
-        {(["map", "list"] as const).map((v) => (
-          <button
-            key={v}
-            type="button"
-            aria-pressed={view === v}
-            aria-label={v === "map" ? "Map view" : "List view"}
-            onClick={() => {
-              haptics.select();
-              setView(v);
-            }}
-            className="pressable grid w-11 place-items-center rounded-full"
-            style={{
-              background: view === v ? "var(--accent)" : "transparent",
-              color: view === v ? "var(--accent-text)" : "var(--text-primary)",
-            }}
-          >
-            {v === "map" ? <MapIcon size={17} /> : <List size={17} />}
-          </button>
-        ))}
+    <div className="absolute inset-x-0 top-0 z-20 pt-[calc(var(--safe-top)+10px)] pr-[calc(var(--safe-right)+12px)] pl-[calc(var(--safe-left)+12px)]">
+      <div className="flex items-center gap-2">
+        <SearchField
+          query={query}
+          setQuery={setQuery}
+          inputRef={input}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          onSubmit={() => {
+            if (view !== "map") return input.current?.blur();
+            if (results.length === 1) {
+              input.current?.blur();
+              onPick(results[0].hawker.id);
+            } else if (results.length) toList();
+          }}
+        />
+        {/* One toggle that names where it goes, rather than a two-way switch. */}
+        <button
+          type="button"
+          onClick={() => {
+            haptics.select();
+            setView(view === "map" ? "list" : "map");
+          }}
+          aria-label={view === "map" ? "Show list" : "Show map"}
+          className="glass pressable flex h-12 shrink-0 items-center gap-1.5 rounded-full pr-4 pl-3.5 text-[15px] font-semibold"
+        >
+          {view === "map" ? <List size={18} /> : <MapIcon size={18} />}
+          {view === "map" ? "List" : "Map"}
+        </button>
       </div>
+
+      {suggesting && (
+        <div
+          className="glass animate-fade-in mt-2 overflow-hidden rounded-2xl"
+          // Keep focus in the input so a tap here lands before the box blurs and closes.
+          onMouseDown={(e) => e.preventDefault()}
+        >
+          {top.length ? (
+            <ul className="flex flex-col py-1">
+              {top.map((r) => (
+                <li key={r.hawker.id}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      input.current?.blur();
+                      onPick(r.hawker.id);
+                    }}
+                    className="row flex w-full items-center gap-3 px-3.5 py-2.5 text-left"
+                  >
+                    <StatusDot state={r.status.state} size={9} />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-[15px] font-medium">{r.hawker.name}</span>
+                      <span className="block truncate text-[13px] text-secondary">
+                        {r.distance !== null && <span className="tabular">{formatDistance(r.distance)} · </span>}
+                        {statusSentence(r.status, day, today)}
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="px-4 py-3.5 text-sm text-secondary">No hawkers match.</p>
+          )}
+          {results.length > top.length && (
+            <button type="button" onClick={toList} className="row w-full border-t border-line px-4 py-3 text-left text-[13px] font-semibold">
+              See all {results.length} in the list
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -436,28 +544,43 @@ function SearchField({
   query,
   setQuery,
   onFocus,
+  onBlur,
+  onSubmit,
+  inputRef,
   flat,
 }: {
   query: string;
   setQuery: (q: string) => void;
   onFocus?: () => void;
+  onBlur?: () => void;
+  onSubmit?: () => void;
+  inputRef?: React.Ref<HTMLInputElement>;
   flat?: boolean;
 }) {
   return (
     <label className={`flex h-12 min-w-0 shrink-0 items-center gap-2.5 rounded-full px-4 ${flat ? "bg-sunken" : "glass flex-1"}`}>
       <Search size={18} className="shrink-0 text-secondary" />
       <input
+        ref={inputRef}
         type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={(e) => e.key === "Enter" && onSubmit?.()}
         placeholder="Search hawkers"
         aria-label="Search by hawker name, street or postal code"
         enterKeyHint="search"
         className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-secondary [&::-webkit-search-cancel-button]:hidden"
       />
       {query && (
-        <button type="button" onClick={() => setQuery("")} aria-label="Clear search" className="text-secondary">
+        <button
+          type="button"
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => setQuery("")}
+          aria-label="Clear search"
+          className="text-secondary"
+        >
           <X size={16} />
         </button>
       )}
@@ -562,7 +685,7 @@ function ListPanel(props: {
   setFilter: (f: Filter) => void;
   sort: Sort;
   setSort: (s: Sort) => void;
-  hasLocation: boolean;
+  locating: boolean;
   favourites: string[];
   onToggleFavourite: (id: string) => void;
   selectedId: string | null;
@@ -574,11 +697,9 @@ function ListPanel(props: {
   total: number;
   query: string;
   setQuery: (q: string) => void;
-  showSearch: boolean;
+  /** Desktop sidebar: brand, search and the day strip live here. On a phone the map card has the days. */
+  desktop: boolean;
 }) {
-  const sorts: Sort[] = props.hasLocation ? ["nearest", "status", "name"] : ["status", "name"];
-  const sortLabel: Record<Sort, string> = { nearest: "Nearest", status: "Closed first", name: "A–Z" };
-  const nextSort = () => props.setSort(sorts[(sorts.indexOf(props.sort) + 1) % sorts.length] ?? "status");
 
   // Scrolling down the list folds the day strip away; scrolling back up a bit (or
   // reaching the top) brings it back. The filters stay put either way.
@@ -621,7 +742,7 @@ function ListPanel(props: {
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <div className="flex flex-col gap-3 px-4 pt-4 pb-3">
-        {props.showSearch && (
+        {props.desktop && (
           <div className="flex items-center gap-2.5">
             <img src="/favicon.svg" alt="" className="size-8 rounded-lg" />
             <div className="min-w-0">
@@ -630,7 +751,8 @@ function ListPanel(props: {
             </div>
           </div>
         )}
-        {props.showSearch && <SearchField query={props.query} setQuery={props.setQuery} flat />}
+        {props.desktop && <SearchField query={props.query} setQuery={props.setQuery} flat />}
+        {props.desktop && (
         <div
           aria-hidden={compact}
           inert={compact}
@@ -642,6 +764,7 @@ function ListPanel(props: {
             <DayStrip counts={props.dayCounts} value={props.day} today={props.today} onChange={props.setDay} />
           </div>
         </div>
+        )}
         <SummaryChips
           counts={props.counts}
           filter={props.filter}
@@ -652,13 +775,11 @@ function ListPanel(props: {
         />
       </div>
 
-      <div className="flex items-center justify-between border-t border-line px-4 py-2 text-xs text-secondary">
-        <span className="tabular">
-          {props.rows.length} of {props.total} hawkers
+      <div className="flex items-center justify-between gap-3 border-t border-line px-4 py-2 text-xs text-secondary">
+        <span className="tabular min-w-0 truncate">
+          {props.rows.length === props.total ? `${props.total} hawkers` : `${props.rows.length} of ${props.total}`}
         </span>
-        <button type="button" onClick={nextSort} className="pressable flex items-center gap-1 rounded-full px-2 py-1 font-medium">
-          <ArrowDownUp size={13} /> {sortLabel[props.sort]}
-        </button>
+        <SortControl value={props.sort} onChange={props.setSort} locating={props.locating} />
       </div>
 
       <div onScroll={onListScroll} className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-[calc(var(--safe-bottom)+16px)]">
@@ -707,6 +828,44 @@ function ListPanel(props: {
           </p>
         )}
       </div>
+    </div>
+  );
+}
+
+const SORTS: { key: Sort; label: string }[] = [
+  { key: "status", label: "Closed first" },
+  { key: "nearest", label: "Nearest" },
+  { key: "name", label: "A–Z" },
+];
+
+function SortControl({ value, onChange, locating }: { value: Sort; onChange: (s: Sort) => void; locating: boolean }) {
+  return (
+    <div role="radiogroup" aria-label="Sort" className="flex shrink-0 rounded-full bg-(--segment-track) p-0.5">
+      {SORTS.map(({ key, label }) => {
+        const on = value === key;
+        return (
+          <button
+            key={key}
+            type="button"
+            role="radio"
+            aria-checked={on}
+            onClick={() => {
+              if (on) return;
+              haptics.select();
+              onChange(key);
+            }}
+            className="flex h-7 items-center gap-1 rounded-full px-2.5 font-medium transition-[background-color,color,box-shadow] duration-150"
+            style={{
+              background: on ? "var(--segment-thumb)" : "transparent",
+              color: on ? "var(--text-primary)" : "var(--text-secondary)",
+              boxShadow: on ? "var(--segment-thumb-shadow)" : undefined,
+            }}
+          >
+            {key === "nearest" && <Navigation size={11} className={on && locating ? "animate-pulse" : undefined} />}
+            {label}
+          </button>
+        );
+      })}
     </div>
   );
 }
