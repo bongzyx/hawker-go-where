@@ -91,3 +91,31 @@ export function formatTimestamp(iso: string): string {
     year: "numeric",
   }).format(new Date(iso));
 }
+
+/** The first of the month that `iso` falls in. */
+export function startOfMonth(iso: string): string {
+  return `${iso.slice(0, 7)}-01`;
+}
+
+/** The first of the month `n` months after the one `iso` falls in. */
+export function addMonths(iso: string, n: number): string {
+  const date = toUtc(startOfMonth(iso));
+  date.setUTCMonth(date.getUTCMonth() + n);
+  return fromUtc(date);
+}
+
+export function daysInMonth(iso: string): number {
+  return daysBetween(startOfMonth(iso), addMonths(iso, 1));
+}
+
+/** 0 for Monday through 6 for Sunday. */
+export function weekdayIndex(iso: string): number {
+  return (toUtc(iso).getUTCDay() + 6) % 7;
+}
+
+const monthYear = fmt({ month: "long", year: "numeric" });
+
+/** "November 2026". */
+export function formatMonth(iso: string): string {
+  return monthYear.format(toUtc(iso));
+}

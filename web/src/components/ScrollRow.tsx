@@ -93,7 +93,7 @@ function EdgeButton({ side, onClick }: { side: "left" | "right"; onClick: () => 
       onClick={onClick}
       // Mouse and trackpad only: on touch the feather plus a swipe is the idiom.
       className={`glass pressable absolute top-1/2 z-10 hidden size-7 -translate-y-1/2 place-items-center rounded-full [@media(hover:hover)_and_(pointer:fine)]:grid ${
-        side === "left" ? "-left-1" : "-right-1"
+        side === "left" ? "left-1" : "right-1"
       }`}
     >
       <Icon size={15} />

@@ -1,4 +1,4 @@
-import { ChevronDown, List, LocateFixed, MapPinOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
+import { CalendarDays, List, LocateFixed, MapPinOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HawkerCard, HawkerDetail, HawkerRow, type Row } from "./components/hawker";
 import type { MapPoint } from "./components/MapView";
@@ -8,7 +8,7 @@ import { Swipeable } from "./components/Swipeable";
 
 // MapLibre is ~1 MB; the list and summary should not wait for it.
 const MapView = lazy(() => import("./components/MapView").then((m) => ({ default: m.MapView })));
-import { DayStrip, StatusDot, type DayCount } from "./components/viz";
+import { DayStrip, MonthCalendar, StatusDot, type DayCount } from "./components/viz";
 import { addDays, formatDay, formatTimestamp } from "./lib/dates";
 import { distanceKm, formatDistance, useFavourites, useGeolocation, useHawkers, useMediaQuery, useToday } from "./lib/hooks";
 import { useDark } from "./lib/scheme";
@@ -99,9 +99,6 @@ export function App() {
     };
   }, []);
 
-  // The map card keeps the day strip folded until asked for.
-  const [daysOpen, setDaysOpen] = useState(false);
-
   // Roll the viewing day forward if the app is left open past midnight.
   useEffect(() => setDay((d) => (d < today ? today : d)), [today]);
 
@@ -127,20 +124,31 @@ export function App() {
     return c;
   }, [searched]);
 
-  const dayCounts: DayCount[] = useMemo(() => {
-    if (!data) return [];
-    return Array.from({ length: STRIP_DAYS }, (_, i) => {
-      const d = addDays(today, i);
+  const countOn = useCallback(
+    (d: string): DayCount => {
       let cleaning = 0;
       let works = 0;
-      for (const h of data.hawkers) {
+      for (const h of data?.hawkers ?? []) {
         const s = statusOn(h, d).state;
         if (s === "closed") cleaning++;
         else if (s === "works") works++;
       }
       return { day: d, cleaning, works };
-    });
-  }, [data, today]);
+    },
+    [data],
+  );
+
+  const dayCounts: DayCount[] = useMemo(
+    () => (data ? Array.from({ length: STRIP_DAYS }, (_, i) => countOn(addDays(today, i))) : []),
+    [data, today, countOn],
+  );
+
+  // The day picker shows either the strip of the next few weeks or a month calendar.
+  const [monthView, setMonthView] = useState(false);
+  const toggleMonthView = () => {
+    haptics.select();
+    setMonthView((m) => !m);
+  };
 
   const points: MapPoint[] = useMemo(
     () =>
@@ -304,8 +312,8 @@ export function App() {
     () =>
       desktop
         ? { top: 24, bottom: 24, left: 440, right: 24 }
-        : { top: 80, bottom: selected ? 200 : daysOpen ? 210 : 120, left: 16, right: 16 },
-    [desktop, selected, daysOpen],
+        : { top: 80, bottom: selected ? 200 : monthView ? 400 : 210, left: 16, right: 16 },
+    [desktop, selected, monthView],
   );
 
   const panel = (
@@ -313,6 +321,9 @@ export function App() {
       rows={visible}
       counts={counts}
       dayCounts={dayCounts}
+      countOn={countOn}
+      monthView={monthView}
+      onToggleMonthView={toggleMonthView}
       day={day}
       today={today}
       setDay={setDay}
@@ -428,22 +439,23 @@ export function App() {
                       day={day}
                       today={today}
                       favouriteCount={favs.ids.length}
-                      daysOpen={daysOpen}
-                      onToggleDays={() => {
-                        haptics.select();
-                        setDaysOpen((o) => !o);
-                      }}
+                      monthView={monthView}
+                      onToggleMonthView={toggleMonthView}
                     />
-                    <div
-                      aria-hidden={!daysOpen}
-                      inert={!daysOpen}
-                      className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
-                        daysOpen ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                      }`}
-                    >
-                      <div className="min-h-0 overflow-hidden">
-                        <DayStrip counts={dayCounts} value={day} today={today} onChange={setDay} />
-                      </div>
+                    <div className="mt-2">
+                      <DayPicker
+                        monthView={monthView}
+                        counts={dayCounts}
+                        countOn={countOn}
+                        value={day}
+                        today={today}
+                        onChange={setDay}
+                        // Tapping the day that is already picked opens the list for it.
+                        onReselect={() => {
+                          haptics.select();
+                          setView("list");
+                        }}
+                      />
                     </div>
                   </div>
                 )}
@@ -631,6 +643,31 @@ const CHIP_STATES: { key: Filter; state?: State; label: string }[] = [
   { key: "open", state: "open", label: "Open" },
 ];
 
+function DayPicker({
+  monthView,
+  counts,
+  countOn,
+  value,
+  today,
+  onChange,
+  onReselect,
+}: {
+  monthView: boolean;
+  counts: DayCount[];
+  countOn: (day: string) => DayCount;
+  value: string;
+  today: string;
+  onChange: (day: string) => void;
+  onReselect?: () => void;
+}) {
+  return monthView ? (
+    // In the calendar a second tap on the picked day does nothing; only the strip opens the list.
+    <MonthCalendar value={value} today={today} countOn={countOn} onChange={onChange} />
+  ) : (
+    <DayStrip counts={counts} value={value} today={today} onChange={onChange} onReselect={onReselect} />
+  );
+}
+
 function SummaryChips({
   counts,
   filter,
@@ -638,8 +675,8 @@ function SummaryChips({
   day,
   today,
   favouriteCount,
-  daysOpen,
-  onToggleDays,
+  monthView,
+  onToggleMonthView,
 }: {
   counts: Record<State, number>;
   filter: Filter;
@@ -647,37 +684,20 @@ function SummaryChips({
   day: string;
   today: string;
   favouriteCount: number;
-  /** Map card only: the summary line opens and closes the day strip. */
-  daysOpen?: boolean;
-  onToggleDays?: () => void;
+  monthView: boolean;
+  /** Only where a day picker is shown (the map card, the desktop sidebar). */
+  onToggleMonthView?: () => void;
 }) {
   const closed = counts.closed + counts.works;
   const n = (k: Filter) => (k === "closed" ? closed : k === "all" ? 0 : counts[k as State]);
   return (
     <div>
-      {onToggleDays ? (
-        <button
-          type="button"
-          onClick={onToggleDays}
-          aria-expanded={daysOpen}
-          aria-label={daysOpen ? "Hide days" : "Pick a day"}
-          className="mb-2 flex w-full items-center gap-1 px-1 text-left text-[13px] text-secondary"
-        >
-          <span className="min-w-0 flex-1 truncate">
-            <span className="font-semibold text-primary">{day === today ? "Today" : formatDay(day)}</span> ·{" "}
-            <span className="tabular">{closed}</span> closed · <span className="tabular">{counts.soon}</span> closing within 7 days
-          </span>
-          <ChevronDown
-            size={16}
-            className={`shrink-0 transition-transform duration-200 ${daysOpen ? "rotate-180" : ""}`}
-          />
-        </button>
-      ) : (
-        <p className="mb-2 px-1 text-[13px] text-secondary">
-          <span className="font-semibold text-primary">{day === today ? "Today" : formatDay(day)}</span> ·{" "}
-          <span className="tabular">{closed}</span> closed · <span className="tabular">{counts.soon}</span> closing within 7 days
-        </p>
-      )}
+      <p className="mb-2 px-1 text-[13px] text-secondary">
+        <span className="font-semibold text-primary">{day === today ? "Today" : formatDay(day)}</span> ·{" "}
+        <span className="tabular">{closed}</span> closed · <span className="tabular">{counts.soon}</span> closing within 7 days
+      </p>
+      <div className="flex items-center gap-1.5">
+      <div className="min-w-0 flex-1">
       <ScrollRow className="flex gap-1.5">
         <Chip active={filter === "all"} onClick={() => setFilter("all")}>
           All
@@ -699,6 +719,25 @@ function SummaryChips({
           </Chip>
         ))}
       </ScrollRow>
+      </div>
+      {/* Pinned at the end of the chip row (the chips scroll under the fade beside it). */}
+      {onToggleMonthView && (
+        <button
+          type="button"
+          onClick={onToggleMonthView}
+          aria-pressed={monthView}
+          aria-label="Month calendar"
+          title={monthView ? "Back to the next few weeks" : "Month calendar"}
+          className="pressable grid size-8 shrink-0 place-items-center rounded-full"
+          style={{
+            background: monthView ? "var(--accent)" : "var(--surface-sunken)",
+            color: monthView ? "var(--accent-text)" : "var(--text-primary)",
+          }}
+        >
+          <CalendarDays size={15} />
+        </button>
+      )}
+      </div>
     </div>
   );
 }
@@ -739,6 +778,9 @@ function ListPanel(props: {
   rows: Row[];
   counts: Record<State, number>;
   dayCounts: DayCount[];
+  countOn: (day: string) => DayCount;
+  monthView: boolean;
+  onToggleMonthView: () => void;
   day: string;
   today: string;
   setDay: (d: string) => void;
@@ -822,7 +864,14 @@ function ListPanel(props: {
           }`}
         >
           <div className="min-h-0 overflow-hidden">
-            <DayStrip counts={props.dayCounts} value={props.day} today={props.today} onChange={props.setDay} />
+            <DayPicker
+              monthView={props.monthView}
+              counts={props.dayCounts}
+              countOn={props.countOn}
+              value={props.day}
+              today={props.today}
+              onChange={props.setDay}
+            />
           </div>
         </div>
         )}
@@ -833,6 +882,8 @@ function ListPanel(props: {
           day={props.day}
           today={props.today}
           favouriteCount={props.favourites.length}
+          monthView={props.monthView}
+          onToggleMonthView={props.desktop ? props.onToggleMonthView : undefined}
         />
       </div>
 

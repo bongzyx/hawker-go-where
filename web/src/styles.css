@@ -324,6 +324,25 @@ body {
 .animate-fade-in {
   animation: fade-in 200ms ease-out;
 }
+/* Month calendar: the new month slides in from the side it was paged towards. */
+@keyframes month-from-next {
+  from {
+    transform: translateX(48px);
+    opacity: 0;
+  }
+}
+@keyframes month-from-prev {
+  from {
+    transform: translateX(-48px);
+    opacity: 0;
+  }
+}
+.animate-month-next {
+  animation: month-from-next 280ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.animate-month-prev {
+  animation: month-from-prev 280ms cubic-bezier(0.32, 0.72, 0, 1);
+}
 @keyframes pulse-ring {
   0% {
     transform: scale(0.6);
@@ -337,7 +356,9 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-sheet-in,
-  .animate-fade-in {
+  .animate-fade-in,
+  .animate-month-next,
+  .animate-month-prev {
     animation: none;
   }
 }
