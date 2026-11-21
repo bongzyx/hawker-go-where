@@ -1,4 +1,4 @@
-import { List, LocateFixed, MapPinOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
+import { ChevronDown, List, LocateFixed, MapPinOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HawkerCard, HawkerDetail, HawkerRow, type Row } from "./components/hawker";
 import type { MapPoint } from "./components/MapView";
@@ -78,6 +78,29 @@ export function App() {
   const [meKey, setMeKey] = useState(0);
   const pushed = useRef(false);
   const wantsFly = useRef(false);
+
+  // The on-screen keyboard: --vv-h is the height still visible above it (search
+  // suggestions size to it), and iOS's habit of nudging the page up when a field
+  // takes focus is undone. The search box is already at the top, and inside this
+  // fixed-size layout the nudge only leaves the caret drawn off the input.
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => {
+      document.documentElement.style.setProperty("--vv-h", `${Math.round(vv.height)}px`);
+      if (window.scrollY || vv.offsetTop) window.scrollTo(0, 0);
+    };
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
+  }, []);
+
+  // The map card keeps the day strip folded until asked for.
+  const [daysOpen, setDaysOpen] = useState(false);
 
   // Roll the viewing day forward if the app is left open past midnight.
   useEffect(() => setDay((d) => (d < today ? today : d)), [today]);
@@ -281,8 +304,8 @@ export function App() {
     () =>
       desktop
         ? { top: 24, bottom: 24, left: 440, right: 24 }
-        : { top: 80, bottom: selected ? 200 : 210, left: 16, right: 16 },
-    [desktop, selected],
+        : { top: 80, bottom: selected ? 200 : daysOpen ? 210 : 120, left: 16, right: 16 },
+    [desktop, selected, daysOpen],
   );
 
   const panel = (
@@ -405,9 +428,22 @@ export function App() {
                       day={day}
                       today={today}
                       favouriteCount={favs.ids.length}
+                      daysOpen={daysOpen}
+                      onToggleDays={() => {
+                        haptics.select();
+                        setDaysOpen((o) => !o);
+                      }}
                     />
-                    <div className="mt-2">
-                      <DayStrip counts={dayCounts} value={day} today={today} onChange={setDay} />
+                    <div
+                      aria-hidden={!daysOpen}
+                      inert={!daysOpen}
+                      className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
+                        daysOpen ? "mt-2 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="min-h-0 overflow-hidden">
+                        <DayStrip counts={dayCounts} value={day} today={today} onChange={setDay} />
+                      </div>
                     </div>
                   </div>
                 )}
@@ -456,7 +492,7 @@ function TopBar({
   const [focused, setFocused] = useState(false);
   // On the map, typing shows matches right under the box instead of jumping to the list.
   const suggesting = view === "map" && focused && query.trim() !== "";
-  const top = results.slice(0, 6);
+  const top = results.slice(0, 30);
   const toList = () => {
     haptics.select();
     input.current?.blur();
@@ -497,12 +533,14 @@ function TopBar({
 
       {suggesting && (
         <div
-          className="glass animate-fade-in mt-2 overflow-hidden rounded-2xl"
+          className="glass animate-fade-in mt-2 flex flex-col overflow-hidden rounded-2xl"
+          // Whatever is left above the keyboard, below the search bar.
+          style={{ maxHeight: "calc(var(--vv-h, 100dvh) - var(--safe-top) - 88px)" }}
           // Keep focus in the input so a tap here lands before the box blurs and closes.
           onMouseDown={(e) => e.preventDefault()}
         >
           {top.length ? (
-            <ul className="flex flex-col py-1">
+            <ul className="flex min-h-0 flex-col overflow-y-auto overscroll-contain py-1">
               {top.map((r) => (
                 <li key={r.hawker.id}>
                   <button
@@ -529,7 +567,7 @@ function TopBar({
             <p className="px-4 py-3.5 text-sm text-secondary">No hawkers match.</p>
           )}
           {results.length > top.length && (
-            <button type="button" onClick={toList} className="row w-full border-t border-line px-4 py-3 text-left text-[13px] font-semibold">
+            <button type="button" onClick={toList} className="row w-full shrink-0 border-t border-line px-4 py-3 text-left text-[13px] font-semibold">
               See all {results.length} in the list
             </button>
           )}
@@ -600,6 +638,8 @@ function SummaryChips({
   day,
   today,
   favouriteCount,
+  daysOpen,
+  onToggleDays,
 }: {
   counts: Record<State, number>;
   filter: Filter;
@@ -607,15 +647,37 @@ function SummaryChips({
   day: string;
   today: string;
   favouriteCount: number;
+  /** Map card only: the summary line opens and closes the day strip. */
+  daysOpen?: boolean;
+  onToggleDays?: () => void;
 }) {
   const closed = counts.closed + counts.works;
   const n = (k: Filter) => (k === "closed" ? closed : k === "all" ? 0 : counts[k as State]);
   return (
     <div>
-      <p className="mb-2 px-1 text-[13px] text-secondary">
-        <span className="font-semibold text-primary">{day === today ? "Today" : formatDay(day)}</span> ·{" "}
-        <span className="tabular">{closed}</span> closed · <span className="tabular">{counts.soon}</span> closing within 7 days
-      </p>
+      {onToggleDays ? (
+        <button
+          type="button"
+          onClick={onToggleDays}
+          aria-expanded={daysOpen}
+          aria-label={daysOpen ? "Hide days" : "Pick a day"}
+          className="mb-2 flex w-full items-center gap-1 px-1 text-left text-[13px] text-secondary"
+        >
+          <span className="min-w-0 flex-1 truncate">
+            <span className="font-semibold text-primary">{day === today ? "Today" : formatDay(day)}</span> ·{" "}
+            <span className="tabular">{closed}</span> closed · <span className="tabular">{counts.soon}</span> closing within 7 days
+          </span>
+          <ChevronDown
+            size={16}
+            className={`shrink-0 transition-transform duration-200 ${daysOpen ? "rotate-180" : ""}`}
+          />
+        </button>
+      ) : (
+        <p className="mb-2 px-1 text-[13px] text-secondary">
+          <span className="font-semibold text-primary">{day === today ? "Today" : formatDay(day)}</span> ·{" "}
+          <span className="tabular">{closed}</span> closed · <span className="tabular">{counts.soon}</span> closing within 7 days
+        </p>
+      )}
       <ScrollRow className="flex gap-1.5">
         <Chip active={filter === "all"} onClick={() => setFilter("all")}>
           All
