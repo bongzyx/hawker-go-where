@@ -3,23 +3,22 @@
 /**
  * Semantic tokens. Components style against these names only.
  *
- * Same pattern as TransitGo: inside Telegram, lib/telegram.ts writes the
- * client's theme as `--tg-*` variables and every token points at them first;
- * in a browser they are undefined and the graphite palette (from ticklog)
- * applies. One component layer, two skins.
+ * The graphite palette (from ticklog) everywhere. Inside Telegram only the
+ * light/dark choice is followed, not the client's colours, so the accent stays
+ * ink rather than Telegram blue.
  */
 :root {
   color-scheme: light;
 
-  --surface: var(--tg-bg-color, #ffffff);
-  --surface-elevated: var(--tg-secondary-bg-color, #f5f5f4);
-  --surface-sunken: var(--tg-secondary-bg-color, #f0f0ef);
-  --text-primary: var(--tg-text-color, #1c1c1c);
-  --text-secondary: var(--tg-hint-color, #6b6b6b);
-  --border: var(--tg-section-separator-color, #ebebe9);
-  --accent: var(--tg-button-color, #1c1c1c);
-  --accent-text: var(--tg-button-text-color, #ffffff);
-  --link: var(--tg-link-color, #2563eb);
+  --surface: #ffffff;
+  --surface-elevated: #f5f5f4;
+  --surface-sunken: #f0f0ef;
+  --text-primary: #1c1c1c;
+  --text-secondary: #6b6b6b;
+  --border: #ebebe9;
+  --accent: #1c1c1c;
+  --accent-text: #ffffff;
+  --link: #2563eb;
 
   --state-hover: color-mix(in srgb, var(--text-primary) 5%, transparent);
   --state-press: color-mix(in srgb, var(--text-primary) 10%, transparent);
@@ -58,15 +57,15 @@
 :root[data-scheme="dark"] {
   color-scheme: dark;
 
-  --surface: var(--tg-bg-color, #1c1c1c);
-  --surface-elevated: var(--tg-secondary-bg-color, #222222);
-  --surface-sunken: var(--tg-secondary-bg-color, #141414);
-  --text-primary: var(--tg-text-color, #ededec);
-  --text-secondary: var(--tg-hint-color, #9b9b9b);
-  --border: var(--tg-section-separator-color, #2e2e2e);
-  --accent: var(--tg-button-color, #ededec);
-  --accent-text: var(--tg-button-text-color, #161616);
-  --link: var(--tg-link-color, #6aa9ec);
+  --surface: #1c1c1c;
+  --surface-elevated: #222222;
+  --surface-sunken: #141414;
+  --text-primary: #ededec;
+  --text-secondary: #9b9b9b;
+  --border: #2e2e2e;
+  --accent: #ededec;
+  --accent-text: #161616;
+  --link: #6aa9ec;
 
   --status-open: #6ce9a6;
   --status-soon: #fec84b;

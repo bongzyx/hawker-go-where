@@ -18,11 +18,13 @@ type TgWebApp = {
   colorScheme: "light" | "dark";
   themeParams: Record<string, string | undefined>;
   isExpanded: boolean;
+  isFullscreen?: boolean;
   safeAreaInset?: Insets;
   contentSafeAreaInset?: Insets;
   isVersionAtLeast(version: string): boolean;
   ready(): void;
   expand(): void;
+  requestFullscreen?(): void;
   disableVerticalSwipes?(): void;
   setHeaderColor?(color: string): void;
   setBackgroundColor?(color: string): void;
@@ -69,22 +71,37 @@ function setVar(name: string, value: string) {
   document.documentElement.style.setProperty(name, value);
 }
 
-/** Telegram's theme → `--tg-*` CSS variables that the token layer falls back from. */
+/**
+ * Only Telegram's light/dark choice is taken; the palette stays ours (as in
+ * Huat Master), so the app looks the same in Telegram as installed or in a
+ * browser. Telegram's own chrome is painted to match.
+ */
 function bindTheme(app: TgWebApp, onScheme: (dark: boolean) => void) {
   const apply = () => {
-    for (const [key, value] of Object.entries(app.themeParams)) {
-      if (value) setVar(`--tg-${key.replace(/_/g, "-")}`, value);
-    }
-    onScheme(app.colorScheme === "dark");
-    const bg = app.themeParams.bg_color;
-    if (bg && at("6.1")) {
+    const dark = app.colorScheme === "dark";
+    onScheme(dark);
+    const bg = dark ? "#1c1c1c" : "#ffffff";
+    if (at("6.1")) {
       app.setHeaderColor?.(bg);
       app.setBackgroundColor?.(bg);
     }
-    if (bg && at("7.10")) app.setBottomBarColor?.(bg);
+    if (at("7.10")) app.setBottomBarColor?.(bg);
   };
   apply();
   app.onEvent("themeChanged", apply);
+}
+
+/**
+ * Telegram on iPhone has been seen reporting a zero bottom inset while the page
+ * still runs under the home indicator. Face ID iPhones are at least 812pt tall;
+ * their indicator needs 34pt in portrait and 21pt in landscape.
+ */
+function homeIndicator(app: TgWebApp): number {
+  if (app.platform !== "ios") return 0;
+  const long = Math.max(screen.width, screen.height);
+  const short = Math.min(screen.width, screen.height);
+  if (long < 812 || short >= 500) return 0;
+  return screen.height >= screen.width ? 34 : 21;
 }
 
 /** Device insets and Telegram's own header, mirrored onto CSS variables. */
@@ -94,7 +111,7 @@ function bindInsets(app: TgWebApp) {
     const d = app.safeAreaInset ?? { top: 0, bottom: 0, left: 0, right: 0 };
     const c = app.contentSafeAreaInset ?? { top: 0, bottom: 0, left: 0, right: 0 };
     setVar("--host-safe-top", `${d.top}px`);
-    setVar("--host-safe-bottom", `${d.bottom}px`);
+    setVar("--host-safe-bottom", `${d.bottom + c.bottom || homeIndicator(app)}px`);
     setVar("--host-safe-left", `${d.left}px`);
     setVar("--host-safe-right", `${d.right}px`);
     setVar("--content-safe-top", `${c.top}px`);
@@ -122,6 +139,12 @@ export function initHost(onScheme: (dark: boolean) => void): "telegram" | "brows
     app.expand();
     // Without this, panning the map downwards minimises the Mini App.
     if (at("7.7")) app.disableVerticalSwipes?.();
+    // The map wants the whole screen. Phones only: on desktop, fullscreen would
+    // take over the window. Telegram's own buttons then float over the top
+    // edge, which --content-safe-top already keeps the search bar clear of.
+    if (at("8.0") && (app.platform === "ios" || app.platform === "android") && !app.isFullscreen) {
+      app.requestFullscreen?.();
+    }
   } catch (error) {
     console.warn("Telegram init failed", error);
   }
