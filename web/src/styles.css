@@ -141,6 +141,17 @@ body {
   touch-action: manipulation;
 }
 
+/* Installed iOS app (black-translucent status bar): on iOS 26 every
+   position:fixed layer is sized to a box that ends a status-bar height short
+   of the screen, and is clipped there, leaving a blank strip at the bottom.
+   Normal-flow content is not clipped (Huat Master's scrolling page shows this),
+   so here the body is an in-flow block the full height of the screen. */
+:root[data-standalone] body {
+  position: relative;
+  inset: auto;
+  height: 100vh;
+}
+
 /* Installed to the home screen: no text-selection loupe or link callout on
    long-press of UI, like a native app. Inputs stay selectable. */
 :root[data-standalone] body {

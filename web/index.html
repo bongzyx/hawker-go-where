@@ -21,12 +21,12 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <!-- iOS home-screen app: always a solid status bar, "default" (dark text) on
-         the light theme and "black" on the dark one. Never "black-translucent":
-         on iOS 26 it leaves a blank strip the height of the status bar at the
-         bottom of the app (a WebKit bug CSS can't fix), and iOS 26.1 lays its own
-         fade over it. iOS reads this when the app is added to the home screen. -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <!-- iOS home-screen app: "black-translucent" so the map runs under the notch /
+         Dynamic Island (iOS 26.1+ lays its own fade behind the status text). On
+         iOS 26 this makes position:fixed layers end a status-bar height short of
+         the screen, so styles.css lays the installed app out in normal flow
+         instead. iOS reads this tag when the app is added to the home screen. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="HawkerGoWhere" />
     <meta property="og:title" content="HawkerGoWhere" />
     <meta property="og:description" content="Which Singapore hawker centres are closed today?" />
@@ -41,8 +41,6 @@
         document.documentElement.dataset.scheme = dark ? "dark" : "light";
         var meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
-        var bar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
-        if (bar) bar.setAttribute("content", dark ? "black" : "default");
         if (navigator.standalone || window.matchMedia("(display-mode: standalone)").matches) {
           document.documentElement.dataset.standalone = "";
         }
