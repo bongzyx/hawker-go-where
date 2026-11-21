@@ -21,11 +21,12 @@
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <!-- No apple-mobile-web-app-status-bar-style on purpose. On iOS 26,
-         "black-translucent" leaves a blank strip the height of the status bar at
-         the bottom of the installed app (a WebKit bug, not fixable from CSS) and
-         iOS 26.1 lays its own fade over it. Without the tag the status bar is
-         solid and takes the page's colour, as Apple recommends. -->
+    <!-- iOS home-screen app: always a solid status bar, "default" (dark text) on
+         the light theme and "black" on the dark one. Never "black-translucent":
+         on iOS 26 it leaves a blank strip the height of the status bar at the
+         bottom of the app (a WebKit bug CSS can't fix), and iOS 26.1 lays its own
+         fade over it. iOS reads this when the app is added to the home screen. -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="HawkerGoWhere" />
     <meta property="og:title" content="HawkerGoWhere" />
     <meta property="og:description" content="Which Singapore hawker centres are closed today?" />
@@ -40,6 +41,8 @@
         document.documentElement.dataset.scheme = dark ? "dark" : "light";
         var meta = document.querySelector('meta[name="theme-color"]');
         if (meta) meta.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
+        var bar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+        if (bar) bar.setAttribute("content", dark ? "black" : "default");
         if (navigator.standalone || window.matchMedia("(display-mode: standalone)").matches) {
           document.documentElement.dataset.standalone = "";
         }

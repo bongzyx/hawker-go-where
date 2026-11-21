@@ -9,6 +9,10 @@ export function setScheme(dark: boolean) {
   if (root.dataset.scheme === next) return;
   root.dataset.scheme = next;
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#1c1c1c" : "#ffffff");
+  // Solid either way; see index.html for why never "black-translucent".
+  document
+    .querySelector('meta[name="apple-mobile-web-app-status-bar-style"]')
+    ?.setAttribute("content", dark ? "black" : "default");
   listeners.forEach((l) => l());
 }
 
