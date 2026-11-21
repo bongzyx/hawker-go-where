@@ -1,4 +1,4 @@
-import { List, LocateFixed, LocateOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
+import { List, LocateFixed, MapPinOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HawkerCard, HawkerDetail, HawkerRow, type Row } from "./components/hawker";
 import type { MapPoint } from "./components/MapView";
@@ -426,8 +426,8 @@ export function App() {
         </>
       )}
 
-      {geo.status === "denied" && <Toast title="Location access is off" detail="Allow it in your settings to see what's nearby." />}
-      {geo.status === "unavailable" && <Toast title="Couldn't find your location" detail="Check that location services are on, then try again." />}
+      {geo.status === "denied" && <Toast title="Location access is off" detail="Turn it on to see what's nearby." />}
+      {geo.status === "unavailable" && <Toast title="Couldn't find your location" detail="Check location services and try again." />}
     </div>
   );
 }
@@ -945,10 +945,12 @@ function Toast({ title, detail }: { title: string; detail: string }) {
     <div className="pointer-events-none absolute inset-x-0 top-[calc(var(--safe-top)+70px)] z-40 flex justify-center pr-[calc(var(--safe-right)+12px)] pl-[calc(var(--safe-left)+12px)] min-[900px]:top-[max(1rem,var(--safe-top))]">
       <div
         role="status"
-        className="glass animate-sheet-in pointer-events-auto flex max-w-sm items-start gap-3 rounded-2xl py-3 pr-4 pl-3.5"
+        className="glass animate-sheet-in pointer-events-auto flex max-w-sm items-center gap-3 rounded-2xl py-2.5 pr-4 pl-2.5"
         onClick={() => setShown(false)}
       >
-        <LocateOff size={18} className="mt-0.5 shrink-0 text-secondary" />
+        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-sunken">
+          <MapPinOff size={18} className="text-secondary" />
+        </span>
         <div className="min-w-0">
           <p className="text-sm font-semibold">{title}</p>
           <p className="text-[13px] leading-snug text-secondary">{detail}</p>
