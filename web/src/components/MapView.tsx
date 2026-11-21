@@ -267,6 +267,18 @@ export function MapView({ points, selectedId, onSelect, me, dark, padding, focus
     // Bottom-right on desktop; on phones the bottom belongs to the card, so tuck it
     // under the top bar instead (offset in styles.css).
     map.addControl(new AttributionControl({ compact: true }), window.innerWidth < 900 ? "top-left" : "bottom-right");
+    // A compact attribution opens itself as soon as it has text and only folds on the
+    // first drag. Start it folded to the (i) button; a tap still opens it.
+    const foldAttribution = () => {
+      const el = container.current?.querySelector(".maplibregl-ctrl-attrib.maplibregl-compact-show");
+      if (!el) return;
+      el.classList.remove("maplibregl-compact-show");
+      el.removeAttribute("open");
+      map.off("styledata", foldAttribution);
+      map.off("sourcedata", foldAttribution);
+    };
+    map.on("styledata", foldAttribution);
+    map.on("sourcedata", foldAttribution);
     mapRef.current = map;
     if (import.meta.env.DEV) (window as unknown as { __map: MlMap }).__map = map;
 
