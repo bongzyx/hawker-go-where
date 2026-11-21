@@ -1,4 +1,4 @@
-import { List, LocateFixed, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
+import { List, LocateFixed, LocateOff, Map as MapIcon, Navigation, RefreshCw, Search, Star, X } from "lucide-react";
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HawkerCard, HawkerDetail, HawkerRow, type Row } from "./components/hawker";
 import type { MapPoint } from "./components/MapView";
@@ -426,9 +426,8 @@ export function App() {
         </>
       )}
 
-      {geo.status === "denied" && (
-        <Toast onDone={() => undefined}>Location permission denied. Showing all hawkers.</Toast>
-      )}
+      {geo.status === "denied" && <Toast title="Location access is off" detail="Allow it in your settings to see what's nearby." />}
+      {geo.status === "unavailable" && <Toast title="Couldn't find your location" detail="Check that location services are on, then try again." />}
     </div>
   );
 }
@@ -934,16 +933,27 @@ function MapLegend({
   );
 }
 
-function Toast({ children }: { children: React.ReactNode; onDone: () => void }) {
+function Toast({ title, detail }: { title: string; detail: string }) {
   const [shown, setShown] = useState(true);
   useEffect(() => {
-    const t = window.setTimeout(() => setShown(false), 3500);
+    const t = window.setTimeout(() => setShown(false), 4000);
     return () => window.clearTimeout(t);
   }, []);
   if (!shown) return null;
   return (
-    <div className="glass animate-sheet-in absolute top-[calc(var(--safe-top)+64px)] left-1/2 z-40 -translate-x-1/2 rounded-full px-4 py-2 text-sm">
-      {children}
+    // Full-width lane under the search bar; the card sizes to its text up to that width.
+    <div className="pointer-events-none absolute inset-x-0 top-[calc(var(--safe-top)+70px)] z-40 flex justify-center pr-[calc(var(--safe-right)+12px)] pl-[calc(var(--safe-left)+12px)] min-[900px]:top-[max(1rem,var(--safe-top))]">
+      <div
+        role="status"
+        className="glass animate-sheet-in pointer-events-auto flex max-w-sm items-start gap-3 rounded-2xl py-3 pr-4 pl-3.5"
+        onClick={() => setShown(false)}
+      >
+        <LocateOff size={18} className="mt-0.5 shrink-0 text-secondary" />
+        <div className="min-w-0">
+          <p className="text-sm font-semibold">{title}</p>
+          <p className="text-[13px] leading-snug text-secondary">{detail}</p>
+        </div>
+      </div>
     </div>
   );
 }
